@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Fira+Code:wght@300;400;500;600&family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --primary: #8F210E;
+  --primary-light: #7A1010;
+  --primary-dark: #2A0000;
+  --secondary: #8F210E;
+  --accent: #FF6B35;
+  --background: #FEFEFE;
+  --surface: #F8F8F8;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --border: #E0E0E0;
+  --shadow: rgba(77, 0, 0, 0.1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--text-primary);
+  --font-sans: 'Inter', sans-serif;
+  --font-modern: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  /* padding: 0; */
+  /* margin: 0; */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  background: var(--background);
+  line-height: 1.6;
+}
+
+.font-modern {
+  font-family: 'Inter', sans-serif;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#8F210E] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#7A1010] transition-all duration-200 transform hover:scale-[1.02] focus:ring-2 focus:ring-[#8F210E] focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-[#B8860B] text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#8F210E] focus:outline-none transition-colors duration-200;
+  }
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #8F210E 0%, #7A1010 50%, #B8860B 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #8F210E, #B8860B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  font-family: 'Inter', 'Noto Sans Arabic', Arabic UI Text, system-ui, sans-serif;
+}
+
+[dir="rtl"] .space-x-2 > * + * {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .space-x-3 > * + * {
+  margin-right: 0.75rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .space-x-4 > * + * {
+  margin-right: 1rem;
+  margin-left: 0;
+}
