@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-07)
 ## Current Position
 
 Phase: 1 of 8 (Foundation & Authentication)
-Plan: 1 of 4 (Project Foundation complete)
+Plan: 2 of 4 (Auth Backend Configuration complete)
 Status: In progress
-Last activity: 2026-02-07 — Completed 01-01-PLAN.md
+Last activity: 2026-02-07 — Completed 01-02-PLAN.md
 
-Progress: [█░░░░░░░░░] 10%
+Progress: [██░░░░░░░░] 20%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 5.5 min
-- Total execution time: 0.09 hours
+- Total plans completed: 2
+- Average duration: 5.2 min
+- Total execution time: 0.17 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01    | 1     | 5.5m  | 5.5m     |
+| 01    | 2     | 10.4m | 5.2m     |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5.5m)
-- Trend: Starting strong
+- Last 5 plans: 01-02 (4.9m), 01-01 (5.5m)
+- Trend: Consistent velocity
 
 *Updated after each plan completion*
 
@@ -47,7 +47,9 @@ Recent decisions affecting current work:
 - Mock payments for MVP: Full order flow without payment integration complexity
 - Real-time chat over simple inbox: Better UX for service negotiation
 - Email/password only: Sufficient for MVP, OAuth deferred
-- Prisma v7: Using new config pattern with DATABASE_URL in prisma.config.ts (discovered during 01-01)
+- Prisma v7 with PostgreSQL adapter: Requires @prisma/adapter-pg for client initialization (discovered during 01-02)
+- JWT sessions for Credentials provider: Simpler than database sessions, 30-day maxAge (01-02)
+- Generic login error messages: Security best practice to prevent user enumeration (01-02)
 
 ### Pending Todos
 
@@ -59,8 +61,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-07 20:27 UTC
-Stopped at: Completed 01-01-PLAN.md (Project Foundation)
+Last session: 2026-02-07 21:00 UTC
+Stopped at: Completed 01-02-PLAN.md (Auth Backend Configuration)
 Resume file: None
 
 ---
