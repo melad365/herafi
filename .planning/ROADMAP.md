@@ -12,7 +12,7 @@ This roadmap delivers a Fiverr-style marketplace for in-person and digital servi
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Authentication** - User accounts with secure login
+- [x] **Phase 1: Foundation & Authentication** - User accounts with secure login
 - [ ] **Phase 2: User Profiles** - Identity layer with provider showcase
 - [ ] **Phase 3: Service Listings & Discovery** - Core marketplace with gig CRUD and browse/search
 - [ ] **Phase 4: Order Flow** - Transaction system with mock payments
@@ -35,9 +35,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project setup, dependencies, Prisma schema
-- [ ] 01-02-PLAN.md — Auth.js config, validation schemas, server actions
-- [ ] 01-03-PLAN.md — Auth UI pages, middleware, route protection
+- [x] 01-01-PLAN.md — Project setup, dependencies, Prisma schema
+- [x] 01-02-PLAN.md — Auth.js config, validation schemas, server actions
+- [x] 01-03-PLAN.md — Auth UI pages, middleware, route protection
 
 ### Phase 2: User Profiles
 **Goal**: Users can establish identity and showcase provider credentials
@@ -150,7 +150,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Authentication | 0/3 | Not started | - |
+| 1. Foundation & Authentication | 3/3 | ✓ Complete | 2026-02-07 |
 | 2. User Profiles | 0/TBD | Not started | - |
 | 3. Service Listings & Discovery | 0/TBD | Not started | - |
 | 4. Order Flow | 0/TBD | Not started | - |
@@ -161,4 +161,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 ---
 *Roadmap created: 2026-02-07*
-*Last updated: 2026-02-07*
+*Last updated: 2026-02-07 — Phase 1 complete*
