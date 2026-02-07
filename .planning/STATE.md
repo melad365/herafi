@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-07)
 ## Current Position
 
 Phase: 1 of 8 (Foundation & Authentication)
-Plan: 2 of 4 (Auth Backend Configuration complete)
+Plan: 3 of 4 (Auth UI & Route Protection complete)
 Status: In progress
-Last activity: 2026-02-07 — Completed 01-02-PLAN.md
+Last activity: 2026-02-07 — Completed 01-03-PLAN.md
 
-Progress: [██░░░░░░░░] 20%
+Progress: [███░░░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 5.2 min
-- Total execution time: 0.17 hours
+- Total plans completed: 3
+- Average duration: 7.5 min
+- Total execution time: 0.37 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01    | 2     | 10.4m | 5.2m     |
+| 01    | 3     | 22.4m | 7.5m     |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (4.9m), 01-01 (5.5m)
-- Trend: Consistent velocity
+- Last 5 plans: 01-03 (12m), 01-02 (4.9m), 01-01 (5.5m)
+- Trend: Task 3 took longer due to checkpoint verification + database setup
 
 *Updated after each plan completion*
 
@@ -50,6 +50,9 @@ Recent decisions affecting current work:
 - Prisma v7 with PostgreSQL adapter: Requires @prisma/adapter-pg for client initialization (discovered during 01-02)
 - JWT sessions for Credentials provider: Simpler than database sessions, 30-day maxAge (01-02)
 - Generic login error messages: Security best practice to prevent user enumeration (01-02)
+- Auth.js middleware wrapper pattern: Cleaner than manual JWT parsing, provides req.auth (01-03)
+- Orange/amber warm color scheme: Approachable, trustworthy branding for marketplace (01-03)
+- Defense-in-depth route protection: Middleware + Server Component checks (01-03)
 
 ### Pending Todos
 
@@ -61,8 +64,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-07 21:00 UTC
-Stopped at: Completed 01-02-PLAN.md (Auth Backend Configuration)
+Last session: 2026-02-07 20:51 UTC
+Stopped at: Completed 01-03-PLAN.md (Auth UI & Route Protection)
 Resume file: None
 
 ---
