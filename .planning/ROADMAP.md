@@ -32,10 +32,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. User can log in with their credentials
   3. User remains logged in after closing and reopening browser
   4. User sees appropriate error messages for invalid credentials or duplicate emails
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD during plan-phase
+- [ ] 01-01-PLAN.md — Project setup, dependencies, Prisma schema
+- [ ] 01-02-PLAN.md — Auth.js config, validation schemas, server actions
+- [ ] 01-03-PLAN.md — Auth UI pages, middleware, route protection
 
 ### Phase 2: User Profiles
 **Goal**: Users can establish identity and showcase provider credentials
@@ -148,7 +150,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Authentication | 0/TBD | Not started | - |
+| 1. Foundation & Authentication | 0/3 | Not started | - |
 | 2. User Profiles | 0/TBD | Not started | - |
 | 3. Service Listings & Discovery | 0/TBD | Not started | - |
 | 4. Order Flow | 0/TBD | Not started | - |
