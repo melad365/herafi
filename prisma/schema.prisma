@@ -2,11 +2,28 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearchPostgres"]
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+enum Category {
+  PLUMBING
+  PAINTING
+  CLEANING
+  CARPENTRY
+  WELDING
+  ELECTRICAL
+  HVAC
+  LANDSCAPING
+  MOVING
+  CAR_WASHING
+  DIGITAL_DESIGN
+  DIGITAL_WRITING
+  OTHER
 }
 
 // Auth.js compatible models
@@ -38,6 +55,7 @@ model User {
 
   // Relations
   portfolioImages PortfolioImage[]
+  gigs            Gig[]
 }
 
 model Account {
@@ -86,4 +104,23 @@ model PortfolioImage {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
+}
+
+model Gig {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  title        String
+  description  String   @db.Text
+  category     Category
+  images       String[] @default([])
+  pricingTiers Json
+  providerId   String
+  provider     User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([category])
+  @@index([providerId])
+  @@index([isActive])
 }
