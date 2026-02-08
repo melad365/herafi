@@ -13,9 +13,9 @@
 
 ### Profiles
 
-- [ ] **PROF-01**: User can set display name, avatar, and bio
-- [ ] **PROF-02**: User profile shows services offered and aggregate rating (provider view)
-- [ ] **PROF-03**: User can upload portfolio/work sample images
+- [x] **PROF-01**: User can set display name, avatar, and bio
+- [x] **PROF-02**: User profile shows services offered and aggregate rating (provider view)
+- [x] **PROF-03**: User can upload portfolio/work sample images
 
 ### Service Listings
 
@@ -135,9 +135,9 @@
 | AUTH-01 | Phase 1 | Complete |
 | AUTH-02 | Phase 1 | Complete |
 | AUTH-03 | Phase 1 | Complete |
-| PROF-01 | Phase 2 | Pending |
-| PROF-02 | Phase 2 | Pending |
-| PROF-03 | Phase 2 | Pending |
+| PROF-01 | Phase 2 | Complete |
+| PROF-02 | Phase 2 | Complete |
+| PROF-03 | Phase 2 | Complete |
 | GIG-01 | Phase 3 | Pending |
 | GIG-02 | Phase 3 | Pending |
 | GIG-03 | Phase 3 | Pending |
@@ -162,4 +162,4 @@
 
 ---
 *Requirements defined: 2026-02-07*
-*Last updated: 2026-02-07 — Phase 1 requirements complete*
+*Last updated: 2026-02-08 — Phase 2 requirements complete*

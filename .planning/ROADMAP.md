@@ -13,7 +13,7 @@ This roadmap delivers a Fiverr-style marketplace for in-person and digital servi
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Authentication** - User accounts with secure login
-- [ ] **Phase 2: User Profiles** - Identity layer with provider showcase
+- [x] **Phase 2: User Profiles** - Identity layer with provider showcase
 - [ ] **Phase 3: Service Listings & Discovery** - Core marketplace with gig CRUD and browse/search
 - [ ] **Phase 4: Order Flow** - Transaction system with mock payments
 - [ ] **Phase 5: Real-Time Messaging** - Chat infrastructure for user communication
@@ -51,10 +51,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Schema extensions, dependencies, upload utils, validation schemas
-- [ ] 02-02-PLAN.md — Server actions, profile edit page, avatar crop modal
-- [ ] 02-03-PLAN.md — Public profile page, display components, portfolio carousel
-- [ ] 02-04-PLAN.md — Become a provider flow, dashboard updates, middleware
+- [x] 02-01-PLAN.md — Schema extensions, dependencies, upload utils, validation schemas
+- [x] 02-02-PLAN.md — Server actions, profile edit page, avatar crop modal
+- [x] 02-03-PLAN.md — Public profile page, display components, portfolio carousel
+- [x] 02-04-PLAN.md — Become a provider flow, dashboard updates, middleware
 
 ### Phase 3: Service Listings & Discovery
 **Goal**: Users can create, browse, and search service offerings
@@ -154,7 +154,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Authentication | 3/3 | ✓ Complete | 2026-02-07 |
-| 2. User Profiles | 0/4 | Not started | - |
+| 2. User Profiles | 4/4 | ✓ Complete | 2026-02-08 |
 | 3. Service Listings & Discovery | 0/TBD | Not started | - |
 | 4. Order Flow | 0/TBD | Not started | - |
 | 5. Real-Time Messaging | 0/TBD | Not started | - |
@@ -164,4 +164,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 ---
 *Roadmap created: 2026-02-07*
-*Last updated: 2026-02-07 — Phase 1 complete*
+*Last updated: 2026-02-08 — Phase 2 complete*
