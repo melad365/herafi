@@ -9,29 +9,30 @@ See: .planning/PROJECT.md (updated 2026-02-07)
 
 ## Current Position
 
-Phase: 1 of 8 (Foundation & Authentication) — COMPLETE
-Plan: 3/3 complete
-Status: Phase verified ✓
-Last activity: 2026-02-07 — Phase 1 execution complete, all plans verified
+Phase: 2 of 8 (User Profiles & Provider Setup)
+Plan: 1 of 3 complete
+Status: In progress
+Last activity: 2026-02-08 — Completed 02-01-PLAN.md
 
-Progress: [█░░░░░░░░░] 12.5% (1/8 phases)
+Progress: [█░░░░░░░░░] 12.5% (1/8 phases complete, 1/27 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: 7.5 min
-- Total execution time: 0.37 hours
+- Total plans completed: 4
+- Average duration: 6.5 min
+- Total execution time: 0.43 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01    | 3     | 22.4m | 7.5m     |
+| 02    | 1     | 2.6m  | 2.6m     |
 
 **Recent Trend:**
-- Last 5 plans: 01-03 (12m), 01-02 (4.9m), 01-01 (5.5m)
-- Trend: Task 3 took longer due to checkpoint verification + database setup
+- Last 5 plans: 02-01 (2.6m), 01-03 (12m), 01-02 (4.9m), 01-01 (5.5m)
+- Trend: Plan 02-01 executed quickly (foundation setup, no UI/verification)
 
 *Updated after each plan completion*
 
@@ -53,6 +54,11 @@ Recent decisions affecting current work:
 - Auth.js middleware wrapper pattern: Cleaner than manual JWT parsing, provides req.auth
 - Orange/amber warm color scheme: Approachable, trustworthy branding for marketplace
 - Defense-in-depth route protection: Middleware + Server Component checks
+- Profile fields in User model: Simpler queries, no joins needed (02-01)
+- Local filesystem uploads: /public/uploads/ sufficient for MVP (02-01)
+- Magic byte validation: file-type library for secure upload validation (02-01)
+- Lowercase username transform: Case-insensitive uniqueness via Zod (02-01)
+- String arrays for skills: PostgreSQL text arrays, no join tables for MVP (02-01)
 
 ### Pending Todos
 
@@ -64,9 +70,9 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-07
-Stopped at: Phase 1 complete — ready for Phase 2 planning
+Last session: 2026-02-08
+Stopped at: Completed 02-01-PLAN.md
 Resume file: None
 
 ---
-*Last updated: 2026-02-07*
+*Last updated: 2026-02-08*
