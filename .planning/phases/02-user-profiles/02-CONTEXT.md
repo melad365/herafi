@@ -35,6 +35,11 @@ Users can establish identity and showcase provider credentials. This includes se
 - **Username-based public URLs** — e.g., `/u/ahmed` — users pick a unique username
 - Claude's discretion on save behavior (instant vs preview)
 
+### Provider section visibility (Phase 2 interim)
+- Phase 2 uses the `isProvider` flag to control provider section visibility on profiles
+- The original discussion noted "provider sections only appear if user has created gigs" — this is deferred to Phase 3, which will refine the condition to gig-count-based visibility
+- User confirmed: "Use isProvider flag for Phase 2. Phase 3 will add gig-based logic later."
+
 ### Claude's Discretion
 - Profile header design (cover image vs minimal, layout choices)
 - Section ordering on profile page (services, portfolio, reviews, about)
