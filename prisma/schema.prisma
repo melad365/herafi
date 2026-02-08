@@ -21,6 +21,23 @@ model User {
   sessions       Session[]
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
+
+  // Profile fields (Phase 2)
+  username        String?   @unique
+  displayName     String?
+  bio             String?   @db.Text
+  avatarUrl       String?
+
+  // Provider fields (Phase 2)
+  isProvider          Boolean  @default(false)
+  providerBio         String?  @db.Text
+  professionalSummary String?  @db.Text
+  skills              String[] @default([])
+  yearsOfExperience   Int?
+  certifications      String[] @default([])
+
+  // Relations
+  portfolioImages PortfolioImage[]
 }
 
 model Account {
@@ -56,4 +73,17 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model PortfolioImage {
+  id        String   @id @default(cuid())
+  userId    String
+  imageUrl  String
+  caption   String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
