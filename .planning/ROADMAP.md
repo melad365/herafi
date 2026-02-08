@@ -48,10 +48,13 @@ Plans:
   2. User profile page displays their information, services offered, and aggregate rating
   3. User can upload portfolio images showing their work samples
   4. Profile changes save and persist across sessions
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 02-01: TBD during plan-phase
+- [ ] 02-01-PLAN.md — Schema extensions, dependencies, upload utils, validation schemas
+- [ ] 02-02-PLAN.md — Server actions, profile edit page, avatar crop modal
+- [ ] 02-03-PLAN.md — Public profile page, display components, portfolio carousel
+- [ ] 02-04-PLAN.md — Become a provider flow, dashboard updates, middleware
 
 ### Phase 3: Service Listings & Discovery
 **Goal**: Users can create, browse, and search service offerings
@@ -151,7 +154,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Authentication | 3/3 | ✓ Complete | 2026-02-07 |
-| 2. User Profiles | 0/TBD | Not started | - |
+| 2. User Profiles | 0/4 | Not started | - |
 | 3. Service Listings & Discovery | 0/TBD | Not started | - |
 | 4. Order Flow | 0/TBD | Not started | - |
 | 5. Real-Time Messaging | 0/TBD | Not started | - |
