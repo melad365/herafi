@@ -67,10 +67,13 @@ Plans:
   4. User can search services using keywords
   5. User can filter search results by price range and rating
   6. Gig detail page shows full description, images, pricing tiers, provider info, and reviews
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 03-01: TBD during plan-phase
+- [ ] 03-01-PLAN.md — Database schema (Gig model, Category enum), validation schemas, slug utility, search builder
+- [ ] 03-02-PLAN.md — Gig CRUD server actions, create/edit forms, image upload
+- [ ] 03-03-PLAN.md — Browse/search pages, filter components, category browse, pagination
+- [ ] 03-04-PLAN.md — Gig detail page, image gallery, pricing tier cards, provider sidebar, dashboard update
 
 ### Phase 4: Order Flow
 **Goal**: Users can place and track orders with mock payment processing
