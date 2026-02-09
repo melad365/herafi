@@ -6,7 +6,7 @@ const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads");
 
 export async function saveFile(
   file: File,
-  subDir: "avatars" | "portfolio"
+  subDir: "avatars" | "portfolio" | "gigs"
 ): Promise<string> {
   const dir = path.join(UPLOAD_DIR, subDir);
   await fs.mkdir(dir, { recursive: true });
