@@ -19,16 +19,16 @@
 
 ### Service Listings
 
-- [ ] **GIG-01**: Provider can create a gig with title, description, and category
-- [ ] **GIG-02**: Provider can set pricing tiers (Basic/Standard/Premium) per gig
-- [ ] **GIG-03**: Provider can edit and delete their gigs
-- [ ] **GIG-04**: Gig detail page shows full description, images, tiers, provider info, and reviews
+- [x] **GIG-01**: Provider can create a gig with title, description, and category
+- [x] **GIG-02**: Provider can set pricing tiers (Basic/Standard/Premium) per gig
+- [x] **GIG-03**: Provider can edit and delete their gigs
+- [x] **GIG-04**: Gig detail page shows full description, images, tiers, provider info, and reviews
 
 ### Search & Discovery
 
-- [ ] **DISC-01**: User can browse services by category (Plumbing, Painting, Cleaning, Carpentry, Welding, Digital, etc.)
-- [ ] **DISC-02**: User can search services by keyword
-- [ ] **DISC-03**: User can filter results by price range and rating
+- [x] **DISC-01**: User can browse services by category (Plumbing, Painting, Cleaning, Carpentry, Welding, Digital, etc.)
+- [x] **DISC-02**: User can search services by keyword
+- [x] **DISC-03**: User can filter results by price range and rating
 
 ### Orders & Payments
 
@@ -138,13 +138,13 @@
 | PROF-01 | Phase 2 | Complete |
 | PROF-02 | Phase 2 | Complete |
 | PROF-03 | Phase 2 | Complete |
-| GIG-01 | Phase 3 | Pending |
-| GIG-02 | Phase 3 | Pending |
-| GIG-03 | Phase 3 | Pending |
-| GIG-04 | Phase 3 | Pending |
-| DISC-01 | Phase 3 | Pending |
-| DISC-02 | Phase 3 | Pending |
-| DISC-03 | Phase 3 | Pending |
+| GIG-01 | Phase 3 | Complete |
+| GIG-02 | Phase 3 | Complete |
+| GIG-03 | Phase 3 | Complete |
+| GIG-04 | Phase 3 | Complete |
+| DISC-01 | Phase 3 | Complete |
+| DISC-02 | Phase 3 | Complete |
+| DISC-03 | Phase 3 | Complete |
 | ORD-01 | Phase 4 | Pending |
 | ORD-02 | Phase 4 | Pending |
 | MSG-01 | Phase 5 | Pending |
@@ -162,4 +162,4 @@
 
 ---
 *Requirements defined: 2026-02-07*
-*Last updated: 2026-02-08 — Phase 2 requirements complete*
+*Last updated: 2026-02-09 — Phase 3 requirements complete (DISC-03 rating filter deferred to Phase 6)*
