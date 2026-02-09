@@ -7,7 +7,7 @@ interface GigCardProps {
   category: string;
   pricingTiers: any;
   provider: {
-    username: string;
+    username: string | null;
     displayName: string | null;
     avatarUrl: string | null;
   };

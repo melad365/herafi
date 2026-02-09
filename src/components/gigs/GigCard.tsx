@@ -8,7 +8,7 @@ interface GigCardProps {
   category: string;
   pricingTiers: any; // JSONB
   provider: {
-    username: string;
+    username: string | null;
     displayName: string | null;
     avatarUrl: string | null;
   };
@@ -25,7 +25,7 @@ export default function GigCard({
   // Extract starting price from basic tier
   const startingPrice = pricingTiers?.basic?.price ?? 0;
   const firstImage = images[0];
-  const providerName = provider.displayName || provider.username;
+  const providerName = provider.displayName || provider.username || "Anonymous";
 
   return (
     <Link
