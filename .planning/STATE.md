@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-07)
 
 **Core value:** Anyone can find and hire a trusted service provider for in-person or digital work through a simple, browsable marketplace with clear service listings.
-**Current focus:** Phase 2 complete — ready for Phase 3
+**Current focus:** Phase 3 (Service Listings & Discovery) — In progress
 
 ## Current Position
 
-Phase: 2 of 8 (User Profiles) — COMPLETE
-Plan: 4/4 complete
-Status: Phase verified ✓
-Last activity: 2026-02-08 — Phase 2 execution complete, all plans verified
+Phase: 3 of 8 (Service Listings & Discovery)
+Plan: 1 of 4 complete
+Status: In progress
+Last activity: 2026-02-09 — Completed 03-01-PLAN.md
 
-Progress: [██░░░░░░░░] 25% (2/8 phases)
+Progress: [██░░░░░░░░] 25% (2/8 phases, 7/20 total plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: 4.8 min
-- Total execution time: 0.48 hours
+- Total plans completed: 7
+- Average duration: 4.3 min
+- Total execution time: 0.50 hours
 
 **By Phase:**
 
@@ -29,10 +29,11 @@ Progress: [██░░░░░░░░] 25% (2/8 phases)
 |-------|-------|-------|----------|
 | 01    | 3     | 22.4m | 7.5m     |
 | 02    | 4     | 9.4m  | 2.4m     |
+| 03    | 1     | 1.5m  | 1.5m     |
 
 **Recent Trend:**
-- Last 5 plans: 02-04 (1.3m), 02-02 (3.5m), 02-03 (2.0m), 02-01 (2.6m), 01-03 (12m)
-- Trend: Phase 2 executed very quickly (UI components, no complex integrations, human-verify checkpoints efficient)
+- Last 5 plans: 03-01 (1.5m), 02-04 (1.3m), 02-02 (3.5m), 02-03 (2.0m), 02-01 (2.6m)
+- Trend: Phase 3 starting very efficiently (data layer, schema work already complete, minimal verification needed)
 
 *Updated after each plan completion*
 
@@ -69,6 +70,10 @@ Recent decisions affecting current work:
 - Username prerequisite for provider: Must set username before becoming provider (02-04)
 - Dashboard as navigation hub: Contextual cards based on user state (02-04)
 - Comma-separated array inputs: Skills/certifications collected as comma-separated strings (02-04)
+- JSONB pricing tiers: Stores Basic/Standard/Premium tiers in single column for flexible querying (03-01)
+- PostgreSQL full-text search: Enables search on title and description fields with relevance ranking (03-01)
+- 6-char random slug suffix: Prevents collisions while keeping slugs readable (03-01)
+- 13-category taxonomy: Covers physical and digital services with OTHER fallback (03-01)
 
 ### Pending Todos
 
@@ -80,9 +85,9 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-08
-Stopped at: Phase 2 complete — ready for Phase 3 planning
+Last session: 2026-02-09
+Stopped at: Completed 03-01-PLAN.md
 Resume file: None
 
 ---
-*Last updated: 2026-02-08*
+*Last updated: 2026-02-09*
