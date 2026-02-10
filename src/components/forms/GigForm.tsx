@@ -6,6 +6,7 @@ import type { GigActionState } from "@/actions/gigs";
 import type { GigFormData } from "@/lib/validations/gig";
 import type { PricingTier } from "@/lib/validations/pricing";
 import PricingTierInput from "./PricingTierInput";
+import ImageUploadSection from "./ImageUploadSection";
 
 // Category labels mapping
 export const CATEGORY_LABELS: Record<string, string> = {
@@ -60,9 +61,13 @@ export default function GigForm({ mode, initialData, action }: GigFormProps) {
   // Redirect on success
   useEffect(() => {
     if (state.success && state.slug) {
-      router.push(`/gigs/${state.slug}`);
+      if (mode === "create") {
+        router.push(`/gigs/${state.slug}/edit`);
+      } else {
+        router.push(`/gigs/${state.slug}`);
+      }
     }
-  }, [state.success, state.slug, router]);
+  }, [state.success, state.slug, mode, router]);
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
@@ -203,6 +208,22 @@ export default function GigForm({ mode, initialData, action }: GigFormProps) {
             </p>
           )}
         </section>
+
+        {/* Image Gallery Section - Edit Mode Only */}
+        {mode === "edit" && initialData?.slug && (
+          <section className="bg-white rounded-lg border border-gray-200 p-6">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">
+              Image Gallery
+            </h2>
+            <p className="text-sm text-gray-600 mb-6">
+              Upload up to 6 images to showcase your service. Images help buyers understand what you offer.
+            </p>
+            <ImageUploadSection
+              gigSlug={initialData.slug}
+              initialImages={initialData.images ?? []}
+            />
+          </section>
+        )}
 
         {/* Submit Button */}
         <div className="flex justify-end gap-4">
