@@ -103,10 +103,12 @@ Plans:
   3. Chat conversation persists across page reloads
   4. User can initiate chat from provider profile or gig page
   5. Message history loads when reopening a conversation
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 05-01: TBD during plan-phase
+- [ ] 05-01-PLAN.md — Database schema, Socket.IO custom server, JWT auth middleware, client socket utilities
+- [ ] 05-02-PLAN.md — Socket message/presence handlers, conversation REST API endpoints
+- [ ] 05-03-PLAN.md — Chat UI pages, message components, entry points on profiles/gigs
 
 ### Phase 6: Reviews & Ratings
 **Goal**: Users can provide and view verified feedback on completed services
