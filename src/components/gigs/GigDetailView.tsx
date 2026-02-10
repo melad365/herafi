@@ -29,9 +29,10 @@ interface GigDetailViewProps {
     }
   }
   isOwner: boolean
+  isAuthenticated: boolean
 }
 
-export default function GigDetailView({ gig, isOwner }: GigDetailViewProps) {
+export default function GigDetailView({ gig, isOwner, isAuthenticated }: GigDetailViewProps) {
   const router = useRouter()
   const [isDeleting, setIsDeleting] = useState(false)
 
@@ -113,19 +114,154 @@ export default function GigDetailView({ gig, isOwner }: GigDetailViewProps) {
                 }`}
               >
                 {gig.pricingTiers.basic && (
-                  <PricingTierCard
-                    tier={gig.pricingTiers.basic}
-                    highlighted={!gig.pricingTiers.standard}
-                  />
+                  <div className="relative bg-white rounded-lg border-2 border-gray-200 shadow p-6 flex flex-col h-full">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{gig.pricingTiers.basic.name}</h3>
+                    <div className="mb-4">
+                      <span className="text-3xl font-bold text-gray-900">${gig.pricingTiers.basic.price}</span>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4">{gig.pricingTiers.basic.description}</p>
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center text-sm text-gray-700">
+                        <svg className="w-4 h-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>{gig.pricingTiers.basic.deliveryDays} {gig.pricingTiers.basic.deliveryDays === 1 ? "day" : "days"} delivery</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-700">
+                        <svg className="w-4 h-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        <span>{gig.pricingTiers.basic.revisions === 0 ? "No revisions" : `${gig.pricingTiers.basic.revisions} ${gig.pricingTiers.basic.revisions === 1 ? "revision" : "revisions"}`}</span>
+                      </div>
+                    </div>
+                    {gig.pricingTiers.basic.features && gig.pricingTiers.basic.features.length > 0 && (
+                      <div className="mb-6 flex-grow">
+                        <h4 className="text-sm font-semibold text-gray-900 mb-2">Features included:</h4>
+                        <ul className="space-y-2">
+                          {gig.pricingTiers.basic.features.map((feature, index) => (
+                            <li key={index} className="flex items-start text-sm text-gray-700">
+                              <svg className="w-5 h-5 mr-2 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                              </svg>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {isOwner ? (
+                      <div className="w-full py-3 px-4 rounded-md font-medium text-center bg-gray-100 text-gray-600">Your Gig</div>
+                    ) : isAuthenticated ? (
+                      <Link href={`/gigs/${gig.slug}/order`} className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-500 hover:bg-orange-600 text-white transition-colors">
+                        Order Now
+                      </Link>
+                    ) : (
+                      <Link href="/login" className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-500 hover:bg-orange-600 text-white transition-colors">
+                        Sign in to Order
+                      </Link>
+                    )}
+                  </div>
                 )}
                 {gig.pricingTiers.standard && (
-                  <PricingTierCard
-                    tier={gig.pricingTiers.standard}
-                    highlighted={true}
-                  />
+                  <div className="relative bg-white rounded-lg border-2 border-orange-500 shadow-lg p-6 flex flex-col h-full">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <span className="inline-block bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Popular</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{gig.pricingTiers.standard.name}</h3>
+                    <div className="mb-4">
+                      <span className="text-3xl font-bold text-gray-900">${gig.pricingTiers.standard.price}</span>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4">{gig.pricingTiers.standard.description}</p>
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center text-sm text-gray-700">
+                        <svg className="w-4 h-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>{gig.pricingTiers.standard.deliveryDays} {gig.pricingTiers.standard.deliveryDays === 1 ? "day" : "days"} delivery</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-700">
+                        <svg className="w-4 h-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        <span>{gig.pricingTiers.standard.revisions === 0 ? "No revisions" : `${gig.pricingTiers.standard.revisions} ${gig.pricingTiers.standard.revisions === 1 ? "revision" : "revisions"}`}</span>
+                      </div>
+                    </div>
+                    {gig.pricingTiers.standard.features && gig.pricingTiers.standard.features.length > 0 && (
+                      <div className="mb-6 flex-grow">
+                        <h4 className="text-sm font-semibold text-gray-900 mb-2">Features included:</h4>
+                        <ul className="space-y-2">
+                          {gig.pricingTiers.standard.features.map((feature, index) => (
+                            <li key={index} className="flex items-start text-sm text-gray-700">
+                              <svg className="w-5 h-5 mr-2 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                              </svg>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {isOwner ? (
+                      <div className="w-full py-3 px-4 rounded-md font-medium text-center bg-gray-100 text-gray-600">Your Gig</div>
+                    ) : isAuthenticated ? (
+                      <Link href={`/gigs/${gig.slug}/order`} className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-600 hover:bg-orange-700 text-white transition-colors">
+                        Order Now
+                      </Link>
+                    ) : (
+                      <Link href="/login" className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-600 hover:bg-orange-700 text-white transition-colors">
+                        Sign in to Order
+                      </Link>
+                    )}
+                  </div>
                 )}
                 {gig.pricingTiers.premium && (
-                  <PricingTierCard tier={gig.pricingTiers.premium} />
+                  <div className="relative bg-white rounded-lg border-2 border-gray-200 shadow p-6 flex flex-col h-full">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{gig.pricingTiers.premium.name}</h3>
+                    <div className="mb-4">
+                      <span className="text-3xl font-bold text-gray-900">${gig.pricingTiers.premium.price}</span>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4">{gig.pricingTiers.premium.description}</p>
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center text-sm text-gray-700">
+                        <svg className="w-4 h-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>{gig.pricingTiers.premium.deliveryDays} {gig.pricingTiers.premium.deliveryDays === 1 ? "day" : "days"} delivery</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-700">
+                        <svg className="w-4 h-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        <span>{gig.pricingTiers.premium.revisions === 0 ? "No revisions" : `${gig.pricingTiers.premium.revisions} ${gig.pricingTiers.premium.revisions === 1 ? "revision" : "revisions"}`}</span>
+                      </div>
+                    </div>
+                    {gig.pricingTiers.premium.features && gig.pricingTiers.premium.features.length > 0 && (
+                      <div className="mb-6 flex-grow">
+                        <h4 className="text-sm font-semibold text-gray-900 mb-2">Features included:</h4>
+                        <ul className="space-y-2">
+                          {gig.pricingTiers.premium.features.map((feature, index) => (
+                            <li key={index} className="flex items-start text-sm text-gray-700">
+                              <svg className="w-5 h-5 mr-2 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                              </svg>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {isOwner ? (
+                      <div className="w-full py-3 px-4 rounded-md font-medium text-center bg-gray-100 text-gray-600">Your Gig</div>
+                    ) : isAuthenticated ? (
+                      <Link href={`/gigs/${gig.slug}/order`} className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-500 hover:bg-orange-600 text-white transition-colors">
+                        Order Now
+                      </Link>
+                    ) : (
+                      <Link href="/login" className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-500 hover:bg-orange-600 text-white transition-colors">
+                        Sign in to Order
+                      </Link>
+                    )}
+                  </div>
                 )}
               </div>
             </div>

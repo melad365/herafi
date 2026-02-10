@@ -62,6 +62,7 @@ export default async function GigDetailPage({ params }: GigDetailPageProps) {
   // Check if current user is the owner
   const session = await auth()
   const isOwner = session?.user?.id === gig.providerId
+  const isAuthenticated = !!session?.user?.id
 
   // Cast pricingTiers from JsonValue to PricingTiers
   const gigData = {
@@ -69,5 +70,5 @@ export default async function GigDetailPage({ params }: GigDetailPageProps) {
     pricingTiers: gig.pricingTiers as PricingTiers,
   }
 
-  return <GigDetailView gig={gigData} isOwner={isOwner} />
+  return <GigDetailView gig={gigData} isOwner={isOwner} isAuthenticated={isAuthenticated} />
 }
