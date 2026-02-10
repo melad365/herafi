@@ -11,7 +11,8 @@ export default auth((req) => {
   const isProtectedPage =
     nextUrl.pathname.startsWith("/dashboard") ||
     nextUrl.pathname.startsWith("/profile") ||
-    nextUrl.pathname.startsWith("/provider")
+    nextUrl.pathname.startsWith("/provider") ||
+    nextUrl.pathname.startsWith("/messages")
 
   // Redirect authenticated users away from auth pages
   if (isAuthenticated && isAuthPage) {
