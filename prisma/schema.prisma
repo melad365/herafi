@@ -26,6 +26,14 @@ enum Category {
   OTHER
 }
 
+enum OrderStatus {
+  PENDING
+  ACCEPTED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
 // Auth.js compatible models
 model User {
   id             String    @id @default(cuid())
@@ -56,6 +64,8 @@ model User {
   // Relations
   portfolioImages PortfolioImage[]
   gigs            Gig[]
+  buyerOrders     Order[]          @relation("BuyerOrders")
+  providerOrders  Order[]          @relation("ProviderOrders")
 }
 
 model Account {
@@ -120,7 +130,38 @@ model Gig {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
+  // Relations
+  orders Order[]
+
   @@index([category])
   @@index([providerId])
   @@index([isActive])
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  buyerId         String
+  buyer           User        @relation("BuyerOrders", fields: [buyerId], references: [id], onDelete: Cascade)
+  providerId      String
+  provider        User        @relation("ProviderOrders", fields: [providerId], references: [id], onDelete: Cascade)
+  gigId           String
+  gig             Gig         @relation(fields: [gigId], references: [id], onDelete: Cascade)
+  selectedTier    String
+  tierSnapshot    Json
+  totalPrice      Float
+  deliveryNotes   String?     @db.Text
+  status          OrderStatus @default(PENDING)
+  paymentConfirmed Boolean    @default(true)
+  createdAt       DateTime    @default(now())
+  acceptedAt      DateTime?
+  startedAt       DateTime?
+  completedAt     DateTime?
+  cancelledAt     DateTime?
+  updatedAt       DateTime    @updatedAt
+
+  @@index([buyerId])
+  @@index([providerId])
+  @@index([gigId])
+  @@index([status])
+  @@index([createdAt])
 }
