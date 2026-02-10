@@ -4,6 +4,8 @@ import { prisma } from "@/lib/db"
 import Link from "next/link"
 import { CATEGORY_LABELS } from "@/components/forms/GigForm"
 import type { PricingTiers } from "@/lib/validations/pricing"
+import OrderCard from "@/components/orders/OrderCard"
+import { OrderStatus } from "@prisma/client"
 
 export default async function DashboardPage() {
   const session = await auth()
@@ -35,6 +37,56 @@ export default async function DashboardPage() {
           pricingTiers: true,
           isActive: true,
         },
+      })
+    : []
+
+  // Get buyer's orders
+  const buyerOrders = await prisma.order.findMany({
+    where: { buyerId: session.user?.id },
+    include: {
+      gig: {
+        select: {
+          title: true,
+          slug: true,
+        },
+      },
+      provider: {
+        select: {
+          username: true,
+          displayName: true,
+          avatarUrl: true,
+        },
+      },
+    },
+    orderBy: { createdAt: "desc" },
+    take: 5,
+  })
+
+  // Get provider's incoming order requests (only if user is provider)
+  const providerOrders = user?.isProvider
+    ? await prisma.order.findMany({
+        where: {
+          providerId: session.user?.id,
+          status: {
+            in: [OrderStatus.PENDING, OrderStatus.ACCEPTED, OrderStatus.IN_PROGRESS],
+          },
+        },
+        include: {
+          gig: {
+            select: {
+              title: true,
+              slug: true,
+            },
+          },
+          buyer: {
+            select: {
+              username: true,
+              displayName: true,
+              avatarUrl: true,
+            },
+          },
+        },
+        orderBy: { createdAt: "desc" },
       })
     : []
 
@@ -73,6 +125,50 @@ export default async function DashboardPage() {
             >
               Set Up Profile
             </Link>
+          </div>
+        )}
+
+        {/* My Orders Section */}
+        {buyerOrders.length > 0 && (
+          <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-gray-900">
+                My Orders{" "}
+                <span className="text-gray-500 text-lg font-normal">
+                  ({buyerOrders.length})
+                </span>
+              </h2>
+              <Link
+                href="/orders"
+                className="text-orange-600 hover:text-orange-700 font-medium text-sm"
+              >
+                View All
+              </Link>
+            </div>
+            <div className="space-y-3">
+              {buyerOrders.map((order) => (
+                <OrderCard key={order.id} order={order} viewAs="buyer" />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Order Requests Section - for providers */}
+        {user?.isProvider && providerOrders.length > 0 && (
+          <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-gray-900">
+                Order Requests{" "}
+                <span className="text-gray-500 text-lg font-normal">
+                  ({providerOrders.length})
+                </span>
+              </h2>
+            </div>
+            <div className="space-y-3">
+              {providerOrders.map((order) => (
+                <OrderCard key={order.id} order={order} viewAs="provider" />
+              ))}
+            </div>
           </div>
         )}
 
