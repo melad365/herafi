@@ -67,13 +67,14 @@ Plans:
   4. User can search services using keywords
   5. User can filter search results by price range and rating
   6. Gig detail page shows full description, images, pricing tiers, provider info, and reviews
-**Plans**: 4 plans
+**Plans**: 5 plans
 
 Plans:
 - [x] 03-01-PLAN.md — Database schema (Gig model, Category enum), validation schemas, slug utility, search builder
 - [x] 03-02-PLAN.md — Gig CRUD server actions, create/edit forms, image upload
 - [x] 03-03-PLAN.md — Browse/search pages, filter components, category browse, pagination
 - [x] 03-04-PLAN.md — Gig detail page, image gallery, pricing tier cards, provider sidebar, dashboard update
+- [x] 03-05-PLAN.md — Gap closure: fix pricing tier validation, add image upload component
 
 ### Phase 4: Order Flow
 **Goal**: Users can place and track orders with mock payment processing
@@ -158,7 +159,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 |-------|----------------|--------|-----------|
 | 1. Foundation & Authentication | 3/3 | ✓ Complete | 2026-02-07 |
 | 2. User Profiles | 4/4 | ✓ Complete | 2026-02-08 |
-| 3. Service Listings & Discovery | 4/4 | ✓ Complete | 2026-02-09 |
+| 3. Service Listings & Discovery | 5/5 | ✓ Complete | 2026-02-10 |
 | 4. Order Flow | 0/TBD | Not started | - |
 | 5. Real-Time Messaging | 0/TBD | Not started | - |
 | 6. Reviews & Ratings | 0/TBD | Not started | - |
@@ -167,4 +168,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 ---
 *Roadmap created: 2026-02-07*
-*Last updated: 2026-02-09 — Phase 3 complete*
+*Last updated: 2026-02-10 — Phase 3 gap closure complete*
