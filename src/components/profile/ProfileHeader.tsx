@@ -1,5 +1,8 @@
+"use client"
+
 import Link from "next/link"
 import { User } from "@prisma/client"
+import MessageButton from "@/components/chat/MessageButton"
 
 interface ProfileHeaderProps {
   user: Pick<
@@ -76,7 +79,7 @@ export default function ProfileHeader({
             <span className="text-sm text-gray-500">(No reviews yet)</span>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           {isOwnProfile ? (
             <Link
               href="/profile/edit"
@@ -85,12 +88,9 @@ export default function ProfileHeader({
               Edit Profile
             </Link>
           ) : (
-            <Link
-              href="#"
-              className="inline-block px-6 py-2.5 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-md transition-colors"
-            >
-              View Services
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-3 items-center md:items-start">
+              <MessageButton otherUserId={user.id} variant="primary" />
+            </div>
           )}
         </div>
       </div>

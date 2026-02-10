@@ -266,6 +266,19 @@ export default async function DashboardPage() {
 
         {/* Navigation Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {/* Messages Card */}
+          <Link
+            href="/messages"
+            className="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-gray-200 hover:border-orange-300"
+          >
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              Messages
+            </h3>
+            <p className="text-gray-600 text-sm">
+              Chat with providers and clients in real-time
+            </p>
+          </Link>
+
           {/* Edit Profile Card */}
           <Link
             href="/profile/edit"

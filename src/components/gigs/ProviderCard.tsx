@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import MessageButton from "@/components/chat/MessageButton"
 
 interface ProviderCardProps {
   provider: {
@@ -83,13 +86,7 @@ export default function ProviderCard({ provider }: ProviderCardProps) {
             View Profile
           </Link>
         )}
-        <button
-          type="button"
-          className="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors font-medium"
-          disabled
-        >
-          Contact
-        </button>
+        <MessageButton otherUserId={provider.id} variant="secondary" />
       </div>
     </div>
   )
