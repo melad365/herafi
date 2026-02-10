@@ -86,10 +86,12 @@ Plans:
   3. Order appears in user's order history with current status
   4. Provider sees incoming order requests
   5. Order progresses through states: request → accepted → in progress → complete
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: TBD during plan-phase
+- [ ] 04-01-PLAN.md — Order model, state machine, validation schemas
+- [ ] 04-02-PLAN.md — Order server actions (place, accept, start, complete, cancel)
+- [ ] 04-03-PLAN.md — Order UI pages (placement, list, detail) and dashboard integration
 
 ### Phase 5: Real-Time Messaging
 **Goal**: Users can communicate in real-time via chat
