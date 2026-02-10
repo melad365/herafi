@@ -1,5 +1,5 @@
 ---
-status: complete
+status: diagnosed
 phase: 03-service-listings-discovery
 source: [03-01-SUMMARY.md, 03-02-SUMMARY.md, 03-03-SUMMARY.md, 03-04-SUMMARY.md]
 started: 2026-02-10T10:00:00Z
@@ -93,14 +93,29 @@ skipped: 2
   reason: "User reported: filled out form, clicked on create gig got 'Invalid input: expected object, received null'"
   severity: major
   test: 1
-  artifacts: []
-  missing: []
-  debug_session: ""
+  root_cause: "Zod .optional() rejects null values. PricingTierInput emits null when disabled, GigForm serializes null into JSON, Zod validation fails expecting object or undefined"
+  artifacts:
+    - path: "src/components/forms/GigForm.tsx"
+      issue: "Serializes null pricing tiers instead of filtering them out"
+    - path: "src/components/forms/PricingTierInput.tsx"
+      issue: "onChange(null) when tier disabled — Zod .optional() rejects null"
+    - path: "src/lib/validations/pricing.ts"
+      issue: "standard/premium use .optional() which rejects null"
+  missing:
+    - "Transform null to undefined before JSON serialization in GigForm"
+  debug_session: ".planning/debug/gig-creation-error.md"
 - truth: "Provider can upload up to 6 images for gig gallery with previews and removal"
   status: failed
   reason: "User reported: no image upload on gigs/new and cant get beyond it as clicking on create gig button gives error: Invalid input: expected object, received null"
   severity: major
   test: 2
-  artifacts: []
-  missing: []
-  debug_session: ""
+  root_cause: "Image upload UI was never added to GigForm. Backend actions (uploadGigImages, removeGigImage) exist but are not integrated. Images require gig slug so must be two-step: create gig then upload."
+  artifacts:
+    - path: "src/components/forms/GigForm.tsx"
+      issue: "No image upload section in the form"
+    - path: "src/actions/upload-gig-images.ts"
+      issue: "Implemented but never imported or used in any component"
+  missing:
+    - "Add image management UI to GigForm (display, upload, remove)"
+    - "Two-step flow: create gig first, then redirect to edit for image upload"
+  debug_session: ".planning/debug/gig-creation-error.md"
