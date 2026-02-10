@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation & Authentication** - User accounts with secure login
 - [x] **Phase 2: User Profiles** - Identity layer with provider showcase
 - [x] **Phase 3: Service Listings & Discovery** - Core marketplace with gig CRUD and browse/search
-- [ ] **Phase 4: Order Flow** - Transaction system with mock payments
+- [x] **Phase 4: Order Flow** - Transaction system with mock payments
 - [ ] **Phase 5: Real-Time Messaging** - Chat infrastructure for user communication
 - [ ] **Phase 6: Reviews & Ratings** - Trust mechanism with verified feedback
 - [ ] **Phase 7: Provider Dashboard** - Seller tools for managing services and orders
@@ -89,9 +89,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Order model, state machine, validation schemas
-- [ ] 04-02-PLAN.md — Order server actions (place, accept, start, complete, cancel)
-- [ ] 04-03-PLAN.md — Order UI pages (placement, list, detail) and dashboard integration
+- [x] 04-01-PLAN.md — Order model, state machine, validation schemas
+- [x] 04-02-PLAN.md — Order server actions (place, accept, start, complete, cancel)
+- [x] 04-03-PLAN.md — Order UI pages (placement, list, detail) and dashboard integration
 
 ### Phase 5: Real-Time Messaging
 **Goal**: Users can communicate in real-time via chat
@@ -162,7 +162,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 1. Foundation & Authentication | 3/3 | ✓ Complete | 2026-02-07 |
 | 2. User Profiles | 4/4 | ✓ Complete | 2026-02-08 |
 | 3. Service Listings & Discovery | 5/5 | ✓ Complete | 2026-02-10 |
-| 4. Order Flow | 0/TBD | Not started | - |
+| 4. Order Flow | 3/3 | ✓ Complete | 2026-02-10 |
 | 5. Real-Time Messaging | 0/TBD | Not started | - |
 | 6. Reviews & Ratings | 0/TBD | Not started | - |
 | 7. Provider Dashboard | 0/TBD | Not started | - |
@@ -170,4 +170,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 ---
 *Roadmap created: 2026-02-07*
-*Last updated: 2026-02-10 — Phase 3 gap closure complete*
+*Last updated: 2026-02-10 — Phase 4 complete*

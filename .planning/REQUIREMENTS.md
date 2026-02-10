@@ -32,8 +32,8 @@
 
 ### Orders & Payments
 
-- [ ] **ORD-01**: User can place an order by selecting a gig tier
-- [ ] **ORD-02**: Mock payment flow auto-approves on user confirmation
+- [x] **ORD-01**: User can place an order by selecting a gig tier
+- [x] **ORD-02**: Mock payment flow auto-approves on user confirmation
 
 ### Messaging
 
@@ -145,8 +145,8 @@
 | DISC-01 | Phase 3 | Complete |
 | DISC-02 | Phase 3 | Complete |
 | DISC-03 | Phase 3 | Complete |
-| ORD-01 | Phase 4 | Pending |
-| ORD-02 | Phase 4 | Pending |
+| ORD-01 | Phase 4 | Complete |
+| ORD-02 | Phase 4 | Complete |
 | MSG-01 | Phase 5 | Pending |
 | REV-01 | Phase 6 | Pending |
 | DASH-01 | Phase 7 | Pending |
@@ -162,4 +162,4 @@
 
 ---
 *Requirements defined: 2026-02-07*
-*Last updated: 2026-02-09 — Phase 3 requirements complete (DISC-03 rating filter deferred to Phase 6)*
+*Last updated: 2026-02-10 — Phase 4 requirements complete (ORD-01, ORD-02)*
