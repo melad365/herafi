@@ -66,6 +66,7 @@ model User {
   gigs            Gig[]
   buyerOrders     Order[]          @relation("BuyerOrders")
   providerOrders  Order[]          @relation("ProviderOrders")
+  sentMessages    Message[]        @relation("SentMessages")
 }
 
 model Account {
@@ -163,5 +164,32 @@ model Order {
   @@index([providerId])
   @@index([gigId])
   @@index([status])
+  @@index([createdAt])
+}
+
+model Conversation {
+  id             String    @id @default(cuid())
+  participantIds String[]  // [userId1, userId2] sorted for consistent lookup
+  lastMessageAt  DateTime  @default(now())
+  createdAt      DateTime  @default(now())
+
+  messages Message[]
+
+  @@index([participantIds])
+  @@index([lastMessageAt])
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       String
+  sender         User         @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  content        String       @db.Text
+  readAt         DateTime?    // Null = unread
+  createdAt      DateTime     @default(now())
+
+  @@index([conversationId])
+  @@index([senderId])
   @@index([createdAt])
 }
