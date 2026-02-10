@@ -192,8 +192,8 @@ export default function GigForm({ mode, initialData, action }: GigFormProps) {
             name="pricingTiers"
             value={JSON.stringify({
               basic: basicTier,
-              standard: standardTier,
-              premium: premiumTier,
+              standard: standardTier ?? undefined,
+              premium: premiumTier ?? undefined,
             })}
           />
 
