@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-07)
 ## Current Position
 
 Phase: 5 of 8 (Real-Time Messaging) — IN PROGRESS
-Plan: 1/4 complete
-Status: Plan 05-01 complete (infrastructure foundation)
-Last activity: 2026-02-10 — Completed 05-01-PLAN.md
+Plan: 2/4 complete
+Status: Plan 05-02 complete (message handlers & API)
+Last activity: 2026-02-10 — Completed 05-02-PLAN.md
 
-Progress: [█████░░░░░] 53% (15/28 plans across 8 phases)
+Progress: [█████░░░░░] 57% (16/28 plans across 8 phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 15
+- Total plans completed: 16
 - Average duration: 3.0 min
-- Total execution time: 0.90 hours
+- Total execution time: 0.98 hours
 
 **By Phase:**
 
@@ -31,11 +31,11 @@ Progress: [█████░░░░░] 53% (15/28 plans across 8 phases)
 | 02    | 4     | 9.4m  | 2.4m     |
 | 03    | 5     | 10.6m | 2.1m     |
 | 04    | 3     | 10.3m | 3.4m     |
-| 05    | 1     | 4.2m  | 4.2m     |
+| 05    | 2     | 7.5m  | 3.8m     |
 
 **Recent Trend:**
-- Last 5 plans: 05-01 (4.2m), 04-03 (5.8m), 04-02 (2.4m), 04-01 (2.1m), 03-05 (2.0m)
-- Trend: Phase 5 starting strong, infrastructure setup efficient
+- Last 5 plans: 05-02 (3.3m), 05-01 (4.2m), 04-03 (5.8m), 04-02 (2.4m), 04-01 (2.1m)
+- Trend: Phase 5 maintaining efficient execution, messaging backend complete
 
 *Updated after each plan completion*
 
@@ -106,6 +106,11 @@ Recent decisions affecting current work:
 - Token API endpoint to extract JWT from httpOnly cookie: Bridges Auth.js session to socket handshake (05-01)
 - tsx for running TypeScript server directly: No separate build step in dev mode (05-01)
 - participantIds as sorted array: Efficient two-party conversation lookup via indexed array (05-01)
+- DB write before broadcast: Complete database write before socket emit to prevent race conditions (05-02)
+- Volatile typing events: Typing indicators use volatile emit (not queued if offline) (05-02)
+- In-memory presence tracking: Map<userId, Set<socketId>> tracks online users with multi-device support (05-02)
+- Auto-read on fetch: Messages marked as read when fetching conversation history (05-02)
+- Cursor-based pagination: Message history supports ?before=messageId for efficient older message loading (05-02)
 
 ### Pending Todos
 
@@ -118,7 +123,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 05-01-PLAN.md (Real-Time Messaging infrastructure)
+Stopped at: Completed 05-02-PLAN.md (Message handlers & API)
 Resume file: None
 
 ---
