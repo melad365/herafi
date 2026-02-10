@@ -37,7 +37,7 @@
 
 ### Messaging
 
-- [ ] **MSG-01**: User can send and receive real-time chat messages with another user
+- [x] **MSG-01**: User can send and receive real-time chat messages with another user
 
 ### Reviews
 
@@ -147,7 +147,7 @@
 | DISC-03 | Phase 3 | Complete |
 | ORD-01 | Phase 4 | Complete |
 | ORD-02 | Phase 4 | Complete |
-| MSG-01 | Phase 5 | Pending |
+| MSG-01 | Phase 5 | Complete |
 | REV-01 | Phase 6 | Pending |
 | DASH-01 | Phase 7 | Pending |
 | DASH-02 | Phase 7 | Pending |
@@ -162,4 +162,4 @@
 
 ---
 *Requirements defined: 2026-02-07*
-*Last updated: 2026-02-10 — Phase 4 requirements complete (ORD-01, ORD-02)*
+*Last updated: 2026-02-10 — Phase 5 requirements complete (MSG-01)*
