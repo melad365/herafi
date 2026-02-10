@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-07)
 ## Current Position
 
 Phase: 4 of 8 (Order Flow)
-Plan: 1 of 4 complete
+Plan: 2 of 4 complete
 Status: In progress
-Last activity: 2026-02-10 — Completed 04-01-PLAN.md (Order Model Foundation)
+Last activity: 2026-02-10 — Completed 04-02-PLAN.md (Order Server Actions)
 
-Progress: [████░░░░░░] 38.5% (12/26 plans across 8 phases)
+Progress: [█████░░░░░] 42.3% (13/26 plans across 8 phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
-- Average duration: 3.1 min
-- Total execution time: 0.67 hours
+- Total plans completed: 13
+- Average duration: 3.0 min
+- Total execution time: 0.71 hours
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [████░░░░░░] 38.5% (12/26 plans across 8 phases)
 | 01    | 3     | 22.4m | 7.5m     |
 | 02    | 4     | 9.4m  | 2.4m     |
 | 03    | 5     | 10.6m | 2.1m     |
-| 04    | 1     | 2.1m  | 2.1m     |
+| 04    | 2     | 4.5m  | 2.3m     |
 
 **Recent Trend:**
-- Last 5 plans: 04-01 (2.1m), 03-05 (2.0m), 03-04 (2.4m), 03-03 (2.7m), 03-02 (2.0m)
-- Trend: Consistent sub-3min execution, Phase 4 started
+- Last 5 plans: 04-02 (2.4m), 04-01 (2.1m), 03-05 (2.0m), 03-04 (2.4m), 03-03 (2.7m)
+- Trend: Phase 4 maintaining sub-3min execution pace
 
 *Updated after each plan completion*
 
@@ -93,6 +93,9 @@ Recent decisions affecting current work:
 - Five-state order lifecycle: PENDING → ACCEPTED → IN_PROGRESS → COMPLETED / CANCELLED (terminal states) (04-01)
 - Mock payment auto-approval: paymentConfirmed defaults to true for MVP (04-01)
 - State machine validation pattern: ORDER_STATE_TRANSITIONS map with transition validation functions (04-01)
+- Provider-only state transitions except cancel: Accept/start/complete restricted to provider, cancel allows buyer OR provider (04-02)
+- Self-ordering prevention at action layer: placeOrder checks gig.providerId !== session.user.id (04-02)
+- Tier snapshot at order creation: Full tier object preserved in tierSnapshot field for pricing history (04-02)
 
 ### Pending Todos
 
@@ -104,8 +107,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-10T15:01:51Z
-Stopped at: Completed 04-01-PLAN.md
+Last session: 2026-02-10T15:06:52Z
+Stopped at: Completed 04-02-PLAN.md
 Resume file: None
 
 ---
