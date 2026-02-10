@@ -107,3 +107,206 @@ export async function placeOrder(
     return { success: false, error: "Failed to place order" };
   }
 }
+
+export async function acceptOrder(
+  orderId: string
+): Promise<{ success: boolean; error?: string }> {
+  // Check authentication
+  const session = await auth();
+  if (!session?.user?.id) {
+    return { success: false, error: "Not authenticated" };
+  }
+
+  try {
+    // Fetch order with provider check
+    const order = await prisma.order.findUnique({
+      where: { id: orderId },
+      select: { providerId: true, status: true },
+    });
+
+    if (!order) {
+      return { success: false, error: "Order not found" };
+    }
+
+    // Verify only provider can accept
+    if (session.user.id !== order.providerId) {
+      return { success: false, error: "Not authorized to accept this order" };
+    }
+
+    // Validate state transition
+    if (!canTransition(order.status, OrderStatus.ACCEPTED)) {
+      return { success: false, error: "Cannot accept this order" };
+    }
+
+    // Update order status
+    await prisma.order.update({
+      where: { id: orderId },
+      data: {
+        status: OrderStatus.ACCEPTED,
+        acceptedAt: new Date(),
+      },
+    });
+
+    // Revalidate paths
+    revalidatePath("/dashboard");
+    revalidatePath("/orders");
+    revalidatePath(`/orders/${orderId}`);
+
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: "Failed to accept order" };
+  }
+}
+
+export async function startOrder(
+  orderId: string
+): Promise<{ success: boolean; error?: string }> {
+  // Check authentication
+  const session = await auth();
+  if (!session?.user?.id) {
+    return { success: false, error: "Not authenticated" };
+  }
+
+  try {
+    // Fetch order with provider check
+    const order = await prisma.order.findUnique({
+      where: { id: orderId },
+      select: { providerId: true, status: true },
+    });
+
+    if (!order) {
+      return { success: false, error: "Order not found" };
+    }
+
+    // Verify only provider can start
+    if (session.user.id !== order.providerId) {
+      return { success: false, error: "Not authorized to start this order" };
+    }
+
+    // Validate state transition
+    if (!canTransition(order.status, OrderStatus.IN_PROGRESS)) {
+      return { success: false, error: "Cannot start this order" };
+    }
+
+    // Update order status
+    await prisma.order.update({
+      where: { id: orderId },
+      data: {
+        status: OrderStatus.IN_PROGRESS,
+        startedAt: new Date(),
+      },
+    });
+
+    // Revalidate paths
+    revalidatePath("/dashboard");
+    revalidatePath("/orders");
+    revalidatePath(`/orders/${orderId}`);
+
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: "Failed to start order" };
+  }
+}
+
+export async function completeOrder(
+  orderId: string
+): Promise<{ success: boolean; error?: string }> {
+  // Check authentication
+  const session = await auth();
+  if (!session?.user?.id) {
+    return { success: false, error: "Not authenticated" };
+  }
+
+  try {
+    // Fetch order with provider check
+    const order = await prisma.order.findUnique({
+      where: { id: orderId },
+      select: { providerId: true, status: true },
+    });
+
+    if (!order) {
+      return { success: false, error: "Order not found" };
+    }
+
+    // Verify only provider can complete
+    if (session.user.id !== order.providerId) {
+      return { success: false, error: "Not authorized to complete this order" };
+    }
+
+    // Validate state transition
+    if (!canTransition(order.status, OrderStatus.COMPLETED)) {
+      return { success: false, error: "Cannot complete this order" };
+    }
+
+    // Update order status
+    await prisma.order.update({
+      where: { id: orderId },
+      data: {
+        status: OrderStatus.COMPLETED,
+        completedAt: new Date(),
+      },
+    });
+
+    // Revalidate paths
+    revalidatePath("/dashboard");
+    revalidatePath("/orders");
+    revalidatePath(`/orders/${orderId}`);
+
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: "Failed to complete order" };
+  }
+}
+
+export async function cancelOrder(
+  orderId: string
+): Promise<{ success: boolean; error?: string }> {
+  // Check authentication
+  const session = await auth();
+  if (!session?.user?.id) {
+    return { success: false, error: "Not authenticated" };
+  }
+
+  try {
+    // Fetch order with buyer and provider check
+    const order = await prisma.order.findUnique({
+      where: { id: orderId },
+      select: { buyerId: true, providerId: true, status: true },
+    });
+
+    if (!order) {
+      return { success: false, error: "Order not found" };
+    }
+
+    // Verify either buyer or provider can cancel
+    const isBuyer = session.user.id === order.buyerId;
+    const isProvider = session.user.id === order.providerId;
+
+    if (!isBuyer && !isProvider) {
+      return { success: false, error: "Not authorized to cancel this order" };
+    }
+
+    // Validate state transition
+    if (!canTransition(order.status, OrderStatus.CANCELLED)) {
+      return { success: false, error: "Cannot cancel this order" };
+    }
+
+    // Update order status
+    await prisma.order.update({
+      where: { id: orderId },
+      data: {
+        status: OrderStatus.CANCELLED,
+        cancelledAt: new Date(),
+      },
+    });
+
+    // Revalidate paths
+    revalidatePath("/dashboard");
+    revalidatePath("/orders");
+    revalidatePath(`/orders/${orderId}`);
+
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: "Failed to cancel order" };
+  }
+}
