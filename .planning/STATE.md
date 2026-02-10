@@ -9,19 +9,19 @@ See: .planning/PROJECT.md (updated 2026-02-07)
 
 ## Current Position
 
-Phase: 4 of 8 (Order Flow) — COMPLETE
-Plan: 3/3 complete
-Status: Phase verified ✓ (17/17 must-haves)
-Last activity: 2026-02-10 — Phase 4 execution and verification complete
+Phase: 5 of 8 (Real-Time Messaging) — IN PROGRESS
+Plan: 1/4 complete
+Status: Plan 05-01 complete (infrastructure foundation)
+Last activity: 2026-02-10 — Completed 05-01-PLAN.md
 
-Progress: [█████░░░░░] 50% (4/8 phases)
+Progress: [█████░░░░░] 53% (15/28 plans across 8 phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
-- Average duration: 3.1 min
-- Total execution time: 0.83 hours
+- Total plans completed: 15
+- Average duration: 3.0 min
+- Total execution time: 0.90 hours
 
 **By Phase:**
 
@@ -31,10 +31,11 @@ Progress: [█████░░░░░] 50% (4/8 phases)
 | 02    | 4     | 9.4m  | 2.4m     |
 | 03    | 5     | 10.6m | 2.1m     |
 | 04    | 3     | 10.3m | 3.4m     |
+| 05    | 1     | 4.2m  | 4.2m     |
 
 **Recent Trend:**
-- Last 5 plans: 04-03 (5.8m), 04-02 (2.4m), 04-01 (2.1m), 03-05 (2.0m), 03-04 (2.4m)
-- Trend: Phase 4 plan 03 took longer (UI layer complexity), overall pace healthy
+- Last 5 plans: 05-01 (4.2m), 04-03 (5.8m), 04-02 (2.4m), 04-01 (2.1m), 03-05 (2.0m)
+- Trend: Phase 5 starting strong, infrastructure setup efficient
 
 *Updated after each plan completion*
 
@@ -100,6 +101,11 @@ Recent decisions affecting current work:
 - Self-ordering UI prevention: Error page shown when provider tries to order own gig (04-03)
 - Inline server actions for state transitions: Async functions with "use server" in form actions (04-03)
 - Modal mock payment confirmation: Shows order summary with MVP disclaimer before order creation (04-03)
+- Custom Next.js server with Socket.IO on same HTTP port: No separate WebSocket port needed (05-01)
+- JWT verification using jsonwebtoken library: Matches Auth.js secret for socket authentication (05-01)
+- Token API endpoint to extract JWT from httpOnly cookie: Bridges Auth.js session to socket handshake (05-01)
+- tsx for running TypeScript server directly: No separate build step in dev mode (05-01)
+- participantIds as sorted array: Efficient two-party conversation lookup via indexed array (05-01)
 
 ### Pending Todos
 
@@ -112,7 +118,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Phase 4 complete — ready for Phase 5 planning
+Stopped at: Completed 05-01-PLAN.md (Real-Time Messaging infrastructure)
 Resume file: None
 
 ---
