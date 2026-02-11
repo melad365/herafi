@@ -3,6 +3,8 @@ import { redirect, notFound } from "next/navigation"
 import { prisma } from "@/lib/db"
 import OrderStatusBadge from "@/components/orders/OrderStatusBadge"
 import OrderTimeline from "@/components/orders/OrderTimeline"
+import ReviewForm from "@/components/reviews/ReviewForm"
+import StarRating from "@/components/reviews/StarRating"
 import Link from "next/link"
 import { format } from "date-fns"
 import { acceptOrder, startOrder, completeOrder, cancelOrder } from "@/actions/orders"
@@ -23,7 +25,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
     redirect("/login")
   }
 
-  // Fetch order with all related data
+  // Fetch order with all related data including review
   const order = await prisma.order.findUnique({
     where: { id: orderId },
     include: {
@@ -49,6 +51,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
           slug: true,
         },
       },
+      review: true,
     },
   })
 
@@ -306,6 +309,32 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
               </form>
             </div>
           )}
+
+        {/* Review section */}
+        {isBuyer && order.status === OrderStatus.COMPLETED && (
+          <div className="mb-6">
+            {order.review ? (
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                  Your Review
+                </h2>
+                <div className="mb-3">
+                  <StarRating rating={order.review.rating} size="md" showNumber />
+                </div>
+                {order.review.content && (
+                  <p className="text-gray-700 leading-relaxed">
+                    {order.review.content}
+                  </p>
+                )}
+                <p className="text-sm text-gray-500 mt-4">
+                  Reviewed on {format(new Date(order.review.createdAt), "MMMM d, yyyy")}
+                </p>
+              </div>
+            ) : (
+              <ReviewForm orderId={orderId} />
+            )}
+          </div>
+        )}
 
         {/* Timeline */}
         <OrderTimeline order={order} />

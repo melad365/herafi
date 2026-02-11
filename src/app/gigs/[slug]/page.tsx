@@ -37,7 +37,7 @@ export async function generateMetadata({
 export default async function GigDetailPage({ params }: GigDetailPageProps) {
   const { slug } = await params
 
-  // Query gig with provider data
+  // Query gig with provider data and reviews
   const gig = await prisma.gig.findUnique({
     where: { slug, isActive: true },
     include: {
@@ -49,6 +49,20 @@ export default async function GigDetailPage({ params }: GigDetailPageProps) {
           avatarUrl: true,
           bio: true,
           createdAt: true,
+          averageRating: true,
+          totalReviews: true,
+        },
+      },
+      reviews: {
+        orderBy: { createdAt: "desc" },
+        include: {
+          buyer: {
+            select: {
+              username: true,
+              displayName: true,
+              avatarUrl: true,
+            },
+          },
         },
       },
     },
@@ -68,6 +82,9 @@ export default async function GigDetailPage({ params }: GigDetailPageProps) {
   const gigData = {
     ...gig,
     pricingTiers: gig.pricingTiers as PricingTiers,
+    averageRating: gig.averageRating,
+    totalReviews: gig.totalReviews,
+    reviews: gig.reviews,
   }
 
   return <GigDetailView gig={gigData} isOwner={isOwner} isAuthenticated={isAuthenticated} />

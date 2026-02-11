@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import MessageButton from "@/components/chat/MessageButton"
+import StarRating from "@/components/reviews/StarRating"
 
 interface ProviderCardProps {
   provider: {
@@ -11,6 +12,8 @@ interface ProviderCardProps {
     avatarUrl: string | null
     bio: string | null
     createdAt: Date
+    averageRating?: number
+    totalReviews?: number
   }
 }
 
@@ -64,11 +67,14 @@ export default function ProviderCard({ provider }: ProviderCardProps) {
         </div>
       </div>
 
-      {/* Rating placeholder */}
-      <div className="flex items-center mb-4">
-        <span className="text-yellow-500 text-lg mr-1">★</span>
-        <span className="text-gray-600 font-medium">0.0</span>
-        <span className="text-gray-400 text-sm ml-1">(No reviews yet)</span>
+      {/* Rating */}
+      <div className="mb-4">
+        <StarRating
+          rating={provider.averageRating || 0}
+          size="md"
+          showNumber
+          reviewCount={provider.totalReviews || 0}
+        />
       </div>
 
       {/* Bio excerpt */}

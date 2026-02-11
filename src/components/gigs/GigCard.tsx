@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import StarRating from "@/components/reviews/StarRating";
 
 interface GigCardProps {
   slug: string;
@@ -7,6 +8,8 @@ interface GigCardProps {
   images: string[];
   category: string;
   pricingTiers: any; // JSONB
+  averageRating?: number;
+  totalReviews?: number;
   provider: {
     username: string | null;
     displayName: string | null;
@@ -20,6 +23,8 @@ export default function GigCard({
   images,
   category,
   pricingTiers,
+  averageRating = 0,
+  totalReviews = 0,
   provider,
 }: GigCardProps) {
   // Extract starting price from basic tier
@@ -78,6 +83,17 @@ export default function GigCard({
           )}
           <span className="text-sm text-gray-700">{providerName}</span>
         </div>
+
+        {/* Rating */}
+        {totalReviews > 0 ? (
+          <div className="pt-1">
+            <StarRating rating={averageRating} size="sm" showNumber />
+          </div>
+        ) : (
+          <div className="pt-1">
+            <span className="text-sm text-gray-500">New</span>
+          </div>
+        )}
 
         {/* Price */}
         <div className="pt-2 border-t border-gray-100">

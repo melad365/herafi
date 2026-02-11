@@ -7,6 +7,8 @@ import { deleteGig } from "@/actions/gigs"
 import GigImageGallery from "./GigImageGallery"
 import PricingTierCard from "./PricingTierCard"
 import ProviderCard from "./ProviderCard"
+import StarRating from "@/components/reviews/StarRating"
+import ReviewList from "@/components/reviews/ReviewList"
 import { CATEGORY_LABELS } from "@/components/forms/GigForm"
 import type { PricingTiers } from "@/lib/validations/pricing"
 
@@ -19,6 +21,8 @@ interface GigDetailViewProps {
     category: string
     pricingTiers: PricingTiers
     images: string[]
+    averageRating: number
+    totalReviews: number
     provider: {
       id: string
       username: string | null
@@ -27,6 +31,17 @@ interface GigDetailViewProps {
       bio: string | null
       createdAt: Date
     }
+    reviews: {
+      id: string
+      rating: number
+      content: string | null
+      createdAt: Date
+      buyer: {
+        username: string | null
+        displayName: string | null
+        avatarUrl: string | null
+      }
+    }[]
   }
   isOwner: boolean
   isAuthenticated: boolean
@@ -266,14 +281,22 @@ export default function GigDetailView({ gig, isOwner, isAuthenticated }: GigDeta
               </div>
             </div>
 
-            {/* Reviews placeholder */}
+            {/* Reviews section */}
             <div className="bg-white rounded-lg border border-gray-200 shadow p-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">
                 Reviews
               </h2>
-              <p className="text-gray-500 text-center py-8">
-                No reviews yet. Be the first to order and review this service!
-              </p>
+              {gig.totalReviews > 0 && (
+                <div className="mb-6">
+                  <StarRating
+                    rating={gig.averageRating}
+                    size="lg"
+                    showNumber
+                    reviewCount={gig.totalReviews}
+                  />
+                </div>
+              )}
+              <ReviewList reviews={gig.reviews} />
             </div>
           </div>
 

@@ -46,7 +46,14 @@ export default async function CategoryBrowsePage({ params }: PageProps) {
       category,
       isActive: true,
     },
-    include: {
+    select: {
+      slug: true,
+      title: true,
+      images: true,
+      category: true,
+      pricingTiers: true,
+      averageRating: true,
+      totalReviews: true,
       provider: {
         select: {
           username: true,

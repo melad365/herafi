@@ -6,6 +6,8 @@ interface GigCardProps {
   images: string[];
   category: string;
   pricingTiers: any;
+  averageRating?: number;
+  totalReviews?: number;
   provider: {
     username: string | null;
     displayName: string | null;

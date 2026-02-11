@@ -5,6 +5,8 @@ import ProfileHeader from "@/components/profile/ProfileHeader"
 import ProfileAbout from "@/components/profile/ProfileAbout"
 import ProviderInfo from "@/components/profile/ProviderInfo"
 import PortfolioCarousel from "@/components/profile/PortfolioCarousel"
+import StarRating from "@/components/reviews/StarRating"
+import ReviewList from "@/components/reviews/ReviewList"
 
 interface PageProps {
   params: Promise<{ username: string }>
@@ -35,12 +37,24 @@ export async function generateMetadata({ params }: PageProps) {
 export default async function PublicProfilePage({ params }: PageProps) {
   const { username } = await params
 
-  // Fetch user with portfolio images
+  // Fetch user with portfolio images and reviews
   const user = await prisma.user.findUnique({
     where: { username },
     include: {
       portfolioImages: {
         orderBy: { order: "asc" },
+      },
+      reviewsReceived: {
+        orderBy: { createdAt: "desc" },
+        include: {
+          buyer: {
+            select: {
+              username: true,
+              displayName: true,
+              avatarUrl: true,
+            },
+          },
+        },
       },
     },
   })
@@ -62,6 +76,22 @@ export default async function PublicProfilePage({ params }: PageProps) {
         {user.isProvider && <ProviderInfo user={user} />}
         {user.portfolioImages.length > 0 && (
           <PortfolioCarousel images={user.portfolioImages} />
+        )}
+        {user.isProvider && user.reviewsReceived.length > 0 && (
+          <div className="bg-white rounded-lg shadow-lg p-6 mt-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Reviews</h2>
+            {user.totalReviews > 0 && (
+              <div className="mb-6">
+                <StarRating
+                  rating={user.averageRating}
+                  size="lg"
+                  showNumber
+                  reviewCount={user.totalReviews}
+                />
+              </div>
+            )}
+            <ReviewList reviews={user.reviewsReceived} />
+          </div>
         )}
       </div>
     </div>

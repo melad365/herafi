@@ -89,7 +89,14 @@ export async function searchGigs(
   const [gigs, total] = await Promise.all([
     prisma.gig.findMany({
       where,
-      include: {
+      select: {
+        slug: true,
+        title: true,
+        images: true,
+        category: true,
+        pricingTiers: true,
+        averageRating: true,
+        totalReviews: true,
         provider: {
           select: {
             id: true,
