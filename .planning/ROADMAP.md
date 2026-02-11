@@ -135,10 +135,11 @@ Plans:
   3. Provider can view all incoming orders with status and customer details
   4. Provider can access all their message conversations from the dashboard
   5. Dashboard clearly distinguishes between "provider mode" (managing services) and "buyer mode" (browsing services)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 07-01: TBD during plan-phase
+- [ ] 07-01-PLAN.md — Provider dashboard page with tabs, GigsTab, OrdersTab, stats header
+- [ ] 07-02-PLAN.md — MessagesTab, buyer/provider navigation links
 
 ### Phase 8: UI Polish
 **Goal**: Application delivers warm, polished, responsive user experience
@@ -168,7 +169,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 4. Order Flow | 3/3 | ✓ Complete | 2026-02-10 |
 | 5. Real-Time Messaging | 3/3 | ✓ Complete | 2026-02-10 |
 | 6. Reviews & Ratings | 2/2 | ✓ Complete | 2026-02-11 |
-| 7. Provider Dashboard | 0/TBD | Not started | - |
+| 7. Provider Dashboard | 0/2 | Not started | - |
 | 8. UI Polish | 0/TBD | Not started | - |
 
 ---
