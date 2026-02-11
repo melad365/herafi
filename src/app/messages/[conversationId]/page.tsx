@@ -65,7 +65,7 @@ export default async function ConversationPage({ params }: ConversationPageProps
   })
 
   // Get other user's info for the header
-  const otherUserId = conversation.participantIds.find((id) => id !== session.user.id)
+  const otherUserId = conversation.participantIds.find((id) => id !== session.user!.id)
   const otherUser = otherUserId
     ? await prisma.user.findUnique({
         where: { id: otherUserId },
