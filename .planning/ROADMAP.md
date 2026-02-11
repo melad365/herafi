@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Service Listings & Discovery** - Core marketplace with gig CRUD and browse/search
 - [x] **Phase 4: Order Flow** - Transaction system with mock payments
 - [x] **Phase 5: Real-Time Messaging** - Chat infrastructure for user communication
-- [ ] **Phase 6: Reviews & Ratings** - Trust mechanism with verified feedback
+- [x] **Phase 6: Reviews & Ratings** - Trust mechanism with verified feedback
 - [ ] **Phase 7: Provider Dashboard** - Seller tools for managing services and orders
 - [ ] **Phase 8: UI Polish** - Final refinement of user experience and responsiveness
 
@@ -122,8 +122,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — Review model, validation schema, submitReview server action
-- [ ] 06-02-PLAN.md — Review UI components, integration into gig/profile/order pages
+- [x] 06-01-PLAN.md — Review model, validation schema, submitReview server action
+- [x] 06-02-PLAN.md — Review UI components, integration into gig/profile/order pages
 
 ### Phase 7: Provider Dashboard
 **Goal**: Providers have dedicated tools to manage their services and orders
@@ -167,10 +167,10 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 3. Service Listings & Discovery | 5/5 | ✓ Complete | 2026-02-10 |
 | 4. Order Flow | 3/3 | ✓ Complete | 2026-02-10 |
 | 5. Real-Time Messaging | 3/3 | ✓ Complete | 2026-02-10 |
-| 6. Reviews & Ratings | 0/TBD | Not started | - |
+| 6. Reviews & Ratings | 2/2 | ✓ Complete | 2026-02-11 |
 | 7. Provider Dashboard | 0/TBD | Not started | - |
 | 8. UI Polish | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-02-07*
-*Last updated: 2026-02-10 — Phase 5 complete*
+*Last updated: 2026-02-11 — Phase 6 complete*

@@ -41,7 +41,7 @@
 
 ### Reviews
 
-- [ ] **REV-01**: User can leave a star rating and written review
+- [x] **REV-01**: User can leave a star rating and written review
 
 ### Provider Dashboard
 
