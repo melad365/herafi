@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-07)
 
 **Core value:** Anyone can find and hire a trusted service provider for in-person or digital work through a simple, browsable marketplace with clear service listings.
-**Current focus:** Phase 5 complete — ready for Phase 6
+**Current focus:** Phase 6 in progress — Reviews & Ratings
 
 ## Current Position
 
-Phase: 5 of 8 (Real-Time Messaging) — COMPLETE
-Plan: 3/3 complete
-Status: Phase verified ✓ (23/23 must-haves)
-Last activity: 2026-02-10 — Phase 5 execution and verification complete
+Phase: 6 of 8 (Reviews & Ratings)
+Plan: 1 of 3 complete
+Status: In progress
+Last activity: 2026-02-11 — Completed 06-01-PLAN.md (Review model and server action)
 
-Progress: [██████░░░░] 62% (5/8 phases)
+Progress: [██████░░░░] 62% (5/8 phases, 18/20 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 17
-- Average duration: 3.0 min
-- Total execution time: 1.03 hours
+- Total plans completed: 18
+- Average duration: 2.9 min
+- Total execution time: 1.07 hours
 
 **By Phase:**
 
@@ -32,10 +32,11 @@ Progress: [██████░░░░] 62% (5/8 phases)
 | 03    | 5     | 10.6m | 2.1m     |
 | 04    | 3     | 10.3m | 3.4m     |
 | 05    | 3     | 10.8m | 3.6m     |
+| 06    | 1     | 2.0m  | 2.0m     |
 
 **Recent Trend:**
-- Last 5 plans: 05-03 (3.3m), 05-02 (3.3m), 05-01 (4.2m), 04-03 (5.8m), 04-02 (2.4m)
-- Trend: Phase 5 consistent execution at 3.6m average, chat UI complete
+- Last 5 plans: 06-01 (2.0m), 05-03 (3.3m), 05-02 (3.3m), 05-01 (4.2m), 04-03 (5.8m)
+- Trend: Phase 6 started with fast 2-minute execution for review model foundation
 
 *Updated after each plan completion*
 
@@ -111,6 +112,10 @@ Recent decisions affecting current work:
 - In-memory presence tracking: Map<userId, Set<socketId>> tracks online users with multi-device support (05-02)
 - Auto-read on fetch: Messages marked as read when fetching conversation history (05-02)
 - Cursor-based pagination: Message history supports ?before=messageId for efficient older message loading (05-02)
+- One review per buyer per order: @@unique([buyerId, orderId]) constraint prevents duplicate reviews (06-01)
+- Aggregate ratings denormalized: averageRating/totalReviews on User and Gig for fast display (06-01)
+- Transactional aggregate updates: Review creation and rating recalculation happen atomically in prisma.$transaction (06-01)
+- Only buyers of COMPLETED orders can review: Verified purchase check via order status and buyer ID (06-01)
 
 ### Pending Todos
 
@@ -122,9 +127,9 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-10
-Stopped at: Phase 5 complete — ready for Phase 6 planning
+Last session: 2026-02-11
+Stopped at: Completed 06-01-PLAN.md (Review model and server action)
 Resume file: None
 
 ---
-*Last updated: 2026-02-10*
+*Last updated: 2026-02-11*
