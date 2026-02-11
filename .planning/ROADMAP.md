@@ -119,10 +119,11 @@ Plans:
   2. Reviews appear on provider profile and gig detail pages
   3. Provider's aggregate rating updates automatically when new reviews are submitted
   4. Reviews are linked to verified completed orders only
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 06-01: TBD during plan-phase
+- [ ] 06-01-PLAN.md — Review model, validation schema, submitReview server action
+- [ ] 06-02-PLAN.md — Review UI components, integration into gig/profile/order pages
 
 ### Phase 7: Provider Dashboard
 **Goal**: Providers have dedicated tools to manage their services and orders
