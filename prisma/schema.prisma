@@ -61,12 +61,18 @@ model User {
   yearsOfExperience   Int?
   certifications      String[] @default([])
 
+  // Rating fields (Phase 6)
+  averageRating Float @default(0.0)
+  totalReviews  Int   @default(0)
+
   // Relations
   portfolioImages PortfolioImage[]
   gigs            Gig[]
   buyerOrders     Order[]          @relation("BuyerOrders")
   providerOrders  Order[]          @relation("ProviderOrders")
   sentMessages    Message[]        @relation("SentMessages")
+  reviewsWritten  Review[]         @relation("BuyerReviews")
+  reviewsReceived Review[]         @relation("ProviderReviews")
 }
 
 model Account {
@@ -131,8 +137,13 @@ model Gig {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
+  // Rating fields (Phase 6)
+  averageRating Float @default(0.0)
+  totalReviews  Int   @default(0)
+
   // Relations
-  orders Order[]
+  orders  Order[]
+  reviews Review[]
 
   @@index([category])
   @@index([providerId])
@@ -159,6 +170,9 @@ model Order {
   completedAt     DateTime?
   cancelledAt     DateTime?
   updatedAt       DateTime    @updatedAt
+
+  // Relations
+  review Review?
 
   @@index([buyerId])
   @@index([providerId])
@@ -191,5 +205,26 @@ model Message {
 
   @@index([conversationId])
   @@index([senderId])
+  @@index([createdAt])
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  buyerId    String
+  buyer      User     @relation("BuyerReviews", fields: [buyerId], references: [id], onDelete: Cascade)
+  orderId    String   @unique
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  providerId String
+  provider   User     @relation("ProviderReviews", fields: [providerId], references: [id], onDelete: Cascade)
+  gigId      String
+  gig        Gig      @relation(fields: [gigId], references: [id], onDelete: Cascade)
+  rating     Int
+  content    String?  @db.Text
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([buyerId, orderId])
+  @@index([providerId])
+  @@index([gigId])
   @@index([createdAt])
 }
