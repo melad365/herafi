@@ -91,10 +91,10 @@ export default async function DashboardPage() {
     : []
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
+    <div className="min-h-screen bg-cream-50">
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Header */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
+        <div className="bg-white rounded-lg shadow-card p-8 mb-6">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Welcome, {session.user?.name}!
           </h1>
@@ -103,7 +103,7 @@ export default async function DashboardPage() {
           </p>
           {user?.isProvider && (
             <div className="mt-3">
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-burgundy-100 text-burgundy-800">
                 Provider
               </span>
             </div>
@@ -112,16 +112,16 @@ export default async function DashboardPage() {
 
         {/* Username Setup Prompt */}
         {!user?.username && (
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 mb-6">
-            <h2 className="text-lg font-semibold text-amber-900 mb-2">
+          <div className="bg-burgundy-50 border border-burgundy-200 rounded-lg p-6 mb-6">
+            <h2 className="text-lg font-semibold text-burgundy-900 mb-2">
               Complete your profile!
             </h2>
-            <p className="text-amber-800 mb-4">
+            <p className="text-burgundy-800 mb-4">
               Set up your username and profile info to get started on Herafi.
             </p>
             <Link
               href="/profile/edit"
-              className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors"
+              className="inline-block bg-burgundy-800 hover:bg-burgundy-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors duration-200"
             >
               Set Up Profile
             </Link>
@@ -130,7 +130,7 @@ export default async function DashboardPage() {
 
         {/* My Orders Section */}
         {buyerOrders.length > 0 && (
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
+          <div className="bg-white rounded-lg shadow-card p-8 mb-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-gray-900">
                 My Orders{" "}
@@ -140,7 +140,7 @@ export default async function DashboardPage() {
               </h2>
               <Link
                 href="/orders"
-                className="text-orange-600 hover:text-orange-700 font-medium text-sm"
+                className="text-burgundy-700 hover:text-burgundy-800 font-medium text-sm transition-colors duration-200"
               >
                 View All
               </Link>
@@ -155,7 +155,7 @@ export default async function DashboardPage() {
 
         {/* Order Requests Section - for providers */}
         {user?.isProvider && providerOrders.length > 0 && (
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
+          <div className="bg-white rounded-lg shadow-card p-8 mb-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-gray-900">
                 Order Requests{" "}
@@ -174,7 +174,7 @@ export default async function DashboardPage() {
 
         {/* My Gigs Section - for providers */}
         {user?.isProvider && (
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
+          <div className="bg-white rounded-lg shadow-card p-8 mb-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-gray-900">
                 My Gigs{" "}
@@ -184,20 +184,20 @@ export default async function DashboardPage() {
               </h2>
               <Link
                 href="/gigs/new"
-                className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-md transition-colors"
+                className="inline-block bg-burgundy-800 hover:bg-burgundy-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
               >
                 Create New Gig
               </Link>
             </div>
 
             {gigs.length === 0 ? (
-              <div className="text-center py-8 bg-gray-50 rounded-lg">
+              <div className="text-center py-8 bg-cream-50 rounded-lg">
                 <p className="text-gray-600 mb-4">
                   You haven&apos;t created any gigs yet.
                 </p>
                 <Link
                   href="/gigs/new"
-                  className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors"
+                  className="inline-block bg-burgundy-800 hover:bg-burgundy-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors duration-200"
                 >
                   Create Your First Gig
                 </Link>
@@ -213,7 +213,7 @@ export default async function DashboardPage() {
                   return (
                     <div
                       key={gig.id}
-                      className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-orange-300 transition-colors"
+                      className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-burgundy-300 transition-colors duration-200"
                     >
                       <div className="flex-grow">
                         <div className="flex items-center gap-3 mb-1">
@@ -245,13 +245,13 @@ export default async function DashboardPage() {
                       <div className="flex items-center gap-2">
                         <Link
                           href={`/gigs/${gig.slug}`}
-                          className="text-sm text-gray-600 hover:text-orange-600 font-medium px-3 py-1.5 rounded transition-colors"
+                          className="text-sm text-gray-600 hover:text-burgundy-700 font-medium px-3 py-1.5 rounded transition-colors duration-200"
                         >
                           View
                         </Link>
                         <Link
                           href={`/gigs/${gig.slug}/edit`}
-                          className="text-sm bg-orange-100 text-orange-700 hover:bg-orange-200 font-medium px-3 py-1.5 rounded transition-colors"
+                          className="text-sm bg-burgundy-100 text-burgundy-800 hover:bg-burgundy-200 font-medium px-3 py-1.5 rounded transition-colors duration-200"
                         >
                           Edit
                         </Link>
@@ -270,12 +270,12 @@ export default async function DashboardPage() {
           {user?.isProvider && (
             <Link
               href="/provider/dashboard"
-              className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-orange-200 hover:border-orange-400"
+              className="bg-gradient-to-br from-burgundy-50 to-burgundy-100 rounded-lg shadow-card hover:shadow-card-hover transition-shadow p-6 border border-burgundy-200 hover:border-burgundy-400"
             >
-              <h3 className="text-lg font-semibold text-orange-900 mb-2">
+              <h3 className="text-lg font-semibold text-burgundy-900 mb-2">
                 Provider Dashboard
               </h3>
-              <p className="text-orange-800 text-sm">
+              <p className="text-burgundy-800 text-sm">
                 Manage your gigs, orders, and messages
               </p>
             </Link>
@@ -284,7 +284,7 @@ export default async function DashboardPage() {
           {/* Messages Card */}
           <Link
             href="/messages"
-            className="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-gray-200 hover:border-orange-300"
+            className="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-shadow p-6 border border-gray-200 hover:border-burgundy-300"
           >
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Messages
@@ -297,7 +297,7 @@ export default async function DashboardPage() {
           {/* Edit Profile Card */}
           <Link
             href="/profile/edit"
-            className="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-gray-200 hover:border-orange-300"
+            className="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-shadow p-6 border border-gray-200 hover:border-burgundy-300"
           >
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
               Edit Profile
@@ -311,7 +311,7 @@ export default async function DashboardPage() {
           {user?.username && (
             <Link
               href={`/u/${user.username}`}
-              className="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-gray-200 hover:border-orange-300"
+              className="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-shadow p-6 border border-gray-200 hover:border-burgundy-300"
             >
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 View My Profile
@@ -326,12 +326,12 @@ export default async function DashboardPage() {
           {!user?.isProvider && (
             <Link
               href="/provider/setup"
-              className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-orange-200 hover:border-orange-400"
+              className="bg-gradient-to-br from-burgundy-50 to-burgundy-100 rounded-lg shadow-card hover:shadow-card-hover transition-shadow p-6 border border-burgundy-200 hover:border-burgundy-400"
             >
-              <h3 className="text-lg font-semibold text-orange-900 mb-2">
+              <h3 className="text-lg font-semibold text-burgundy-900 mb-2">
                 Become a Provider
               </h3>
-              <p className="text-orange-800 text-sm">
+              <p className="text-burgundy-800 text-sm">
                 Share your expertise and start offering services
               </p>
             </Link>
@@ -339,7 +339,7 @@ export default async function DashboardPage() {
         </div>
 
         {/* Sign out form */}
-        <div className="bg-white rounded-lg shadow-lg p-8">
+        <div className="bg-white rounded-lg shadow-card p-8">
           <form
             action={async () => {
               "use server"
@@ -348,7 +348,7 @@ export default async function DashboardPage() {
           >
             <button
               type="submit"
-              className="bg-orange-600 hover:bg-orange-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors"
+              className="bg-burgundy-800 hover:bg-burgundy-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors duration-200"
             >
               Sign out
             </button>

@@ -22,14 +22,14 @@ export default function GigsTab({ gigs }: GigsTabProps) {
   // Empty state
   if (gigs.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-lg p-8">
+      <div className="bg-white rounded-lg shadow-card p-8">
         <div className="text-center py-8">
           <p className="text-gray-600 mb-4">
             You haven&apos;t created any gigs yet.
           </p>
           <Link
             href="/gigs/new"
-            className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors"
+            className="inline-block bg-burgundy-800 hover:bg-burgundy-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors duration-200"
           >
             Create Your First Gig
           </Link>
@@ -39,7 +39,7 @@ export default function GigsTab({ gigs }: GigsTabProps) {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
+    <div className="bg-white rounded-lg shadow-card p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold text-gray-900">
@@ -50,7 +50,7 @@ export default function GigsTab({ gigs }: GigsTabProps) {
         </h2>
         <Link
           href="/gigs/new"
-          className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-md transition-colors"
+          className="inline-block bg-burgundy-800 hover:bg-burgundy-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
         >
           Create New Gig
         </Link>
@@ -66,7 +66,7 @@ export default function GigsTab({ gigs }: GigsTabProps) {
           return (
             <div
               key={gig.id}
-              className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-orange-300 transition-colors"
+              className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-burgundy-300 transition-colors duration-200"
             >
               <div className="flex-grow">
                 <div className="flex items-center gap-3 mb-1">
@@ -99,13 +99,13 @@ export default function GigsTab({ gigs }: GigsTabProps) {
               <div className="flex items-center gap-2">
                 <Link
                   href={`/gigs/${gig.slug}`}
-                  className="text-sm text-gray-600 hover:text-orange-600 font-medium px-3 py-1.5 rounded transition-colors"
+                  className="text-sm text-gray-600 hover:text-burgundy-700 font-medium px-3 py-1.5 rounded transition-colors duration-200"
                 >
                   View
                 </Link>
                 <Link
                   href={`/gigs/${gig.slug}/edit`}
-                  className="text-sm bg-orange-100 text-orange-700 hover:bg-orange-200 font-medium px-3 py-1.5 rounded transition-colors"
+                  className="text-sm bg-burgundy-100 text-burgundy-800 hover:bg-burgundy-200 font-medium px-3 py-1.5 rounded transition-colors duration-200"
                 >
                   Edit
                 </Link>

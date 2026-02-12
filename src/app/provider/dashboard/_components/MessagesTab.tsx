@@ -27,7 +27,7 @@ export default function MessagesTab({ conversations }: MessagesTabProps) {
   // Empty state
   if (conversations.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-lg p-12">
+      <div className="bg-white rounded-lg shadow-card p-12">
         <div className="text-center">
           <p className="text-gray-600 text-lg mb-2">No conversations yet.</p>
           <p className="text-gray-500 text-sm">
@@ -39,7 +39,7 @@ export default function MessagesTab({ conversations }: MessagesTabProps) {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
+    <div className="bg-white rounded-lg shadow-card p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold text-gray-900">
@@ -47,7 +47,7 @@ export default function MessagesTab({ conversations }: MessagesTabProps) {
         </h2>
         <Link
           href="/messages"
-          className="text-sm text-orange-600 hover:text-orange-700 font-medium"
+          className="text-sm text-burgundy-700 hover:text-burgundy-800 font-medium"
         >
           View All Messages
         </Link>
@@ -70,7 +70,7 @@ export default function MessagesTab({ conversations }: MessagesTabProps) {
             <Link
               key={conversation.id}
               href={`/messages/${conversation.id}`}
-              className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:border-orange-300 transition-colors"
+              className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:border-burgundy-300 transition-colors duration-200"
             >
               {/* Avatar */}
               <div className="flex-shrink-0">
@@ -81,7 +81,7 @@ export default function MessagesTab({ conversations }: MessagesTabProps) {
                     className="w-10 h-10 rounded-full object-cover"
                   />
                 ) : (
-                  <div className="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-semibold">
+                  <div className="w-10 h-10 rounded-full bg-burgundy-100 text-burgundy-800 flex items-center justify-center font-semibold">
                     {initials}
                   </div>
                 )}
@@ -110,7 +110,7 @@ export default function MessagesTab({ conversations }: MessagesTabProps) {
         <div className="mt-4 text-center">
           <Link
             href="/messages"
-            className="text-sm text-orange-600 hover:text-orange-700 font-medium"
+            className="text-sm text-burgundy-700 hover:text-burgundy-800 font-medium"
           >
             View all messages
           </Link>

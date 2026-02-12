@@ -152,10 +152,10 @@ export default async function ProviderDashboardPage({
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
+    <div className="min-h-screen bg-cream-50">
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Stats Header */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
+        <div className="bg-white rounded-lg shadow-card p-8 mb-6">
           <div className="flex items-start justify-between mb-4">
             <div>
               <h1 className="text-3xl font-bold text-gray-900">
@@ -167,7 +167,7 @@ export default async function ProviderDashboardPage({
             </div>
             <Link
               href="/dashboard"
-              className="text-sm text-gray-600 hover:text-orange-600 transition-colors"
+              className="text-sm text-gray-600 hover:text-burgundy-700 transition-colors duration-200"
             >
               Switch to Buyer Mode
             </Link>
@@ -175,19 +175,19 @@ export default async function ProviderDashboardPage({
 
           {/* Stats Row */}
           <div className="flex gap-8 mt-4">
-            <div className="bg-orange-50 rounded-lg px-4 py-3">
+            <div className="bg-burgundy-50 rounded-lg px-4 py-3">
               <p className="text-sm text-gray-600 mb-1">Total Orders</p>
               <p className="text-2xl font-bold text-gray-900">
                 {stats._count}
               </p>
             </div>
-            <div className="bg-orange-50 rounded-lg px-4 py-3">
+            <div className="bg-burgundy-50 rounded-lg px-4 py-3">
               <p className="text-sm text-gray-600 mb-1">Total Earnings</p>
               <p className="text-2xl font-bold text-gray-900">
                 ${stats._sum.totalPrice?.toFixed(2) || "0.00"}
               </p>
             </div>
-            <div className="bg-orange-50 rounded-lg px-4 py-3">
+            <div className="bg-burgundy-50 rounded-lg px-4 py-3">
               <p className="text-sm text-gray-600 mb-1">Active Gigs</p>
               <p className="text-2xl font-bold text-gray-900">
                 {activeGigsCount}

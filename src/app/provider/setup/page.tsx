@@ -17,7 +17,7 @@ export default async function ProviderSetupPage() {
   if (user.isProvider) redirect("/dashboard");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
+    <div className="min-h-screen bg-cream-50">
       <div className="max-w-2xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Become a Provider</h1>
         <p className="text-gray-600 mb-8">Share your expertise and start offering services on Herafi.</p>

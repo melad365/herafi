@@ -64,7 +64,7 @@ export default function RegisterPage() {
             id="name"
             type="text"
             {...register("name")}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-burgundy-500 transition-colors duration-200"
             placeholder="Your full name"
           />
           {errors.name && (
@@ -84,7 +84,7 @@ export default function RegisterPage() {
             id="email"
             type="email"
             {...register("email")}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-burgundy-500 transition-colors duration-200"
             placeholder="you@example.com"
           />
           {errors.email && (
@@ -104,7 +104,7 @@ export default function RegisterPage() {
             id="password"
             type="password"
             {...register("password")}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-burgundy-500 transition-colors duration-200"
             placeholder="At least 8 characters"
           />
           {errors.password && (
@@ -118,7 +118,7 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors disabled:bg-orange-300 disabled:cursor-not-allowed"
+          className="w-full bg-burgundy-800 hover:bg-burgundy-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors duration-200 disabled:bg-burgundy-300 disabled:cursor-not-allowed"
         >
           {isSubmitting ? "Creating account..." : "Create account"}
         </button>
@@ -129,7 +129,7 @@ export default function RegisterPage() {
         Already have an account?{" "}
         <Link
           href="/login"
-          className="font-medium text-orange-600 hover:text-orange-700"
+          className="font-medium text-burgundy-700 hover:text-burgundy-800 transition-colors duration-200"
         >
           Sign in
         </Link>

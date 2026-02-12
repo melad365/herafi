@@ -27,9 +27,9 @@ export default function TabNavigation({ activeTab = "gigs" }: TabNavigationProps
             <Link
               key={tab.id}
               href={`/provider/dashboard?tab=${tab.id}`}
-              className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+              className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors duration-200 ${
                 isActive
-                  ? "border-orange-600 text-orange-600"
+                  ? "border-burgundy-800 text-burgundy-800"
                   : "border-transparent text-gray-600 hover:text-gray-900"
               }`}
             >
