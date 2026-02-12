@@ -68,43 +68,45 @@ export default async function CategoryBrowsePage({ params }: PageProps) {
   });
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
-      {/* Breadcrumb */}
-      <nav className="text-sm text-gray-600 mb-4">
-        <Link href="/gigs" className="hover:text-orange-600">
-          Browse
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-gray-900 font-medium">{categoryLabel}</span>
-      </nav>
-
-      {/* Page header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          {categoryLabel} Services
-        </h1>
-        <p className="text-gray-600">
-          Find trusted {categoryLabel.toLowerCase()} professionals in your area
-        </p>
-      </div>
-
-      {/* Results */}
-      <GigGrid
-        gigs={gigs}
-        emptyMessage={`No ${categoryLabel.toLowerCase()} services available yet`}
-      />
-
-      {/* Link to broader search */}
-      {gigs.length === 0 && (
-        <div className="text-center mt-8">
-          <Link
-            href="/gigs"
-            className="text-orange-600 hover:text-orange-700 font-medium"
-          >
-            Browse all services
+    <div className="min-h-screen bg-cream-50">
+      <div className="container mx-auto px-4 sm:px-6 py-8 max-w-7xl">
+        {/* Breadcrumb */}
+        <nav className="text-sm text-gray-600 mb-4">
+          <Link href="/gigs" className="hover:text-burgundy-600">
+            Browse
           </Link>
+          <span className="mx-2">/</span>
+          <span className="text-gray-900 font-medium">{categoryLabel}</span>
+        </nav>
+
+        {/* Page header */}
+        <div className="mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-burgundy-900 mb-2">
+            {categoryLabel} Services
+          </h1>
+          <p className="text-gray-600">
+            Find trusted {categoryLabel.toLowerCase()} professionals in your area
+          </p>
         </div>
-      )}
+
+        {/* Results */}
+        <GigGrid
+          gigs={gigs}
+          emptyMessage={`No ${categoryLabel.toLowerCase()} services available yet`}
+        />
+
+        {/* Link to broader search */}
+        {gigs.length === 0 && (
+          <div className="text-center mt-8">
+            <Link
+              href="/gigs"
+              className="text-burgundy-600 hover:text-burgundy-700 font-medium"
+            >
+              Browse all services
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

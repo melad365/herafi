@@ -75,13 +75,13 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
     order.selectedTier.charAt(0).toUpperCase() + order.selectedTier.slice(1)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
-      <div className="max-w-5xl mx-auto px-6 py-12">
+    <div className="min-h-screen bg-cream-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
         {/* Page Header */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-          <div className="flex items-start justify-between mb-4">
+        <div className="bg-white rounded-xl shadow-card p-6 mb-6">
+          <div className="flex flex-col sm:flex-row items-start justify-between mb-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <h1 className="text-2xl sm:text-3xl font-bold text-burgundy-900 mb-2">
                 Order Details
               </h1>
               <p className="text-gray-600">
@@ -95,7 +95,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
           <div className="border-t pt-4">
             <Link
               href={`/gigs/${order.gig.slug}`}
-              className="text-xl font-semibold text-orange-600 hover:text-orange-700 transition-colors"
+              className="text-xl font-semibold text-burgundy-600 hover:text-burgundy-700 transition-colors"
             >
               {order.gig.title}
             </Link>
@@ -128,7 +128,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
                 {order.buyer.username && (
                   <Link
                     href={`/u/${order.buyer.username}`}
-                    className="text-sm text-orange-600 hover:text-orange-700"
+                    className="text-sm text-burgundy-600 hover:text-burgundy-700"
                   >
                     @{order.buyer.username}
                   </Link>
@@ -161,7 +161,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
                 {order.provider.username && (
                   <Link
                     href={`/u/${order.provider.username}`}
-                    className="text-sm text-orange-600 hover:text-orange-700"
+                    className="text-sm text-burgundy-600 hover:text-burgundy-700"
                   >
                     @{order.provider.username}
                   </Link>
@@ -264,7 +264,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
                 }}>
                   <button
                     type="submit"
-                    className="bg-orange-600 hover:bg-orange-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors"
+                    className="bg-burgundy-600 hover:bg-burgundy-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors"
                   >
                     Start Working
                   </button>

@@ -36,8 +36,8 @@ export default async function OrderPage({ params }: OrderPageProps) {
   // Prevent self-ordering
   if (gig.providerId === session.user.id) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 flex items-center justify-center p-6">
-        <div className="bg-white rounded-lg shadow-lg p-8 max-w-md text-center">
+      <div className="min-h-screen bg-cream-50 flex items-center justify-center p-4 sm:p-6">
+        <div className="bg-white rounded-xl shadow-card p-8 max-w-md text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-3">
             Cannot Order Your Own Service
           </h1>
@@ -46,7 +46,7 @@ export default async function OrderPage({ params }: OrderPageProps) {
           </p>
           <a
             href={`/gigs/${slug}`}
-            className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors"
+            className="inline-block bg-burgundy-600 hover:bg-burgundy-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors"
           >
             Back to Gig
           </a>

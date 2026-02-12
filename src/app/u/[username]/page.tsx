@@ -69,8 +69,8 @@ export default async function PublicProfilePage({ params }: PageProps) {
   const isOwnProfile = session?.user?.id === user.id
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
-      <div className="max-w-3xl mx-auto px-6 py-12">
+    <div className="min-h-screen bg-cream-50">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
         <ProfileHeader user={user} isOwnProfile={isOwnProfile} />
         <ProfileAbout bio={user.bio} />
         {user.isProvider && <ProviderInfo user={user} />}
@@ -78,8 +78,8 @@ export default async function PublicProfilePage({ params }: PageProps) {
           <PortfolioCarousel images={user.portfolioImages} />
         )}
         {user.isProvider && user.reviewsReceived.length > 0 && (
-          <div className="bg-white rounded-lg shadow-lg p-6 mt-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Reviews</h2>
+          <div className="bg-white rounded-xl shadow-card p-6 mt-6">
+            <h2 className="text-2xl font-bold text-burgundy-900 mb-4">Reviews</h2>
             {user.totalReviews > 0 && (
               <div className="mb-6">
                 <StarRating

@@ -4,6 +4,7 @@ import { useEffect, useState, useActionState } from "react"
 import { useRouter } from "next/navigation"
 import { placeOrder } from "@/actions/orders"
 import type { PricingTier } from "@/lib/validations/pricing"
+import { toast } from "sonner"
 
 interface OrderPageClientProps {
   gig: {
@@ -30,12 +31,15 @@ export default function OrderPageClient({ gig }: OrderPageClientProps) {
     { success: false }
   )
 
-  // Redirect on success
+  // Show toast and redirect on success/error
   useEffect(() => {
     if (state.success && state.orderId) {
+      toast.success("Order placed successfully!")
       router.push(`/orders/${state.orderId}`)
+    } else if (state.error) {
+      toast.error(state.error)
     }
-  }, [state.success, state.orderId, router])
+  }, [state.success, state.orderId, state.error, router])
 
   // Collect active tiers
   const tiers = [
@@ -69,8 +73,8 @@ export default function OrderPageClient({ gig }: OrderPageClientProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 py-12">
-      <div className="max-w-4xl mx-auto px-6">
+    <div className="min-h-screen bg-cream-50 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Page Header */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">
@@ -109,8 +113,8 @@ export default function OrderPageClient({ gig }: OrderPageClientProps) {
                 onClick={() => setSelectedTier(key)}
                 className={`text-left p-5 rounded-lg border-2 transition-all ${
                   selectedTier === key
-                    ? "border-orange-500 bg-orange-50 shadow-md"
-                    : "border-gray-200 hover:border-orange-300"
+                    ? "border-burgundy-500 bg-burgundy-50 shadow-md"
+                    : "border-gray-200 hover:border-burgundy-300"
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
@@ -119,7 +123,7 @@ export default function OrderPageClient({ gig }: OrderPageClientProps) {
                   </h3>
                   {selectedTier === key && (
                     <svg
-                      className="w-6 h-6 text-orange-600"
+                      className="w-6 h-6 text-burgundy-600"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -162,7 +166,7 @@ export default function OrderPageClient({ gig }: OrderPageClientProps) {
             value={deliveryNotes}
             onChange={(e) => setDeliveryNotes(e.target.value)}
             placeholder="Any special instructions or requirements for the provider..."
-            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-burgundy-500 focus:border-transparent resize-none"
             rows={4}
             maxLength={1000}
           />
@@ -177,7 +181,7 @@ export default function OrderPageClient({ gig }: OrderPageClientProps) {
             type="button"
             onClick={handleContinueToPayment}
             disabled={!selectedTier || isPending}
-            className="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-8 rounded-md transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+            className="bg-burgundy-600 hover:bg-burgundy-700 text-white font-semibold py-3 px-8 rounded-md transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
             Continue to Payment
           </button>
@@ -192,11 +196,11 @@ export default function OrderPageClient({ gig }: OrderPageClientProps) {
               </h2>
 
               {/* MVP Notice */}
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
-                <p className="text-sm text-amber-900 font-medium">
+              <div className="bg-burgundy-50 border border-burgundy-200 rounded-lg p-4 mb-4">
+                <p className="text-sm text-burgundy-900 font-medium">
                   This is a simulated payment
                 </p>
-                <p className="text-sm text-amber-800 mt-1">
+                <p className="text-sm text-burgundy-800 mt-1">
                   No actual payment will be processed. This is for demonstration
                   purposes only.
                 </p>
@@ -216,7 +220,7 @@ export default function OrderPageClient({ gig }: OrderPageClientProps) {
                 </div>
                 <div className="flex justify-between text-lg font-bold">
                   <span className="text-gray-900">Total:</span>
-                  <span className="text-orange-600">
+                  <span className="text-burgundy-600">
                     ${selectedTierDetails.price}
                   </span>
                 </div>
@@ -236,7 +240,7 @@ export default function OrderPageClient({ gig }: OrderPageClientProps) {
                   <button
                     type="submit"
                     disabled={isPending}
-                    className="flex-1 px-4 py-2.5 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md transition-colors disabled:opacity-50"
+                    className="flex-1 px-4 py-2.5 bg-burgundy-600 hover:bg-burgundy-700 text-white font-semibold rounded-md transition-colors disabled:opacity-50"
                   >
                     {isPending ? "Processing..." : "Confirm Payment"}
                   </button>

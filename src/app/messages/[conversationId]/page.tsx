@@ -82,7 +82,7 @@ export default async function ConversationPage({ params }: ConversationPageProps
   const otherUserDisplayName = otherUser?.displayName || otherUser?.name || "Anonymous"
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
+    <div className="min-h-screen bg-cream-50">
       <div className="max-w-5xl mx-auto">
         {/* Header bar */}
         <div className="bg-white border-b border-gray-200 shadow-sm px-6 py-4">
@@ -90,7 +90,7 @@ export default async function ConversationPage({ params }: ConversationPageProps
             <div className="flex items-center space-x-3">
               <Link
                 href="/messages"
-                className="text-gray-600 hover:text-orange-600 transition-colors"
+                className="text-gray-600 hover:text-burgundy-600 transition-colors"
               >
                 <svg
                   className="w-6 h-6"
@@ -114,7 +114,7 @@ export default async function ConversationPage({ params }: ConversationPageProps
                     className="w-10 h-10 rounded-full object-cover"
                   />
                 ) : (
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-burgundy-400 to-burgundy-500 flex items-center justify-center text-white font-bold text-sm">
                     {otherUserDisplayName
                       .split(" ")
                       .map((n) => n[0])
@@ -130,7 +130,7 @@ export default async function ConversationPage({ params }: ConversationPageProps
                   {otherUser?.username && (
                     <Link
                       href={`/u/${otherUser.username}`}
-                      className="text-sm text-orange-600 hover:text-orange-700"
+                      className="text-sm text-burgundy-600 hover:text-burgundy-700"
                     >
                       View Profile
                     </Link>

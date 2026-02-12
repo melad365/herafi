@@ -65,12 +65,13 @@ export default async function GigsPage({ searchParams }: PageProps) {
   );
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
-      {/* Page header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Browse Services
-        </h1>
+    <div className="min-h-screen bg-cream-50">
+      <div className="container mx-auto px-4 sm:px-6 py-8 max-w-7xl">
+        {/* Page header */}
+        <div className="mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-burgundy-900 mb-2">
+            Browse Services
+          </h1>
         {category && (
           <p className="text-gray-600">
             Showing: <span className="font-semibold">{CATEGORY_LABELS[category]}</span>
@@ -93,10 +94,11 @@ export default async function GigsPage({ searchParams }: PageProps) {
       {/* Results */}
       <GigGrid gigs={gigs} />
 
-      {/* Pagination */}
-      <Suspense>
-        <Pagination currentPage={page} totalPages={totalPages} />
-      </Suspense>
+        {/* Pagination */}
+        <Suspense>
+          <Pagination currentPage={page} totalPages={totalPages} />
+        </Suspense>
+      </div>
     </div>
   );
 }

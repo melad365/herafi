@@ -71,21 +71,21 @@ export default async function MessagesPage() {
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
-      <div className="max-w-4xl mx-auto px-6 py-12">
+    <div className="min-h-screen bg-cream-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         {/* Header */}
-        <div className="mb-6 flex items-center justify-between">
-          <h1 className="text-3xl font-bold text-gray-900">Messages</h1>
+        <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <h1 className="text-2xl sm:text-3xl font-bold text-burgundy-900">Messages</h1>
           <Link
             href="/dashboard"
-            className="text-orange-600 hover:text-orange-700 font-medium text-sm"
+            className="text-burgundy-600 hover:text-burgundy-700 font-medium text-sm"
           >
             Back to Dashboard
           </Link>
         </div>
 
         {/* Conversations */}
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="bg-white rounded-xl shadow-card p-6">
           {enrichedConversations.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-600 mb-4">No conversations yet.</p>

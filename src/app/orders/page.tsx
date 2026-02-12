@@ -34,11 +34,11 @@ export default async function OrdersPage() {
   })
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
-      <div className="max-w-5xl mx-auto px-6 py-12">
+    <div className="min-h-screen bg-cream-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
         {/* Page Header */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-          <h1 className="text-3xl font-bold text-gray-900">My Orders</h1>
+        <div className="bg-white rounded-xl shadow-card p-6 mb-6">
+          <h1 className="text-2xl sm:text-3xl font-bold text-burgundy-900">My Orders</h1>
           <p className="text-gray-600 mt-2">
             Track all your service orders in one place
           </p>
@@ -46,13 +46,13 @@ export default async function OrdersPage() {
 
         {/* Orders List */}
         {orders.length === 0 ? (
-          <div className="bg-white rounded-lg shadow-lg p-12 text-center">
+          <div className="bg-white rounded-xl shadow-card p-12 text-center">
             <p className="text-gray-600 text-lg mb-4">
               You haven&apos;t placed any orders yet.
             </p>
             <Link
               href="/gigs"
-              className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors"
+              className="inline-block bg-burgundy-600 hover:bg-burgundy-700 text-white font-medium py-2.5 px-6 rounded-md transition-colors"
             >
               Browse Services
             </Link>
