@@ -266,6 +266,21 @@ export default async function DashboardPage() {
 
         {/* Navigation Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {/* Provider Dashboard Card - only for providers */}
+          {user?.isProvider && (
+            <Link
+              href="/provider/dashboard"
+              className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg shadow hover:shadow-md transition-shadow p-6 border border-orange-200 hover:border-orange-400"
+            >
+              <h3 className="text-lg font-semibold text-orange-900 mb-2">
+                Provider Dashboard
+              </h3>
+              <p className="text-orange-800 text-sm">
+                Manage your gigs, orders, and messages
+              </p>
+            </Link>
+          )}
+
           {/* Messages Card */}
           <Link
             href="/messages"

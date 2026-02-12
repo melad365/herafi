@@ -5,6 +5,7 @@ import Link from "next/link"
 import TabNavigation from "@/components/provider/TabNavigation"
 import GigsTab from "./_components/GigsTab"
 import OrdersTab from "./_components/OrdersTab"
+import MessagesTab from "./_components/MessagesTab"
 
 interface ProviderDashboardPageProps {
   searchParams: Promise<{ tab?: string }>
@@ -35,7 +36,7 @@ export default async function ProviderDashboardPage({
   const activeTab = params.tab || "gigs"
 
   // Parallel data fetching with Promise.all()
-  const [gigs, orders, stats] = await Promise.all([
+  const [gigs, orders, stats, conversations] = await Promise.all([
     // 1. Fetch provider's gigs with order count
     prisma.gig.findMany({
       where: { providerId: session.user?.id },
@@ -86,9 +87,69 @@ export default async function ProviderDashboardPage({
         totalPrice: true,
       },
     }),
+
+    // 4. Fetch provider's conversations
+    prisma.conversation.findMany({
+      where: {
+        participantIds: {
+          has: session.user?.id,
+        },
+      },
+      orderBy: {
+        lastMessageAt: "desc",
+      },
+      take: 10,
+      include: {
+        messages: {
+          orderBy: {
+            createdAt: "desc",
+          },
+          take: 1,
+          include: {
+            sender: {
+              select: {
+                id: true,
+                name: true,
+                displayName: true,
+              },
+            },
+          },
+        },
+      },
+    }),
   ])
 
   const activeGigsCount = gigs.filter((g) => g.isActive).length
+
+  // Enrich conversations with other participant info
+  const enrichedConversations = await Promise.all(
+    conversations.map(async (conversation) => {
+      // Find the other participant (the one that isn't the current user)
+      const otherUserId = conversation.participantIds.find(
+        (id) => id !== session.user?.id
+      )
+
+      // Fetch other user's details
+      const otherUser = otherUserId
+        ? await prisma.user.findUnique({
+            where: { id: otherUserId },
+            select: {
+              id: true,
+              name: true,
+              displayName: true,
+              avatarUrl: true,
+            },
+          })
+        : null
+
+      return {
+        id: conversation.id,
+        otherUser,
+        lastMessage: conversation.messages[0] || null,
+        lastMessageAt: conversation.lastMessageAt,
+      }
+    })
+  )
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
@@ -142,11 +203,7 @@ export default async function ProviderDashboardPage({
         {activeTab === "gigs" && <GigsTab gigs={gigs} />}
         {activeTab === "orders" && <OrdersTab orders={orders} />}
         {activeTab === "messages" && (
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <p className="text-gray-600 text-center">
-              Messages tab coming soon
-            </p>
-          </div>
+          <MessagesTab conversations={enrichedConversations} />
         )}
       </div>
     </div>
