@@ -40,7 +40,7 @@ export default function OrderTimeline({ order }: OrderTimelineProps) {
     events.push({
       label: "Work Started",
       timestamp: order.startedAt,
-      color: "bg-purple-500",
+      color: "bg-burgundy-800",
     })
   }
 
@@ -61,8 +61,8 @@ export default function OrderTimeline({ order }: OrderTimelineProps) {
   }
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 shadow p-6">
-      <h2 className="text-lg font-semibold text-gray-900 mb-6">
+    <div className="bg-white rounded-xl shadow-card p-6">
+      <h2 className="text-lg font-semibold text-burgundy-900 mb-6">
         Order Timeline
       </h2>
       <div className="space-y-6">
@@ -72,7 +72,7 @@ export default function OrderTimeline({ order }: OrderTimelineProps) {
             <div className="flex flex-col items-center mr-4">
               <div className={`w-4 h-4 rounded-full ${event.color}`} />
               {index < events.length - 1 && (
-                <div className="w-0.5 h-12 bg-gray-200 mt-2" />
+                <div className="w-0.5 h-12 bg-burgundy-200 mt-2" />
               )}
             </div>
 

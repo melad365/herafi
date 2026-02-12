@@ -1,8 +1,9 @@
 "use client"
 
-import { useState, useActionState } from "react"
+import { useState, useActionState, useEffect } from "react"
 import { submitReview, type ReviewActionState } from "@/actions/reviews"
 import RatingInput from "./RatingInput"
+import { toast } from "sonner"
 
 interface ReviewFormProps {
   orderId: string
@@ -16,6 +17,15 @@ export default function ReviewForm({ orderId }: ReviewFormProps) {
     submitReview.bind(null, orderId),
     initialState
   )
+
+  // Show toast notifications when state changes
+  useEffect(() => {
+    if (state.success) {
+      toast.success("Review submitted successfully!")
+    } else if (state.error) {
+      toast.error(state.error)
+    }
+  }, [state])
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6">
@@ -57,7 +67,7 @@ export default function ReviewForm({ orderId }: ReviewFormProps) {
               name="content"
               rows={4}
               placeholder="Share your experience..."
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-transparent"
             />
             {state.fieldErrors?.content?.[0] && (
               <p className="mt-1 text-sm text-red-600">
@@ -77,7 +87,7 @@ export default function ReviewForm({ orderId }: ReviewFormProps) {
           <button
             type="submit"
             disabled={isPending || rating === 0}
-            className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-medium py-2.5 px-6 rounded-md transition-colors"
+            className="w-full bg-burgundy-600 hover:bg-burgundy-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-medium py-2.5 px-6 rounded-md transition-colors"
           >
             {isPending ? "Submitting..." : "Submit Review"}
           </button>

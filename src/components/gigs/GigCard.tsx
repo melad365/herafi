@@ -35,7 +35,7 @@ export default function GigCard({
   return (
     <Link
       href={`/gigs/${slug}`}
-      className="block rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-200"
+      className="block rounded-xl border border-gray-200 overflow-hidden hover:shadow-card-hover hover:border-burgundy-300 transition-all duration-200"
     >
       {/* Image area */}
       <div className="aspect-video bg-gray-100 relative">
@@ -62,7 +62,7 @@ export default function GigCard({
         </div>
 
         {/* Title */}
-        <h3 className="font-semibold text-gray-900 line-clamp-2 hover:text-orange-600 transition-colors">
+        <h3 className="font-semibold text-gray-900 line-clamp-2 hover:text-burgundy-800 transition-colors duration-200">
           {title}
         </h3>
 
@@ -74,7 +74,7 @@ export default function GigCard({
               alt={providerName}
               width={24}
               height={24}
-              className="rounded-full"
+              className="rounded-full border border-burgundy-200"
             />
           ) : (
             <div className="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center text-xs text-gray-600">
@@ -91,14 +91,14 @@ export default function GigCard({
           </div>
         ) : (
           <div className="pt-1">
-            <span className="text-sm text-gray-500">New</span>
+            <span className="inline-block text-xs px-2 py-1 bg-burgundy-100 text-burgundy-800 rounded-full font-medium">New</span>
           </div>
         )}
 
         {/* Price */}
         <div className="pt-2 border-t border-gray-100">
           <div className="text-sm text-gray-600">Starting at</div>
-          <div className="text-lg font-bold text-orange-600">
+          <div className="text-lg font-bold text-burgundy-800">
             ${startingPrice}
           </div>
         </div>

@@ -50,7 +50,7 @@ export default function CategoryFilter({
     <select
       value={currentCategory}
       onChange={handleChange}
-      className="px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white"
+      className="px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-transparent bg-white"
     >
       <option value="">All Categories</option>
       {Object.entries(CATEGORY_LABELS).map(([value, label]) => (

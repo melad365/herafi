@@ -47,7 +47,7 @@ export default function FilterPanel({
         <div className="flex justify-end">
           <button
             onClick={handleClearFilters}
-            className="text-sm text-orange-600 hover:text-orange-700 font-medium"
+            className="text-sm text-burgundy-600 hover:text-burgundy-700 font-medium"
           >
             Clear all filters
           </button>

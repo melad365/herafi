@@ -57,7 +57,7 @@ export default function ProviderCard({ provider }: ProviderCardProps) {
             className="w-16 h-16 rounded-full object-cover flex-shrink-0"
           />
         ) : (
-          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-burgundy-400 to-burgundy-500 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
             {initials}
           </div>
         )}
@@ -87,7 +87,7 @@ export default function ProviderCard({ provider }: ProviderCardProps) {
         {provider.username && (
           <Link
             href={`/u/${provider.username}`}
-            className="block w-full text-center py-2 px-4 border border-orange-600 text-orange-600 rounded-md hover:bg-orange-50 transition-colors font-medium"
+            className="block w-full text-center py-2 px-4 border border-burgundy-600 text-burgundy-600 rounded-md hover:bg-burgundy-50 transition-colors font-medium"
           >
             View Profile
           </Link>

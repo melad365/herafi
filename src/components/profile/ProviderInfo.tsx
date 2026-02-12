@@ -20,13 +20,13 @@ export default function ProviderInfo({ user }: ProviderInfoProps) {
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+      <h2 className="text-2xl font-bold text-burgundy-900 mb-4">
         Provider Details
       </h2>
 
       {/* Professional Summary */}
       {user.professionalSummary && (
-        <div className="mb-6 p-4 bg-orange-50 border-l-4 border-orange-500 rounded">
+        <div className="mb-6 p-4 bg-burgundy-50 border-l-4 border-burgundy-500 rounded">
           <h3 className="font-semibold text-gray-900 mb-2">
             Professional Summary
           </h3>
@@ -44,7 +44,7 @@ export default function ProviderInfo({ user }: ProviderInfoProps) {
             {user.skills.map((skill, index) => (
               <span
                 key={index}
-                className="px-3 py-1.5 bg-orange-100 text-orange-800 rounded-full text-sm font-medium"
+                className="px-3 py-1.5 bg-burgundy-100 text-burgundy-800 rounded-full text-sm font-medium"
               >
                 {skill}
               </span>

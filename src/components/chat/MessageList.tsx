@@ -66,7 +66,7 @@ export default function MessageList({ messages, currentUserId }: MessageListProp
                       className="w-8 h-8 rounded-full object-cover"
                     />
                   ) : (
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center text-white font-bold text-xs">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-burgundy-400 to-burgundy-500 flex items-center justify-center text-white font-bold text-xs">
                       {initials}
                     </div>
                   )}
@@ -81,7 +81,7 @@ export default function MessageList({ messages, currentUserId }: MessageListProp
                 <div
                   className={`px-4 py-2 rounded-lg ${
                     isOwn
-                      ? "bg-orange-500 text-white rounded-br-none"
+                      ? "bg-burgundy-800 text-white rounded-br-none"
                       : "bg-gray-200 text-gray-900 rounded-bl-none"
                   }`}
                 >

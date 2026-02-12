@@ -106,7 +106,7 @@ export default function Pagination({
               onClick={() => updatePage(pageNum)}
               className={`px-4 py-2 rounded-lg transition-colors ${
                 isActive
-                  ? "bg-orange-600 text-white font-semibold"
+                  ? "bg-burgundy-600 text-white font-semibold"
                   : "border border-gray-300 text-gray-700 hover:bg-gray-50"
               }`}
             >

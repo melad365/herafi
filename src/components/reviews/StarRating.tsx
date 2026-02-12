@@ -28,12 +28,12 @@ export default function StarRating({
       <span
         key={i}
         className={`${
-          isFilled || isPartial ? "text-yellow-500" : "text-gray-300"
+          isFilled || isPartial ? "text-burgundy-600" : "text-gray-300"
         } ${sizeClasses[size]}`}
         style={
           isPartial
             ? {
-                background: `linear-gradient(90deg, rgb(234 179 8) ${
+                background: `linear-gradient(90deg, rgb(87 13 30) ${
                   (rating % 1) * 100
                 }%, rgb(209 213 219) ${(rating % 1) * 100}%)`,
                 WebkitBackgroundClip: "text",

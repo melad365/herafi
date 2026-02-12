@@ -43,10 +43,10 @@ export default function ProfileHeader({
             <img
               src={user.avatarUrl}
               alt={displayName}
-              className="w-32 h-32 rounded-full object-cover border-4 border-orange-100"
+              className="w-32 h-32 rounded-full object-cover border-4 border-burgundy-100"
             />
           ) : (
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center border-4 border-orange-100">
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-burgundy-400 to-burgundy-500 flex items-center justify-center border-4 border-burgundy-100">
               <span className="text-4xl font-bold text-white">{initials}</span>
             </div>
           )}
@@ -66,7 +66,7 @@ export default function ProfileHeader({
               <span>{memberSince}</span>
             </div>
             {user.isProvider && (
-              <div className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full font-medium">
+              <div className="px-3 py-1 bg-burgundy-100 text-burgundy-800 rounded-full font-medium">
                 Provider
               </div>
             )}
@@ -83,7 +83,7 @@ export default function ProfileHeader({
           {isOwnProfile ? (
             <Link
               href="/profile/edit"
-              className="inline-block px-6 py-2.5 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-md transition-colors"
+              className="inline-block px-6 py-2.5 bg-burgundy-600 hover:bg-burgundy-700 text-white font-medium rounded-md transition-colors"
             >
               Edit Profile
             </Link>

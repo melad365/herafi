@@ -74,7 +74,7 @@ export default function PriceRangeFilter({
           onChange={handleMinChange}
           placeholder="Min $"
           min="0"
-          className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+          className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-transparent"
         />
       </div>
       <span className="text-gray-400">-</span>
@@ -89,7 +89,7 @@ export default function PriceRangeFilter({
           onChange={handleMaxChange}
           placeholder="Max $"
           min="0"
-          className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+          className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-transparent"
         />
       </div>
     </div>

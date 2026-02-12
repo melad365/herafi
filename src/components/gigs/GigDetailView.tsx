@@ -82,7 +82,7 @@ export default function GigDetailView({ gig, isOwner, isAuthenticated }: GigDeta
   ].filter(Boolean)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
+    <div className="min-h-screen bg-cream-50">
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
@@ -91,31 +91,31 @@ export default function GigDetailView({ gig, isOwner, isAuthenticated }: GigDeta
             <GigImageGallery images={gig.images} title={gig.title} />
 
             {/* Title and Category */}
-            <div className="bg-white rounded-lg border border-gray-200 shadow p-6">
+            <div className="bg-white rounded-xl shadow-card p-6">
               <div className="flex items-start justify-between mb-3">
                 <h1 className="text-2xl font-bold text-gray-900 flex-grow">
                   {gig.title}
                 </h1>
               </div>
               <div>
-                <span className="inline-block uppercase text-xs font-semibold bg-orange-100 text-orange-800 rounded-full px-3 py-1">
+                <span className="inline-block uppercase text-xs font-semibold bg-burgundy-100 text-burgundy-800 rounded-full px-3 py-1">
                   {categoryLabel}
                 </span>
               </div>
             </div>
 
             {/* Description */}
-            <div className="bg-white rounded-lg border border-gray-200 shadow p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <div className="bg-white rounded-xl shadow-card p-6">
+              <h2 className="text-xl font-semibold text-burgundy-900 mb-4">
                 About This Service
               </h2>
-              <p className="text-gray-700 whitespace-pre-wrap leading-relaxed">
+              <p className="text-gray-700 whitespace-pre-wrap leading-relaxed bg-cream-50 p-4 rounded-lg">
                 {gig.description}
               </p>
             </div>
 
             {/* Pricing Tiers */}
-            <div className="bg-white rounded-lg border border-gray-200 shadow p-6">
+            <div className="bg-white rounded-xl shadow-card p-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-6">
                 Compare Packages
               </h2>
@@ -167,20 +167,20 @@ export default function GigDetailView({ gig, isOwner, isAuthenticated }: GigDeta
                     {isOwner ? (
                       <div className="w-full py-3 px-4 rounded-md font-medium text-center bg-gray-100 text-gray-600">Your Gig</div>
                     ) : isAuthenticated ? (
-                      <Link href={`/gigs/${gig.slug}/order`} className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-500 hover:bg-orange-600 text-white transition-colors">
+                      <Link href={`/gigs/${gig.slug}/order`} className="w-full py-3 px-4 rounded-md font-semibold text-center bg-burgundy-500 hover:bg-burgundy-600 text-white transition-colors">
                         Order Now
                       </Link>
                     ) : (
-                      <Link href="/login" className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-500 hover:bg-orange-600 text-white transition-colors">
+                      <Link href="/login" className="w-full py-3 px-4 rounded-md font-semibold text-center bg-burgundy-500 hover:bg-burgundy-600 text-white transition-colors">
                         Sign in to Order
                       </Link>
                     )}
                   </div>
                 )}
                 {gig.pricingTiers.standard && (
-                  <div className="relative bg-white rounded-lg border-2 border-orange-500 shadow-lg p-6 flex flex-col h-full">
+                  <div className="relative bg-white rounded-lg border-2 border-burgundy-500 shadow-lg p-6 flex flex-col h-full">
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className="inline-block bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Popular</span>
+                      <span className="inline-block bg-burgundy-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Popular</span>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{gig.pricingTiers.standard.name}</h3>
                     <div className="mb-4">
@@ -219,11 +219,11 @@ export default function GigDetailView({ gig, isOwner, isAuthenticated }: GigDeta
                     {isOwner ? (
                       <div className="w-full py-3 px-4 rounded-md font-medium text-center bg-gray-100 text-gray-600">Your Gig</div>
                     ) : isAuthenticated ? (
-                      <Link href={`/gigs/${gig.slug}/order`} className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-600 hover:bg-orange-700 text-white transition-colors">
+                      <Link href={`/gigs/${gig.slug}/order`} className="w-full py-3 px-4 rounded-md font-semibold text-center bg-burgundy-600 hover:bg-burgundy-700 text-white transition-colors">
                         Order Now
                       </Link>
                     ) : (
-                      <Link href="/login" className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-600 hover:bg-orange-700 text-white transition-colors">
+                      <Link href="/login" className="w-full py-3 px-4 rounded-md font-semibold text-center bg-burgundy-600 hover:bg-burgundy-700 text-white transition-colors">
                         Sign in to Order
                       </Link>
                     )}
@@ -268,11 +268,11 @@ export default function GigDetailView({ gig, isOwner, isAuthenticated }: GigDeta
                     {isOwner ? (
                       <div className="w-full py-3 px-4 rounded-md font-medium text-center bg-gray-100 text-gray-600">Your Gig</div>
                     ) : isAuthenticated ? (
-                      <Link href={`/gigs/${gig.slug}/order`} className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-500 hover:bg-orange-600 text-white transition-colors">
+                      <Link href={`/gigs/${gig.slug}/order`} className="w-full py-3 px-4 rounded-md font-semibold text-center bg-burgundy-500 hover:bg-burgundy-600 text-white transition-colors">
                         Order Now
                       </Link>
                     ) : (
-                      <Link href="/login" className="w-full py-3 px-4 rounded-md font-semibold text-center bg-orange-500 hover:bg-orange-600 text-white transition-colors">
+                      <Link href="/login" className="w-full py-3 px-4 rounded-md font-semibold text-center bg-burgundy-500 hover:bg-burgundy-600 text-white transition-colors">
                         Sign in to Order
                       </Link>
                     )}
@@ -282,8 +282,8 @@ export default function GigDetailView({ gig, isOwner, isAuthenticated }: GigDeta
             </div>
 
             {/* Reviews section */}
-            <div className="bg-white rounded-lg border border-gray-200 shadow p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <div className="bg-white rounded-xl shadow-card p-6">
+              <h2 className="text-xl font-semibold text-burgundy-900 mb-4">
                 Reviews
               </h2>
               {gig.totalReviews > 0 && (
@@ -307,14 +307,14 @@ export default function GigDetailView({ gig, isOwner, isAuthenticated }: GigDeta
 
             {/* Owner Controls */}
             {isOwner && (
-              <div className="bg-white rounded-lg border border-gray-200 shadow p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <div className="bg-white rounded-xl shadow-card p-6">
+                <h3 className="text-lg font-semibold text-burgundy-900 mb-4">
                   Manage Gig
                 </h3>
                 <div className="space-y-3">
                   <Link
                     href={`/gigs/${gig.slug}/edit`}
-                    className="block w-full text-center py-2 px-4 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors font-medium"
+                    className="block w-full text-center py-2 px-4 bg-burgundy-800 text-white rounded-md hover:bg-burgundy-700 transition-colors duration-200 font-medium"
                   >
                     Edit Gig
                   </Link>
@@ -322,7 +322,7 @@ export default function GigDetailView({ gig, isOwner, isAuthenticated }: GigDeta
                     type="button"
                     onClick={handleDelete}
                     disabled={isDeleting}
-                    className="w-full py-2 px-4 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors font-medium disabled:bg-gray-400"
+                    className="w-full py-2 px-4 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors duration-200 font-medium disabled:bg-gray-400"
                   >
                     {isDeleting ? "Deleting..." : "Delete Gig"}
                   </button>

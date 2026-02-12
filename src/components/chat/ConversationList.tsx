@@ -66,8 +66,8 @@ export default function ConversationList({ conversations, currentUserId }: Conve
             href={`/messages/${conversation.id}`}
             className={`block p-4 rounded-lg border transition-colors ${
               isActive
-                ? "bg-orange-50 border-orange-300"
-                : "bg-white border-gray-200 hover:border-orange-200 hover:bg-orange-50/50"
+                ? "bg-burgundy-50 border-burgundy-300"
+                : "bg-white border-gray-200 hover:border-burgundy-200 hover:bg-burgundy-50/50"
             }`}
           >
             <div className="flex items-start space-x-3">
@@ -79,7 +79,7 @@ export default function ConversationList({ conversations, currentUserId }: Conve
                   className="w-12 h-12 rounded-full object-cover flex-shrink-0"
                 />
               ) : (
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-burgundy-400 to-burgundy-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                   {initials}
                 </div>
               )}
@@ -105,7 +105,7 @@ export default function ConversationList({ conversations, currentUserId }: Conve
 
               {/* Unread indicator */}
               {isUnread && conversation.lastMessage && (
-                <div className="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0 mt-2"></div>
+                <div className="w-2 h-2 bg-burgundy-500 rounded-full flex-shrink-0 mt-2"></div>
               )}
             </div>
           </Link>

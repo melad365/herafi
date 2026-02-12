@@ -30,13 +30,13 @@ export default function RatingInput({
             onMouseEnter={() => setHoverRating(star)}
             onMouseLeave={() => setHoverRating(0)}
             aria-label={`Rate ${star} stars`}
-            className={`text-3xl transition-colors ${
+            className={`text-3xl transition-colors duration-200 ${
               star <= displayRating
                 ? hoverRating > 0
-                  ? "text-yellow-400"
-                  : "text-yellow-500"
+                  ? "text-burgundy-400"
+                  : "text-burgundy-600"
                 : "text-gray-300"
-            } hover:text-yellow-400`}
+            } hover:text-burgundy-400`}
           >
             ★
           </button>

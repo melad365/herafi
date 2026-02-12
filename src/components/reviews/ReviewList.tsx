@@ -41,7 +41,7 @@ export default function ReviewList({ reviews }: ReviewListProps) {
         return (
           <div
             key={review.id}
-            className="bg-white rounded-lg border border-gray-200 p-6"
+            className="bg-white rounded-lg shadow-soft border border-gray-200 p-6"
           >
             <div className="flex items-start gap-4">
               {/* Avatar */}
@@ -52,7 +52,7 @@ export default function ReviewList({ reviews }: ReviewListProps) {
                   className="w-12 h-12 rounded-full object-cover flex-shrink-0"
                 />
               ) : (
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-burgundy-400 to-burgundy-500 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                   {initials}
                 </div>
               )}

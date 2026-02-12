@@ -49,8 +49,8 @@ export default function MessageButton({ otherUserId, variant = "secondary" }: Me
 
   const baseClasses = "flex items-center justify-center space-x-2 py-2 px-4 rounded-md font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
   const variantClasses = variant === "primary"
-    ? "bg-orange-600 text-white hover:bg-orange-700"
-    : "border border-orange-600 text-orange-600 hover:bg-orange-50"
+    ? "bg-burgundy-600 text-white hover:bg-burgundy-700"
+    : "border border-burgundy-600 text-burgundy-600 hover:bg-burgundy-50"
 
   return (
     <div>

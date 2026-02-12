@@ -13,14 +13,14 @@ export default function PricingTierCard({
     <div
       className={`relative bg-white rounded-lg border-2 p-6 flex flex-col h-full ${
         highlighted
-          ? "border-orange-500 shadow-lg"
+          ? "border-burgundy-500 shadow-lg"
           : "border-gray-200 shadow"
       }`}
     >
       {/* Popular badge for highlighted tier */}
       {highlighted && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="inline-block bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+          <span className="inline-block bg-burgundy-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
             Popular
           </span>
         </div>
@@ -114,7 +114,7 @@ export default function PricingTierCard({
         type="button"
         className={`w-full py-3 px-4 rounded-md font-medium transition-colors ${
           highlighted
-            ? "bg-orange-600 hover:bg-orange-700 text-white"
+            ? "bg-burgundy-600 hover:bg-burgundy-700 text-white"
             : "bg-gray-100 hover:bg-gray-200 text-gray-900"
         }`}
       >
