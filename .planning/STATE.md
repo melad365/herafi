@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-07)
 
 **Core value:** Anyone can find and hire a trusted service provider for in-person or digital work through a simple, browsable marketplace with clear service listings.
-**Current focus:** Phase 6 complete — ready for Phase 7
+**Current focus:** Phase 7 complete — ready for Phase 8
 
 ## Current Position
 
-Phase: 7 of 8 (Provider Dashboard) — IN PROGRESS
-Plan: 1 of 2 complete
-Status: In progress
-Last activity: 2026-02-12 — Completed 07-01-PLAN.md
+Phase: 7 of 8 (Provider Dashboard) — COMPLETE
+Plan: 2 of 2 complete
+Status: Phase complete
+Last activity: 2026-02-12 — Completed 07-02-PLAN.md
 
-Progress: [███████░░░] 75% (6/8 phases)
+Progress: [███████░░] 87.5% (7/8 phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 21
+- Total plans completed: 22
 - Average duration: 2.9 min
-- Total execution time: 1.25 hours
+- Total execution time: 1.29 hours
 
 **By Phase:**
 
@@ -33,11 +33,11 @@ Progress: [███████░░░] 75% (6/8 phases)
 | 04    | 3     | 10.3m | 3.4m     |
 | 05    | 3     | 10.8m | 3.6m     |
 | 06    | 2     | 7.0m  | 3.5m     |
-| 07    | 1     | 2.0m  | 2.0m     |
+| 07    | 2     | 4.0m  | 2.0m     |
 
 **Recent Trend:**
-- Last 5 plans: 07-01 (2.0m), 06-02 (5.0m), 06-01 (2.0m), 05-03 (3.3m), 05-02 (3.3m)
-- Trend: Phase 7 starting strong with 2.0m for provider dashboard foundation
+- Last 5 plans: 07-02 (2.0m), 07-01 (2.0m), 06-02 (5.0m), 06-01 (2.0m), 05-03 (3.3m)
+- Trend: Phase 7 complete - consistent 2.0m execution for both dashboard plans
 
 *Updated after each plan completion*
 
@@ -124,6 +124,9 @@ Recent decisions affecting current work:
 - URL-based tabs for provider dashboard: Search params (?tab=gigs) enable bookmarkable state and browser navigation (07-01)
 - Promise.all parallel queries: Dashboard fetches gigs, orders, and stats simultaneously for performance (07-01)
 - Completed orders limited to 10: Prevents long page loads for high-volume providers (07-01)
+- Messages tab limit 10: MessagesTab shows max 10 recent conversations with View All link for performance (07-02)
+- Provider Dashboard card orange gradient: Visually distinct from other cards, matches provider branding (07-02)
+- Provider card first position: Provider Dashboard card appears first in navigation grid as primary action for providers (07-02)
 
 ### Pending Todos
 
@@ -136,7 +139,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-12
-Stopped at: Completed 07-01-PLAN.md
+Stopped at: Completed 07-02-PLAN.md
 Resume file: None
 
 ---
