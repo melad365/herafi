@@ -1,210 +1,136 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   WrenchScrewdriverIcon,
   PaintBrushIcon,
   SparklesIcon,
   HomeModernIcon,
   BoltIcon,
-  CheckBadgeIcon,
-  ShieldCheckIcon,
-  ClockIcon,
   TruckIcon,
-  PencilSquareIcon,
   ComputerDesktopIcon,
   WrenchIcon,
 } from "@heroicons/react/24/outline";
+import HeroSearch from "@/components/landing/HeroSearch";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-cream-50">
+    <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-burgundy-900 via-burgundy-800 to-burgundy-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Find Skilled Craftsmen You Can Trust
-            </h1>
-            <p className="text-xl sm:text-2xl text-burgundy-100 mb-8 leading-relaxed">
-              Connect with verified professionals for in-person and digital services. Quality work, transparent pricing, trusted results.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/gigs"
-                className="bg-white text-burgundy-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-cream-50 transition-all duration-200 shadow-lg hover:shadow-xl"
-              >
-                Browse Services
-              </Link>
-              <Link
-                href="/provider/setup"
-                className="bg-burgundy-700 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-burgundy-600 transition-all duration-200 border-2 border-burgundy-600"
-              >
-                Become a Provider
-              </Link>
+      <section className="relative bg-cream-50 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            {/* Left: Copy + Search */}
+            <div>
+              <p className="text-burgundy-700 text-sm font-medium tracking-wide uppercase mb-3">
+                Trusted service marketplace
+              </p>
+              <h1 className="text-3xl sm:text-4xl text-burgundy-950 mb-4 leading-snug">
+                Find the right person
+                <br />
+                for the job
+              </h1>
+              <p className="text-gray-600 text-base mb-8 max-w-md leading-relaxed">
+                Browse portfolios, read verified reviews, and connect with
+                skilled professionals for plumbing, painting, carpentry,
+                and more.
+              </p>
+
+              <HeroSearch />
+
+              <div className="mt-6 flex items-center gap-5 text-xs text-gray-500">
+                <span>Popular:</span>
+                <Link href="/browse/plumbing" className="hover:text-burgundy-700 transition-colors underline underline-offset-2">Plumbing</Link>
+                <Link href="/browse/painting" className="hover:text-burgundy-700 transition-colors underline underline-offset-2">Painting</Link>
+                <Link href="/browse/cleaning" className="hover:text-burgundy-700 transition-colors underline underline-offset-2">Cleaning</Link>
+              </div>
             </div>
 
-            {/* Trust Signals */}
-            <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="flex items-center justify-center gap-3">
-                <CheckBadgeIcon className="w-8 h-8 text-burgundy-200" />
-                <span className="text-burgundy-100">Verified Providers</span>
-              </div>
-              <div className="flex items-center justify-center gap-3">
-                <ShieldCheckIcon className="w-8 h-8 text-burgundy-200" />
-                <span className="text-burgundy-100">Secure Payments</span>
-              </div>
-              <div className="flex items-center justify-center gap-3">
-                <ClockIcon className="w-8 h-8 text-burgundy-200" />
-                <span className="text-burgundy-100">24/7 Support</span>
-              </div>
+            {/* Right: Hero image */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-card">
+              <Image
+                src="/images/hero-craftsman.jpg"
+                alt="Craftsman working in a woodworking workshop"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Categories Section */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Popular Services
+      {/* Categories Section */}
+      <section className="py-14 sm:py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-8">
+            <h2 className="text-xl sm:text-2xl text-gray-900 mb-1">
+              Browse by category
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-sm text-gray-500">
               Find the right professional for your needs
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {/* Category Cards */}
-            <CategoryCard
-              href="/browse/plumbing"
-              icon={<WrenchScrewdriverIcon className="w-8 h-8" />}
-              label="Plumbing"
-            />
-            <CategoryCard
-              href="/browse/painting"
-              icon={<PaintBrushIcon className="w-8 h-8" />}
-              label="Painting"
-            />
-            <CategoryCard
-              href="/browse/cleaning"
-              icon={<SparklesIcon className="w-8 h-8" />}
-              label="Cleaning"
-            />
-            <CategoryCard
-              href="/browse/carpentry"
-              icon={<HomeModernIcon className="w-8 h-8" />}
-              label="Carpentry"
-            />
-            <CategoryCard
-              href="/browse/electrical"
-              icon={<BoltIcon className="w-8 h-8" />}
-              label="Electrical"
-            />
-            <CategoryCard
-              href="/browse/welding"
-              icon={<WrenchIcon className="w-8 h-8" />}
-              label="Welding"
-            />
-            <CategoryCard
-              href="/browse/moving"
-              icon={<TruckIcon className="w-8 h-8" />}
-              label="Moving"
-            />
-            <CategoryCard
-              href="/browse/digital-design"
-              icon={<ComputerDesktopIcon className="w-8 h-8" />}
-              label="Digital Design"
-            />
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <CategoryCard href="/browse/plumbing" icon={<WrenchScrewdriverIcon className="w-5 h-5" />} label="Plumbing" />
+            <CategoryCard href="/browse/painting" icon={<PaintBrushIcon className="w-5 h-5" />} label="Painting" />
+            <CategoryCard href="/browse/cleaning" icon={<SparklesIcon className="w-5 h-5" />} label="Cleaning" />
+            <CategoryCard href="/browse/carpentry" icon={<HomeModernIcon className="w-5 h-5" />} label="Carpentry" />
+            <CategoryCard href="/browse/electrical" icon={<BoltIcon className="w-5 h-5" />} label="Electrical" />
+            <CategoryCard href="/browse/welding" icon={<WrenchIcon className="w-5 h-5" />} label="Welding" />
+            <CategoryCard href="/browse/moving" icon={<TruckIcon className="w-5 h-5" />} label="Moving" />
+            <CategoryCard href="/browse/digital-design" icon={<ComputerDesktopIcon className="w-5 h-5" />} label="Digital" />
           </div>
 
-          <div className="text-center mt-8">
+          <div className="mt-6">
             <Link
               href="/gigs"
-              className="text-burgundy-800 hover:text-burgundy-900 font-semibold text-lg inline-flex items-center gap-2 group"
+              className="text-burgundy-700 hover:text-burgundy-900 text-sm inline-flex items-center gap-1.5 group"
             >
-              View All Services
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
+              View all services
+              <span className="group-hover:translate-x-0.5 transition-transform">&rarr;</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
-      <section className="bg-cream-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              How It Works
-            </h2>
-            <p className="text-xl text-gray-600">
-              Get started in three simple steps
-            </p>
-          </div>
+      <section className="py-14 sm:py-16 px-4 bg-cream-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-xl sm:text-2xl text-gray-900 mb-10 text-center">
+            How it works
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Step 1 */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-burgundy-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-burgundy-900">1</span>
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-                Browse Services
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Explore our marketplace of verified professionals. Filter by category, price, and ratings to find the perfect match.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-burgundy-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-burgundy-900">2</span>
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-                Place Your Order
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Choose your service tier, review the details, and securely place your order. Connect with the provider instantly.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-burgundy-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-burgundy-900">3</span>
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-                Get It Done
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Track your order progress, communicate with your provider, and review the completed work. Quality guaranteed.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto md:max-w-none">
+            <Step number="1" title="Browse" description="Search by category or keyword. Compare portfolios, ratings, and pricing tiers." />
+            <Step number="2" title="Order" description="Pick a tier that fits your budget. Message the provider with any questions first." />
+            <Step number="3" title="Done" description="Track progress from start to finish. Leave a review when you're satisfied." />
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-burgundy-900 to-burgundy-800 py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Ready to Get Started?
+      {/* Bottom CTA */}
+      <section className="py-12 sm:py-14 px-4 bg-burgundy-900">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-xl sm:text-2xl text-white mb-2">
+            Ready to get started?
           </h2>
-          <p className="text-xl text-burgundy-100 mb-8">
-            Join thousands of satisfied customers who trust Herafi for quality services
+          <p className="text-burgundy-200 text-sm mb-6">
+            Join Herafi today — browse services or start offering your own.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/gigs"
-              className="bg-white text-burgundy-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-cream-50 transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="bg-white text-burgundy-900 px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-cream-50 transition-colors"
             >
-              Find a Service
+              Browse services
             </Link>
             <Link
-              href="/provider/setup"
-              className="bg-burgundy-700 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-burgundy-600 transition-all duration-200 border-2 border-burgundy-600"
+              href="/register"
+              className="border border-burgundy-400 text-burgundy-100 px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-burgundy-800 transition-colors"
             >
-              Start Earning Today
+              Create an account
             </Link>
           </div>
         </div>
@@ -213,27 +139,30 @@ export default function Home() {
   );
 }
 
-// Category Card Component
-function CategoryCard({
-  href,
-  icon,
-  label,
-}: {
-  href: string;
-  icon: React.ReactNode;
-  label: string;
-}) {
+function CategoryCard({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
   return (
     <Link
       href={href}
-      className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-burgundy-300 hover:shadow-card transition-all duration-200 group"
+      className="flex items-center gap-3 bg-cream-50 rounded-lg px-4 py-3.5 border border-transparent hover:border-burgundy-200 hover:bg-burgundy-50 transition-all duration-200 group"
     >
-      <div className="text-burgundy-800 group-hover:text-burgundy-900 transition-colors mb-3">
+      <span className="text-burgundy-700 group-hover:text-burgundy-800 transition-colors">
         {icon}
-      </div>
-      <h3 className="font-semibold text-gray-900 group-hover:text-burgundy-900 transition-colors">
+      </span>
+      <span className="text-sm text-gray-800 group-hover:text-burgundy-900 transition-colors">
         {label}
-      </h3>
+      </span>
     </Link>
+  );
+}
+
+function Step({ number, title, description }: { number: string; title: string; description: string }) {
+  return (
+    <div className="text-center">
+      <div className="w-8 h-8 rounded-full bg-burgundy-100 text-burgundy-800 flex items-center justify-center text-sm mx-auto mb-3">
+        {number}
+      </div>
+      <h3 className="text-base text-gray-900 mb-1.5">{title}</h3>
+      <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
+    </div>
   );
 }

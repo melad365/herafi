@@ -20,7 +20,7 @@ export default async function Header() {
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-burgundy-900 hover:text-burgundy-800 transition-colors">
+        <Link href="/" className="text-xl font-lora text-burgundy-900 hover:text-burgundy-800 transition-colors" style={{ fontFamily: 'var(--font-lora)' }}>
           Herafi
         </Link>
 
