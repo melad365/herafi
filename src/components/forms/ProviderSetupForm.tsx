@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { providerSchema } from "@/lib/validations/profile";
 import { becomeProvider, type ProviderActionState } from "@/actions/provider";
 import { z } from "zod";
+import { toast } from "sonner";
 
 type ProviderFormData = {
   providerBio: string;
@@ -32,12 +33,15 @@ export default function ProviderSetupForm() {
 
   useEffect(() => {
     if (state.success) {
+      toast.success("Success! You're now a provider. Redirecting...");
       const timer = setTimeout(() => {
         router.push("/dashboard");
       }, 2000);
       return () => clearTimeout(timer);
+    } else if (state.error) {
+      toast.error(state.error);
     }
-  }, [state.success, router]);
+  }, [state.success, state.error, router]);
 
   const onSubmit = async (data: ProviderFormData) => {
     const formData = new FormData();
@@ -52,27 +56,13 @@ export default function ProviderSetupForm() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8">
+    <div className="bg-white rounded-lg shadow-card p-8">
       {/* Intro Section */}
       <div className="mb-8 pb-6 border-b border-gray-200">
         <p className="text-lg text-gray-700">
           Ready to offer your services? Complete your provider profile to start creating gigs and connecting with clients.
         </p>
       </div>
-
-      {state.success && (
-        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md">
-          <p className="text-green-800 font-medium">
-            Success! You're now a provider. Redirecting to dashboard...
-          </p>
-        </div>
-      )}
-
-      {state.error && (
-        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
-          <p className="text-red-800">{state.error}</p>
-        </div>
-      )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Professional Summary */}
@@ -85,7 +75,7 @@ export default function ProviderSetupForm() {
             id="professionalSummary"
             {...register("professionalSummary")}
             rows={3}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-burgundy-500"
             placeholder="e.g., Expert plumber with 10+ years of experience in residential repairs and installations"
           />
           {errors.professionalSummary && (
@@ -106,7 +96,7 @@ export default function ProviderSetupForm() {
             id="providerBio"
             {...register("providerBio")}
             rows={5}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-burgundy-500"
             placeholder="Tell clients about your background, specialties, and what makes you unique..."
           />
           {errors.providerBio && (
@@ -127,7 +117,7 @@ export default function ProviderSetupForm() {
             id="skills"
             type="text"
             {...register("skills")}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-burgundy-500"
             placeholder="e.g., Plumbing, Pipe Repair, Water Heater Installation"
           />
           {errors.skills && (
@@ -149,7 +139,7 @@ export default function ProviderSetupForm() {
             min="0"
             max="50"
             {...register("yearsOfExperience", { valueAsNumber: true })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-burgundy-500"
             placeholder="e.g., 10"
           />
           {errors.yearsOfExperience && (
@@ -170,7 +160,7 @@ export default function ProviderSetupForm() {
             id="certifications"
             type="text"
             {...register("certifications")}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-burgundy-500"
             placeholder="e.g., Licensed Plumber, Master Plumber Certification"
           />
           {errors.certifications && (
@@ -186,8 +176,14 @@ export default function ProviderSetupForm() {
           <button
             type="submit"
             disabled={isSubmitting || state.success}
-            className="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-3 px-6 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-burgundy-800 hover:bg-burgundy-700 text-white font-medium py-3 px-6 rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
+            {isSubmitting && (
+              <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            )}
             {isSubmitting ? "Setting up..." : "Become a Provider"}
           </button>
         </div>

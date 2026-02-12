@@ -34,14 +34,14 @@ export default function PricingTierInput({
   // Determine border color based on tier
   const borderColors = {
     Basic: "border-gray-300 hover:border-gray-400",
-    Standard: "border-amber-300 hover:border-amber-400",
-    Premium: "border-orange-400 hover:border-orange-500",
+    Standard: "border-burgundy-300 hover:border-burgundy-400",
+    Premium: "border-burgundy-500 hover:border-burgundy-600",
   };
 
   const headerColors = {
     Basic: "bg-gray-50 border-b border-gray-200",
-    Standard: "bg-amber-50 border-b border-amber-200",
-    Premium: "bg-orange-50 border-b border-orange-200",
+    Standard: "bg-burgundy-50 border-b border-burgundy-200",
+    Premium: "bg-burgundy-100 border-b border-burgundy-300",
   };
 
   // Emit changes to parent
@@ -77,7 +77,7 @@ export default function PricingTierInput({
               type="checkbox"
               checked={enabled}
               onChange={(e) => setEnabled(e.target.checked)}
-              className="w-4 h-4 text-orange-600 rounded focus:ring-orange-500"
+              className="w-4 h-4 text-burgundy-800 rounded focus:ring-burgundy-500"
             />
           </label>
         )}
@@ -97,7 +97,7 @@ export default function PricingTierInput({
               max="999999"
               value={price}
               onChange={(e) => setPrice(Number(e.target.value))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-burgundy-500 focus:border-burgundy-500"
               required
             />
           </div>
@@ -113,7 +113,7 @@ export default function PricingTierInput({
               minLength={10}
               maxLength={200}
               rows={3}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-burgundy-500 focus:border-burgundy-500"
               required
               placeholder="Describe what's included in this tier..."
             />
@@ -130,7 +130,7 @@ export default function PricingTierInput({
               max="365"
               value={deliveryDays}
               onChange={(e) => setDeliveryDays(Number(e.target.value))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-burgundy-500 focus:border-burgundy-500"
               required
             />
           </div>
@@ -146,7 +146,7 @@ export default function PricingTierInput({
               max="99"
               value={revisions}
               onChange={(e) => setRevisions(Number(e.target.value))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-burgundy-500 focus:border-burgundy-500"
               required
             />
           </div>
@@ -160,7 +160,7 @@ export default function PricingTierInput({
               type="text"
               value={features}
               onChange={(e) => setFeatures(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-burgundy-500 focus:border-burgundy-500"
               placeholder="Feature 1, Feature 2, Feature 3"
               required
             />

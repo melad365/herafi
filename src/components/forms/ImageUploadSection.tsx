@@ -132,7 +132,7 @@ export default function ImageUploadSection({
             multiple
             onChange={handleUpload}
             disabled={isPending}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-burgundy-500 focus:border-burgundy-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
           />
           <p className="mt-1 text-xs text-gray-500">
             Max {MAX_IMAGES} images, up to 5MB each. Formats: JPG, PNG, WebP
@@ -142,7 +142,7 @@ export default function ImageUploadSection({
 
       {/* Upload status */}
       {isPending && (
-        <p className="mt-2 text-sm text-orange-600">Processing...</p>
+        <p className="mt-2 text-sm text-burgundy-700">Processing...</p>
       )}
     </div>
   );

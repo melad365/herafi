@@ -7,6 +7,7 @@ import type { GigFormData } from "@/lib/validations/gig";
 import type { PricingTier } from "@/lib/validations/pricing";
 import PricingTierInput from "./PricingTierInput";
 import ImageUploadSection from "./ImageUploadSection";
+import { toast } from "sonner";
 
 // Category labels mapping
 export const CATEGORY_LABELS: Record<string, string> = {
@@ -58,16 +59,19 @@ export default function GigForm({ mode, initialData, action }: GigFormProps) {
     initialData?.pricingTiers?.premium ?? null
   );
 
-  // Redirect on success
+  // Handle success/error and redirect
   useEffect(() => {
     if (state.success && state.slug) {
+      toast.success(mode === "create" ? "Gig created successfully!" : "Gig updated successfully!");
       if (mode === "create") {
         router.push(`/gigs/${state.slug}/edit`);
       } else {
         router.push(`/gigs/${state.slug}`);
       }
+    } else if (state.error) {
+      toast.error(state.error);
     }
-  }, [state.success, state.slug, mode, router]);
+  }, [state.success, state.error, state.slug, mode, router]);
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
@@ -76,12 +80,6 @@ export default function GigForm({ mode, initialData, action }: GigFormProps) {
       </h1>
 
       <form action={formAction} className="space-y-8">
-        {/* Error message */}
-        {state.error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-            {state.error}
-          </div>
-        )}
 
         {/* Basic Information Section */}
         <section className="bg-white rounded-lg border border-gray-200 p-6">
@@ -101,7 +99,7 @@ export default function GigForm({ mode, initialData, action }: GigFormProps) {
               onChange={(e) => setTitle(e.target.value)}
               minLength={10}
               maxLength={100}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-burgundy-500 focus:border-burgundy-500"
               placeholder="I will..."
               required
             />
@@ -121,7 +119,7 @@ export default function GigForm({ mode, initialData, action }: GigFormProps) {
               name="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-burgundy-500 focus:border-burgundy-500"
               required
             >
               <option value="">Select a category...</option>
@@ -150,7 +148,7 @@ export default function GigForm({ mode, initialData, action }: GigFormProps) {
               minLength={50}
               maxLength={5000}
               rows={10}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-burgundy-500 focus:border-burgundy-500"
               placeholder="Describe your service in detail..."
               required
             />
@@ -230,7 +228,7 @@ export default function GigForm({ mode, initialData, action }: GigFormProps) {
           <button
             type="button"
             onClick={() => router.back()}
-            className="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors"
+            className="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-cream-50 transition-colors duration-200"
             disabled={isPending}
           >
             Cancel
@@ -238,8 +236,14 @@ export default function GigForm({ mode, initialData, action }: GigFormProps) {
           <button
             type="submit"
             disabled={isPending}
-            className="px-6 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors disabled:bg-gray-400"
+            className="px-6 py-2 bg-burgundy-800 text-white rounded-md hover:bg-burgundy-700 transition-colors duration-200 disabled:bg-gray-400 flex items-center gap-2"
           >
+            {isPending && (
+              <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            )}
             {isPending
               ? mode === "create"
                 ? "Creating..."
