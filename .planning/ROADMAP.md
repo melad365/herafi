@@ -151,10 +151,13 @@ Plans:
   3. Application works seamlessly on mobile, tablet, and desktop screen sizes
   4. All user actions provide clear feedback (success messages, error states, loading indicators)
   5. Navigation is intuitive with clear visual cues for buyer vs. provider contexts
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 08-01: TBD during plan-phase
+- [ ] 08-01-PLAN.md — Design system foundation: Tailwind burgundy config, Sonner toasts, UI primitives (Button, Skeleton, EmptyState)
+- [ ] 08-02-PLAN.md — Retheme auth, dashboards, and forms to burgundy; add toast/loading feedback
+- [ ] 08-03-PLAN.md — Retheme all remaining components and pages; add order action toasts
+- [ ] 08-04-PLAN.md — Landing page, persistent header with mobile nav, footer
 
 ## Progress
 
@@ -170,7 +173,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 | 5. Real-Time Messaging | 3/3 | ✓ Complete | 2026-02-10 |
 | 6. Reviews & Ratings | 2/2 | ✓ Complete | 2026-02-11 |
 | 7. Provider Dashboard | 2/2 | ✓ Complete | 2026-02-12 |
-| 8. UI Polish | 0/TBD | Not started | - |
+| 8. UI Polish | 0/4 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-07*
