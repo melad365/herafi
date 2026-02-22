@@ -2,26 +2,31 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-02-07)
+See: .planning/PROJECT.md (updated 2026-02-22)
 
 **Core value:** Anyone can find and hire a trusted service provider for in-person or digital work through a simple, browsable marketplace with clear service listings.
-**Current focus:** Phase 8 (UI Polish) in progress
+**Current focus:** v0.1.0 milestone complete — ready to start next milestone
 
 ## Current Position
 
-Phase: 8 of 8 (UI Polish)
-Plan: 4 of 4 complete
-Status: Complete
-Last activity: 2026-02-13 — Completed 08-04-PLAN.md
+Phase: Milestone complete (v0.1.0)
+Status: Shipped
+Last activity: 2026-02-22 — v0.1.0 milestone archived
 
-Progress: [█████████] 100% (8/8 phases, 4/4 plans in phase 8)
+Milestone v0.1.0: ✅ SHIPPED
+- 8 phases complete (1-8)
+- 26 plans executed
+- All v1 requirements validated
+
+**Next steps:** Run `/gsd:new-milestone` to define and plan next version
 
 ## Performance Metrics
 
-**Velocity:**
+**v0.1.0 Velocity:**
 - Total plans completed: 26
-- Average duration: 3.2 min
+- Average duration: 4.1 min
 - Total execution time: 1.79 hours
+- Timeline: 6 days (Feb 7-13, 2026)
 
 **By Phase:**
 
@@ -36,121 +41,31 @@ Progress: [█████████] 100% (8/8 phases, 4/4 plans in phase 8)
 | 07    | 2     | 4.0m  | 2.0m     |
 | 08    | 4     | 30.6m | 7.7m     |
 
-**Recent Trend:**
-- Last 5 plans: 08-04 (15.0m), 08-03 (8.0m), 08-02 (5.0m), 08-01 (2.6m), 07-02 (2.0m)
-- Trend: Phase 8 complete - comprehensive UI polish with landing page and navigation in 15.0m
-
-*Updated after each plan completion*
-
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
+All decisions from v0.1.0 logged in PROJECT.md Key Decisions table.
 
-- Single user type (buyer + provider): Simplifies auth, mirrors real behavior
-- Fiverr-style gigs with tiers: Proven model, clear structure for services
-- Mock payments for MVP: Full order flow without payment integration complexity
-- Real-time chat over simple inbox: Better UX for service negotiation
-- Email/password only: Sufficient for MVP, OAuth deferred
-- Prisma v7 with PostgreSQL adapter: Requires @prisma/adapter-pg for client initialization
-- JWT sessions for Credentials provider: Simpler than database sessions, 30-day maxAge
-- Generic login error messages: Security best practice to prevent user enumeration
-- Auth.js middleware wrapper pattern: Cleaner than manual JWT parsing, provides req.auth
-- Orange/amber warm color scheme: Approachable, trustworthy branding for marketplace
-- Defense-in-depth route protection: Middleware + Server Component checks
-- Profile fields in User model: Simpler queries, no joins needed (02-01)
-- Local filesystem uploads: /public/uploads/ sufficient for MVP (02-01)
-- Magic byte validation: file-type library for secure upload validation (02-01)
-- Lowercase username transform: Case-insensitive uniqueness via Zod (02-01)
-- String arrays for skills: PostgreSQL text arrays, no join tables for MVP (02-01)
-- Single scrolling form: All profile fields in one view, no tabs (02-02)
-- Circle crop with react-easy-crop: Avatar positioning before upload (02-02)
-- Portfolio 6-image limit: Curated work samples, prevents long profiles (02-02)
-- Optimistic UI updates: Avatar and portfolio state updated immediately (02-02)
-- Next.js 15 async params: Dynamic routes must await params (02-03)
-- Rating placeholder display: "★ 0.0" reserves space for Phase 6 aggregate ratings (02-03)
-- Provider as intentional flow: Separate /provider/setup page, not profile edit checkboxes (02-04)
-- Username prerequisite for provider: Must set username before becoming provider (02-04)
-- Dashboard as navigation hub: Contextual cards based on user state (02-04)
-- Comma-separated array inputs: Skills/certifications collected as comma-separated strings (02-04)
-- JSONB pricing tiers: Stores Basic/Standard/Premium tiers in single column for flexible querying (03-01)
-- PostgreSQL full-text search: Enables search on title and description fields with relevance ranking (03-01)
-- 6-char random slug suffix: Prevents collisions while keeping slugs readable (03-01)
-- 13-category taxonomy: Covers physical and digital services with OTHER fallback (03-01)
-- Optional pricing tiers with enable toggle: Standard/Premium tiers optional, Basic required (03-02)
-- Category labels exported from GigForm: CATEGORY_LABELS mapping reusable across browse pages (03-02)
-- 6-image max for gig galleries: Consistent with portfolio limit, encourages curated showcase (03-02)
-- URL search params as single source of truth: All filter/search state lives in URL for bookmarkable results (03-03)
-- Debounced search input: 300ms delay prevents excessive URL updates while typing (03-03)
-- Nullable username handling: GigCard handles null usernames with "Anonymous" fallback (03-03)
-- Responsive grid layout: 1-4 columns based on screen size for optimal viewing (03-03)
-- Category slug conversion: URL-friendly slugs (car-washing) converted to enum (CAR_WASHING) (03-03)
-- Standard tier highlighted as Popular: If Standard tier exists, it gets orange border and badge (03-04)
-- Type cast for pricingTiers: Cast JsonValue to PricingTiers type for type safety in detail page (03-04)
-- Dashboard shows 6 most recent gigs: Limits provider gig list to 6 items for performance (03-04)
-- Nullish coalescing for Zod optional serialization: Transform null to undefined using ?? operator before JSON.stringify (03-05)
-- Image upload edit-only pattern: Conditional rendering based on mode and slug existence (03-05)
-- Two-step gig creation flow: Create redirects to edit page for immediate image upload access (03-05)
-- Pricing snapshot as JSON: Full tier details stored at order creation to preserve historical pricing (04-01)
-- Five-state order lifecycle: PENDING → ACCEPTED → IN_PROGRESS → COMPLETED / CANCELLED (terminal states) (04-01)
-- Mock payment auto-approval: paymentConfirmed defaults to true for MVP (04-01)
-- State machine validation pattern: ORDER_STATE_TRANSITIONS map with transition validation functions (04-01)
-- Provider-only state transitions except cancel: Accept/start/complete restricted to provider, cancel allows buyer OR provider (04-02)
-- Self-ordering prevention at action layer: placeOrder checks gig.providerId !== session.user.id (04-02)
-- Tier snapshot at order creation: Full tier object preserved in tierSnapshot field for pricing history (04-02)
-- "Order Now" buttons in pricing tier cards: Action at point of decision, conditional display based on viewer role (04-03)
-- Self-ordering UI prevention: Error page shown when provider tries to order own gig (04-03)
-- Inline server actions for state transitions: Async functions with "use server" in form actions (04-03)
-- Modal mock payment confirmation: Shows order summary with MVP disclaimer before order creation (04-03)
-- Custom Next.js server with Socket.IO on same HTTP port: No separate WebSocket port needed (05-01)
-- JWT verification using jsonwebtoken library: Matches Auth.js secret for socket authentication (05-01)
-- Token API endpoint to extract JWT from httpOnly cookie: Bridges Auth.js session to socket handshake (05-01)
-- tsx for running TypeScript server directly: No separate build step in dev mode (05-01)
-- participantIds as sorted array: Efficient two-party conversation lookup via indexed array (05-01)
-- DB write before broadcast: Complete database write before socket emit to prevent race conditions (05-02)
-- Volatile typing events: Typing indicators use volatile emit (not queued if offline) (05-02)
-- In-memory presence tracking: Map<userId, Set<socketId>> tracks online users with multi-device support (05-02)
-- Auto-read on fetch: Messages marked as read when fetching conversation history (05-02)
-- Cursor-based pagination: Message history supports ?before=messageId for efficient older message loading (05-02)
-- One review per buyer per order: @@unique([buyerId, orderId]) constraint prevents duplicate reviews (06-01)
-- Aggregate ratings denormalized: averageRating/totalReviews on User and Gig for fast display (06-01)
-- Transactional aggregate updates: Review creation and rating recalculation happen atomically in prisma.$transaction (06-01)
-- Only buyers of COMPLETED orders can review: Verified purchase check via order status and buyer ID (06-01)
-- Fractional star ratings via CSS gradient: background-clip: text technique for partial star fill (06-02)
-- ReviewForm uses useActionState: Client component with server action binding for optimistic UI (06-02)
-- GigCard "New" badge: Shows "New" when totalReviews is 0, otherwise displays aggregate rating (06-02)
-- Conditional review sections: Provider profiles only show reviews if isProvider and has reviews (06-02)
-- URL-based tabs for provider dashboard: Search params (?tab=gigs) enable bookmarkable state and browser navigation (07-01)
-- Promise.all parallel queries: Dashboard fetches gigs, orders, and stats simultaneously for performance (07-01)
-- Completed orders limited to 10: Prevents long page loads for high-volume providers (07-01)
-- Messages tab limit 10: MessagesTab shows max 10 recent conversations with View All link for performance (07-02)
-- Provider Dashboard card orange gradient: Visually distinct from other cards, matches provider branding (07-02)
-- Provider card first position: Provider Dashboard card appears first in navigation grid as primary action for providers (07-02)
-- Burgundy as primary color: Replacing orange/amber, conveys trust and craftsmanship for service marketplace (08-01)
-- Warm cream background: #fdfaf7 replaces pure white for approachable feel and reduced eye strain (08-01)
-- Custom shadow scale: soft/card/card-hover shadows for consistent elevation system (08-01)
-- Sonner for toast notifications: Lightweight, accessible, easy to theme (08-01)
-- forwardRef pattern for Button: Allows DOM access for focus management and accessibility (08-01)
-- Hero search as separate client component: Enables interactive search while keeping page server component (08-04)
-- Sticky header with z-50: Navigation always accessible, doesn't interfere with modals (08-04)
-- Mobile menu slides in with fixed overlay: Standard mobile pattern, easy to dismiss (08-04)
-- Footer 4-column layout: Comprehensive link organization on desktop, readable stack on mobile (08-04)
+Key validated decisions:
+- Single user type (buyer + provider): Clean UX, no role confusion ✓ Good
+- Fiverr-style gigs with tiers: Users understand tiered pricing ✓ Good
+- Mock payments for MVP: Validates flow, defers Stripe complexity ✓ Good
+- Real-time chat: Typing indicators enhance trust ✓ Good
+- Burgundy design system: Warm, professional feel ✓ Good
 
-### Pending Todos
-
-None yet.
+Pending validation:
+- Prisma v7 with PostgreSQL adapter: Needs production validation
+- Local filesystem uploads: Needs migration to cloud storage for production
 
 ### Blockers/Concerns
 
-None yet.
+None — v0.1.0 shipped successfully.
 
-## Session Continuity
-
-Last session: 2026-02-13
-Stopped at: Completed 08-04-PLAN.md (Phase 8 complete)
-Resume file: None
+For next milestone:
+- Consider real payment integration (Stripe) if user feedback validates demand
+- Plan cloud storage migration (S3, Cloudinary) for production readiness
+- Consider email notifications for critical events (order updates, messages)
 
 ---
-*Last updated: 2026-02-13*
+*Last updated: 2026-02-22 — v0.1.0 milestone complete*
