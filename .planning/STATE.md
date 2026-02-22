@@ -9,16 +9,13 @@ See: .planning/PROJECT.md (updated 2026-02-22)
 
 ## Current Position
 
-Phase: Milestone complete (v0.1.0)
-Status: Shipped
-Last activity: 2026-02-22 — v0.1.0 milestone archived
+Phase: Not started (defining requirements)
+Status: Defining requirements for v0.2.0
+Last activity: 2026-02-22 — Milestone v0.2.0 started
 
-Milestone v0.1.0: ✅ SHIPPED
-- 8 phases complete (1-8)
-- 26 plans executed
-- All v1 requirements validated
-
-**Next steps:** Run `/gsd:new-milestone` to define and plan next version
+Milestone v0.2.0: Planning
+- Navigation improvements and content seeding
+- Requirements definition in progress
 
 ## Performance Metrics
 
@@ -68,4 +65,4 @@ For next milestone:
 - Consider email notifications for critical events (order updates, messages)
 
 ---
-*Last updated: 2026-02-22 — v0.1.0 milestone complete*
+*Last updated: 2026-02-22 — v0.2.0 milestone started*

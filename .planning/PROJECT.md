@@ -6,6 +6,15 @@ Herafi is a services marketplace web app where users can offer and hire services
 
 **Current status:** v0.1.0 alpha shipped (2026-02-22) — initial MVP complete with authentication, service listings, real-time messaging, reviews, and provider dashboard.
 
+## Current Milestone: v0.2.0 Polish & Seeding
+
+**Goal:** Improve navigation UX and populate marketplace with realistic mock data.
+
+**Target features:**
+- Hamburger menu with comprehensive app navigation
+- User account dropdown menu (profile, settings, sign out)
+- 10-15 mock service providers with full profiles, images, and reviews across all categories
+
 ## Core Value
 
 Anyone can find and hire a trusted service provider for in-person or digital work through a simple, browsable marketplace with clear service listings.
@@ -30,9 +39,14 @@ Anyone can find and hire a trusted service provider for in-person or digital wor
 
 ### Active
 
-**Next milestone planning in progress.**
+**v0.2.0 in planning:**
 
-(To be defined during next milestone initialization with `/gsd:new-milestone`)
+**Navigation improvements:**
+- Hamburger menu next to logo with links to key app pages
+- User dropdown menu on avatar click with account management options
+
+**Content seeding:**
+- Mock service providers (10-15) with complete profiles, images, reviews, and ratings across all categories
 
 ### Out of Scope
 
@@ -92,4 +106,4 @@ Anyone can find and hire a trusted service provider for in-person or digital wor
 | Local filesystem uploads | Sufficient for MVP validation | — Pending (needs migration to cloud storage for production) |
 
 ---
-*Last updated: 2026-02-22 after v0.1.0 milestone*
+*Last updated: 2026-02-22 — v0.2.0 milestone started*
