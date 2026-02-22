@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-22)
 ## Current Position
 
 Phase: 9 of 11 (Navigation Components)
-Plan: 1 of 2
-Status: In progress
-Last activity: 2026-02-22 — Completed 09-01-PLAN.md
+Plan: 2 of 2
+Status: Phase complete
+Last activity: 2026-02-22 — Completed 09-02-PLAN.md
 
-Progress: [████████░░] 74% (27/37 plans complete)
+Progress: [████████░░] 76% (28/37 plans complete)
 
 ## Performance Metrics
 
@@ -38,7 +38,7 @@ Progress: [████████░░] 74% (27/37 plans complete)
 
 **Recent Trend:**
 - v0.1.0 velocity: Stable to improving across phases
-- v0.2.0: Phase 9 started (09-01: 2 min)
+- v0.2.0: Phase 9 complete (09-01: 2 min, 09-02: 1 min)
 
 *Updated after each plan completion*
 
@@ -61,6 +61,8 @@ Recent decisions affecting current work:
 - [09-01]: CSS-only responsive hiding (hidden md:block) avoids hydration mismatch
 - [09-01]: Capturing phase event listener for reliable click-outside detection
 - [09-01]: useClickOutside hook pattern established for menus and dropdowns
+- [09-02]: Separation of concerns - UserDropdown for account actions vs DesktopHamburger for primary navigation
+- [09-02]: Provider mode indicator in dropdown for clear provider status visibility
 
 ### Pending Todos
 
@@ -69,9 +71,10 @@ None yet.
 ### Blockers/Concerns
 
 **Phase 9 (Navigation):**
-- Must maintain Server/Client component boundary (Header stays Server Component)
-- Menus must auto-close on navigation to avoid state persistence issues
-- Need keyboard navigation support for accessibility
+- ✓ Server/Client component boundary maintained (Header stays Server Component)
+- ✓ Menus auto-close on navigation (usePathname + useEffect + onClick handlers)
+- ✓ Keyboard navigation support implemented (Enter/Escape with ARIA attributes)
+- Phase 9 COMPLETE - All 12 NAV requirements satisfied
 
 **Phase 10 (Seed Infrastructure):**
 - Table cleanup must follow reverse dependency order (reviews → orders → gigs → users)
@@ -84,7 +87,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-22
-Stopped at: Completed 09-01-PLAN.md (Desktop Hamburger Menu)
+Stopped at: Completed 09-02-PLAN.md (User Dropdown Menu) - Phase 9 complete
 Resume file: None
 
 ---
