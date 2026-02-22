@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-22)
 
 **Core value:** Anyone can find and hire a trusted service provider for in-person or digital work through a simple, browsable marketplace with clear service listings.
-**Current focus:** Phase 9 - Navigation Components
+**Current focus:** Phase 10 - Mock Data Infrastructure
 
 ## Current Position
 
-Phase: 9 of 11 (Navigation Components)
-Plan: 2 of 2
-Status: ✓ Phase verified and complete
-Last activity: 2026-02-22 — Phase 9 complete, verified 14/14 must-haves
+Phase: 10 of 11 (Mock Data Infrastructure)
+Plan: 1 of 2
+Status: In progress
+Last activity: 2026-02-22 — Completed 10-01-PLAN.md
 
-Progress: [█████████░] 82% (9/11 phases complete)
+Progress: [█████████░] 85% (9.5/11 phases complete)
 
 ## Performance Metrics
 
@@ -38,7 +38,7 @@ Progress: [█████████░] 82% (9/11 phases complete)
 
 **Recent Trend:**
 - v0.1.0 velocity: Stable to improving across phases
-- v0.2.0: Phase 9 complete (09-01: 2 min, 09-02: 1 min)
+- v0.2.0: Phase 9 complete (09-01: 2 min, 09-02: 1 min), Phase 10 in progress (10-01: 2 min)
 
 *Updated after each plan completion*
 
@@ -63,6 +63,9 @@ Recent decisions affecting current work:
 - [09-01]: useClickOutside hook pattern established for menus and dropdowns
 - [09-02]: Separation of concerns - UserDropdown for account actions vs DesktopHamburger for primary navigation
 - [09-02]: Provider mode indicator in dropdown for clear provider status visibility
+- [10-01]: @herafi-seed.test email domain for seed data (not @example.com)
+- [10-01]: PrismaClient with pg adapter in seed script (matches src/lib/db.ts)
+- [10-01]: faker.seed(42) for deterministic, reproducible seed data
 
 ### Pending Todos
 
@@ -77,8 +80,10 @@ None yet.
 - Phase 9 COMPLETE - All 12 NAV requirements satisfied
 
 **Phase 10 (Seed Infrastructure):**
-- Table cleanup must follow reverse dependency order (reviews → orders → gigs → users)
-- Idempotent upsert pattern required to avoid duplicate key errors on re-run
+- ✓ Table cleanup follows reverse dependency order (reviews → messages → conversations → orders → gigs → portfolioImages → users)
+- ✓ Idempotent execution verified (runs successfully twice)
+- ✓ Deterministic seeding with faker.seed(42)
+- ✓ Proper connection cleanup (prisma + pool.end) prevents hanging
 
 **Phase 11 (Mock Data):**
 - Need locale decision for Faker.js (Arabic/English mix for Moroccan market authenticity)
@@ -87,9 +92,9 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-22
-Stopped at: Completed 09-02-PLAN.md (User Dropdown Menu) - Phase 9 complete
+Stopped at: Completed 10-01-PLAN.md (Seed Infrastructure Setup)
 Resume file: None
 
 ---
 *Created: 2026-02-22*
-*Last updated: 2026-02-22 — Phase 9 verified complete*
+*Last updated: 2026-02-22 — Phase 10 Plan 01 complete*
