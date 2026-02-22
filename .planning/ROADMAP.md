@@ -63,10 +63,10 @@ Plans:
   2. Running seed command multiple times produces same deterministic results without errors
   3. Seed script clears existing test data in proper dependency order before insertion
   4. All seed script TypeScript code executes without compilation errors
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 10-01: TBD
+- [ ] 10-01-PLAN.md — Install Faker.js, configure Prisma seed command, create seed script with cleanup and idempotent scaffold
 
 ### Phase 11: Mock Data Generation
 **Goal**: Marketplace populated with 10-15 realistic providers across all categories.
@@ -92,7 +92,7 @@ Phases execute in numeric order: 9 → 10 → 11
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 9. Navigation Components | v0.2.0 | 2/2 | ✓ Complete | 2026-02-22 |
-| 10. Mock Data Infrastructure | v0.2.0 | 0/TBD | Not started | - |
+| 10. Mock Data Infrastructure | v0.2.0 | 0/1 | Not started | - |
 | 11. Mock Data Generation | v0.2.0 | 0/TBD | Not started | - |
 
 ---
