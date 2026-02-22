@@ -32,7 +32,7 @@ This milestone enhances navigation UX and populates the marketplace with realist
 
 **Milestone Goal:** Improve navigation UX and populate marketplace with realistic mock data for development and demo purposes.
 
-- [ ] **Phase 9: Navigation Components** - Desktop hamburger menu and user account dropdown
+- [x] **Phase 9: Navigation Components** - Desktop hamburger menu and user account dropdown
 - [ ] **Phase 10: Mock Data Infrastructure** - Faker.js setup and idempotent seed scripts
 - [ ] **Phase 11: Mock Data Generation** - Complete provider profiles with gigs and reviews
 
@@ -51,8 +51,8 @@ This milestone enhances navigation UX and populates the marketplace with realist
 **Plans**: 2 plans
 
 Plans:
-- [ ] 09-01-PLAN.md — Desktop hamburger menu with grouped navigation sections
-- [ ] 09-02-PLAN.md — User account dropdown with profile info and sign out
+- [x] 09-01-PLAN.md — Desktop hamburger menu with grouped navigation sections
+- [x] 09-02-PLAN.md — User account dropdown with profile info and sign out
 
 ### Phase 10: Mock Data Infrastructure
 **Goal**: Seed infrastructure ready to generate idempotent, reproducible mock data.
@@ -91,10 +91,10 @@ Phases execute in numeric order: 9 → 10 → 11
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 9. Navigation Components | v0.2.0 | 0/2 | Planned | - |
+| 9. Navigation Components | v0.2.0 | 2/2 | ✓ Complete | 2026-02-22 |
 | 10. Mock Data Infrastructure | v0.2.0 | 0/TBD | Not started | - |
 | 11. Mock Data Generation | v0.2.0 | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-02-22*
-*Last updated: 2026-02-22*
+*Last updated: 2026-02-22 — Phase 9 complete*
