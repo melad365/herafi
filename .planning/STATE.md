@@ -5,64 +5,85 @@
 See: .planning/PROJECT.md (updated 2026-02-22)
 
 **Core value:** Anyone can find and hire a trusted service provider for in-person or digital work through a simple, browsable marketplace with clear service listings.
-**Current focus:** v0.1.0 milestone complete — ready to start next milestone
+**Current focus:** Phase 9 - Navigation Components
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Status: Defining requirements for v0.2.0
-Last activity: 2026-02-22 — Milestone v0.2.0 started
+Phase: 9 of 11 (Navigation Components)
+Plan: Ready to plan
+Status: Ready to plan
+Last activity: 2026-02-22 — v0.2.0 roadmap created
 
-Milestone v0.2.0: Planning
-- Navigation improvements and content seeding
-- Requirements definition in progress
+Progress: [████████░░] 73% (v0.1.0 complete: 8/11 phases)
 
 ## Performance Metrics
 
-**v0.1.0 Velocity:**
+**Velocity (v0.1.0):**
 - Total plans completed: 26
-- Average duration: 4.1 min
-- Total execution time: 1.79 hours
-- Timeline: 6 days (Feb 7-13, 2026)
+- Average duration: ~4.1 min
+- Total execution time: ~1.79 hours
 
-**By Phase:**
+**By Phase (v0.1.0):**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01    | 3     | 22.4m | 7.5m     |
-| 02    | 4     | 9.4m  | 2.4m     |
-| 03    | 5     | 10.6m | 2.1m     |
-| 04    | 3     | 10.3m | 3.4m     |
-| 05    | 3     | 10.8m | 3.6m     |
-| 06    | 2     | 7.0m  | 3.5m     |
-| 07    | 2     | 4.0m  | 2.0m     |
-| 08    | 4     | 30.6m | 7.7m     |
+| 1 | 3 | 22.4m | 7.5m |
+| 2 | 4 | 9.4m | 2.4m |
+| 3 | 5 | 10.6m | 2.1m |
+| 4 | 3 | 10.3m | 3.4m |
+| 5 | 3 | 10.8m | 3.6m |
+| 6 | 2 | 7.0m | 3.5m |
+| 7 | 2 | 4.0m | 2.0m |
+| 8 | 4 | 30.6m | 7.7m |
+
+**Recent Trend:**
+- v0.1.0 velocity: Stable to improving across phases
+- v0.2.0: Not yet started
+
+*Updated after each plan completion*
 
 ## Accumulated Context
 
 ### Decisions
 
-All decisions from v0.1.0 logged in PROJECT.md Key Decisions table.
+Decisions are logged in PROJECT.md Key Decisions table.
+Recent decisions affecting current work:
 
-Key validated decisions:
-- Single user type (buyer + provider): Clean UX, no role confusion ✓ Good
-- Fiverr-style gigs with tiers: Users understand tiered pricing ✓ Good
-- Mock payments for MVP: Validates flow, defers Stripe complexity ✓ Good
-- Real-time chat: Typing indicators enhance trust ✓ Good
-- Burgundy design system: Warm, professional feel ✓ Good
+- [v0.1.0]: Single user type (buyer + provider) simplifies auth
+- [v0.1.0]: Fiverr-style gigs with tiers proven model
+- [v0.1.0]: Mock payments validate flow without Stripe complexity
+- [v0.1.0]: Real-time chat over simple inbox enhances trust
+- [v0.1.0]: JWT sessions for Credentials provider simpler than database sessions
+- [v0.1.0]: Burgundy design system conveys trust and craftsmanship
+- [v0.2.0]: Research recommends reusing MobileNav pattern for desktop navigation
+- [v0.2.0]: @faker-js/faker chosen for realistic mock data generation
+- [v0.2.0]: DiceBear and Lorem Picsum APIs for avatars and images (no package install)
 
-Pending validation:
-- Prisma v7 with PostgreSQL adapter: Needs production validation
-- Local filesystem uploads: Needs migration to cloud storage for production
+### Pending Todos
+
+None yet.
 
 ### Blockers/Concerns
 
-None — v0.1.0 shipped successfully.
+**Phase 9 (Navigation):**
+- Must maintain Server/Client component boundary (Header stays Server Component)
+- Menus must auto-close on navigation to avoid state persistence issues
+- Need keyboard navigation support for accessibility
 
-For next milestone:
-- Consider real payment integration (Stripe) if user feedback validates demand
-- Plan cloud storage migration (S3, Cloudinary) for production readiness
-- Consider email notifications for critical events (order updates, messages)
+**Phase 10 (Seed Infrastructure):**
+- Table cleanup must follow reverse dependency order (reviews → orders → gigs → users)
+- Idempotent upsert pattern required to avoid duplicate key errors on re-run
+
+**Phase 11 (Mock Data):**
+- Need locale decision for Faker.js (Arabic/English mix for Moroccan market authenticity)
+- Category-specific pricing may need quick market research for realism
+
+## Session Continuity
+
+Last session: 2026-02-22
+Stopped at: Roadmap creation complete for v0.2.0 milestone
+Resume file: None (ready to start Phase 9 planning)
 
 ---
-*Last updated: 2026-02-22 — v0.2.0 milestone started*
+*Created: 2026-02-22*
+*Last updated: 2026-02-22*

@@ -80,48 +80,48 @@ Explicitly excluded from v0.2.0.
 
 ## Traceability
 
-Which phases cover which requirements. To be populated during roadmap creation.
+Which phases cover which requirements.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| NAV-01 | TBD | Pending |
-| NAV-02 | TBD | Pending |
-| NAV-03 | TBD | Pending |
-| NAV-04 | TBD | Pending |
-| NAV-05 | TBD | Pending |
-| NAV-06 | TBD | Pending |
-| NAV-07 | TBD | Pending |
-| NAV-08 | TBD | Pending |
-| NAV-09 | TBD | Pending |
-| NAV-10 | TBD | Pending |
-| NAV-11 | TBD | Pending |
-| NAV-12 | TBD | Pending |
-| SEED-01 | TBD | Pending |
-| SEED-02 | TBD | Pending |
-| SEED-03 | TBD | Pending |
-| SEED-04 | TBD | Pending |
-| SEED-05 | TBD | Pending |
-| SEED-06 | TBD | Pending |
-| SEED-07 | TBD | Pending |
-| SEED-08 | TBD | Pending |
-| SEED-09 | TBD | Pending |
-| SEED-10 | TBD | Pending |
-| SEED-11 | TBD | Pending |
-| SEED-12 | TBD | Pending |
-| SEED-13 | TBD | Pending |
-| SEED-14 | TBD | Pending |
-| SEED-15 | TBD | Pending |
-| SEED-16 | TBD | Pending |
-| SEED-17 | TBD | Pending |
-| SEED-18 | TBD | Pending |
-| SEED-19 | TBD | Pending |
-| SEED-20 | TBD | Pending |
+| NAV-01 | Phase 9 | Pending |
+| NAV-02 | Phase 9 | Pending |
+| NAV-03 | Phase 9 | Pending |
+| NAV-04 | Phase 9 | Pending |
+| NAV-05 | Phase 9 | Pending |
+| NAV-06 | Phase 9 | Pending |
+| NAV-07 | Phase 9 | Pending |
+| NAV-08 | Phase 9 | Pending |
+| NAV-09 | Phase 9 | Pending |
+| NAV-10 | Phase 9 | Pending |
+| NAV-11 | Phase 9 | Pending |
+| NAV-12 | Phase 9 | Pending |
+| SEED-01 | Phase 10 | Pending |
+| SEED-02 | Phase 10 | Pending |
+| SEED-03 | Phase 10 | Pending |
+| SEED-04 | Phase 10 | Pending |
+| SEED-05 | Phase 10 | Pending |
+| SEED-06 | Phase 10 | Pending |
+| SEED-07 | Phase 11 | Pending |
+| SEED-08 | Phase 11 | Pending |
+| SEED-09 | Phase 11 | Pending |
+| SEED-10 | Phase 11 | Pending |
+| SEED-11 | Phase 11 | Pending |
+| SEED-12 | Phase 11 | Pending |
+| SEED-13 | Phase 11 | Pending |
+| SEED-14 | Phase 11 | Pending |
+| SEED-15 | Phase 11 | Pending |
+| SEED-16 | Phase 11 | Pending |
+| SEED-17 | Phase 11 | Pending |
+| SEED-18 | Phase 11 | Pending |
+| SEED-19 | Phase 11 | Pending |
+| SEED-20 | Phase 11 | Pending |
 
 **Coverage:**
 - v0.2.0 requirements: 32 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 32 ⚠️
+- Mapped to phases: 32/32 (100%)
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-22*
-*Last updated: 2026-02-22 after initial definition*
+*Last updated: 2026-02-22 after roadmap creation*
