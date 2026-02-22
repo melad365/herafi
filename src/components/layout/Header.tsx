@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { auth } from "@/lib/auth";
 import MobileNav from "./MobileNav";
+import DesktopHamburger from "./DesktopHamburger";
 
 export default async function Header() {
   const session = await auth();
@@ -19,20 +20,13 @@ export default async function Header() {
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="text-xl font-lora text-burgundy-900 hover:text-burgundy-800 transition-colors" style={{ fontFamily: 'var(--font-lora)' }}>
-          Herafi
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          <Link
-            href="/gigs"
-            className="text-gray-700 hover:text-burgundy-800 transition-colors duration-200 font-medium"
-          >
-            Browse
+        {/* Logo + Desktop Hamburger */}
+        <div className="flex items-center gap-2">
+          <Link href="/" className="text-xl font-lora text-burgundy-900 hover:text-burgundy-800 transition-colors" style={{ fontFamily: 'var(--font-lora)' }}>
+            Herafi
           </Link>
-        </nav>
+          <DesktopHamburger isLoggedIn={!!session} isProvider={isProvider} />
+        </div>
 
         {/* Desktop Auth/User Menu */}
         <div className="hidden md:flex items-center gap-4">
