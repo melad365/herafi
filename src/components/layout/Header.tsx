@@ -2,6 +2,7 @@ import Link from "next/link";
 import { auth } from "@/lib/auth";
 import MobileNav from "./MobileNav";
 import DesktopHamburger from "./DesktopHamburger";
+import UserDropdown from "./UserDropdown";
 
 export default async function Header() {
   const session = await auth();
@@ -46,31 +47,14 @@ export default async function Header() {
               </Link>
             </>
           ) : (
-            <>
-              <Link
-                href="/dashboard"
-                className="text-gray-700 hover:text-burgundy-800 transition-colors duration-200 font-medium"
-              >
-                Dashboard
-              </Link>
-              <Link
-                href="/messages"
-                className="text-gray-700 hover:text-burgundy-800 transition-colors duration-200 font-medium"
-              >
-                Messages
-              </Link>
-              {isProvider && (
-                <Link
-                  href="/provider/dashboard"
-                  className="text-gray-700 hover:text-burgundy-800 transition-colors duration-200 font-medium"
-                >
-                  Provider Dashboard
-                </Link>
-              )}
-              <div className="w-9 h-9 rounded-full bg-burgundy-100 flex items-center justify-center text-burgundy-900 font-semibold">
-                {session.user?.name?.charAt(0).toUpperCase() ?? session.user?.email?.charAt(0).toUpperCase() ?? 'U'}
-              </div>
-            </>
+            <UserDropdown
+              user={{
+                name: session.user?.name ?? null,
+                email: session.user?.email ?? null,
+                avatar: session.user?.name?.charAt(0).toUpperCase() ?? session.user?.email?.charAt(0).toUpperCase() ?? 'U'
+              }}
+              isProvider={isProvider}
+            />
           )}
         </div>
 
