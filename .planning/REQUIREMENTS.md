@@ -24,12 +24,12 @@ Requirements for navigation improvements and mock data seeding.
 
 ### Mock Data Infrastructure
 
-- [ ] **SEED-01**: Install @faker-js/faker as dev dependency
-- [ ] **SEED-02**: Configure Prisma seed command in prisma.config.ts
-- [ ] **SEED-03**: Create prisma/seed.ts with TypeScript support
-- [ ] **SEED-04**: Implement idempotent upsert pattern for all seed data
-- [ ] **SEED-05**: Implement proper cleanup order (reviews → orders → gigs → users)
-- [ ] **SEED-06**: Configure deterministic seeding with faker.seed() for reproducibility
+- [x] **SEED-01**: Install @faker-js/faker as dev dependency
+- [x] **SEED-02**: Configure Prisma seed command in prisma.config.ts
+- [x] **SEED-03**: Create prisma/seed.ts with TypeScript support
+- [x] **SEED-04**: Implement idempotent upsert pattern for all seed data
+- [x] **SEED-05**: Implement proper cleanup order (reviews → orders → gigs → users)
+- [x] **SEED-06**: Configure deterministic seeding with faker.seed() for reproducibility
 
 ### Mock Data Content
 
@@ -96,12 +96,12 @@ Which phases cover which requirements.
 | NAV-10 | Phase 9 | Complete |
 | NAV-11 | Phase 9 | Complete |
 | NAV-12 | Phase 9 | Complete |
-| SEED-01 | Phase 10 | Pending |
-| SEED-02 | Phase 10 | Pending |
-| SEED-03 | Phase 10 | Pending |
-| SEED-04 | Phase 10 | Pending |
-| SEED-05 | Phase 10 | Pending |
-| SEED-06 | Phase 10 | Pending |
+| SEED-01 | Phase 10 | Complete |
+| SEED-02 | Phase 10 | Complete |
+| SEED-03 | Phase 10 | Complete |
+| SEED-04 | Phase 10 | Complete |
+| SEED-05 | Phase 10 | Complete |
+| SEED-06 | Phase 10 | Complete |
 | SEED-07 | Phase 11 | Pending |
 | SEED-08 | Phase 11 | Pending |
 | SEED-09 | Phase 11 | Pending |

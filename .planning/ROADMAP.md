@@ -33,7 +33,7 @@ This milestone enhances navigation UX and populates the marketplace with realist
 **Milestone Goal:** Improve navigation UX and populate marketplace with realistic mock data for development and demo purposes.
 
 - [x] **Phase 9: Navigation Components** - Desktop hamburger menu and user account dropdown
-- [ ] **Phase 10: Mock Data Infrastructure** - Faker.js setup and idempotent seed scripts
+- [x] **Phase 10: Mock Data Infrastructure** - Faker.js setup and idempotent seed scripts
 - [ ] **Phase 11: Mock Data Generation** - Complete provider profiles with gigs and reviews
 
 ## Phase Details
@@ -66,7 +66,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 10-01-PLAN.md — Install Faker.js, configure Prisma seed command, create seed script with cleanup and idempotent scaffold
+- [x] 10-01-PLAN.md — Install Faker.js, configure Prisma seed command, create seed script with cleanup and idempotent scaffold
 
 ### Phase 11: Mock Data Generation
 **Goal**: Marketplace populated with 10-15 realistic providers across all categories.
@@ -92,9 +92,9 @@ Phases execute in numeric order: 9 → 10 → 11
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 9. Navigation Components | v0.2.0 | 2/2 | ✓ Complete | 2026-02-22 |
-| 10. Mock Data Infrastructure | v0.2.0 | 0/1 | Not started | - |
+| 10. Mock Data Infrastructure | v0.2.0 | 1/1 | ✓ Complete | 2026-02-22 |
 | 11. Mock Data Generation | v0.2.0 | 0/TBD | Not started | - |
 
 ---
 *Roadmap created: 2026-02-22*
-*Last updated: 2026-02-22 — Phase 9 complete*
+*Last updated: 2026-02-22 — Phase 10 complete*
