@@ -48,11 +48,11 @@ This milestone enhances navigation UX and populates the marketplace with realist
   3. User can click avatar to open dropdown showing username/email and access Profile, Settings, and Sign Out
   4. Menus auto-close when user navigates to another page or clicks outside dropdown
   5. Keyboard users can navigate menus with Tab, Enter, and Escape keys for accessibility
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 09-01: TBD
-- [ ] 09-02: TBD
+- [ ] 09-01-PLAN.md — Desktop hamburger menu with grouped navigation sections
+- [ ] 09-02-PLAN.md — User account dropdown with profile info and sign out
 
 ### Phase 10: Mock Data Infrastructure
 **Goal**: Seed infrastructure ready to generate idempotent, reproducible mock data.
@@ -91,7 +91,7 @@ Phases execute in numeric order: 9 → 10 → 11
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 9. Navigation Components | v0.2.0 | 0/TBD | Not started | - |
+| 9. Navigation Components | v0.2.0 | 0/2 | Planned | - |
 | 10. Mock Data Infrastructure | v0.2.0 | 0/TBD | Not started | - |
 | 11. Mock Data Generation | v0.2.0 | 0/TBD | Not started | - |
 
