@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-22)
 
 **Core value:** Anyone can find and hire a trusted service provider for in-person or digital work through a simple, browsable marketplace with clear service listings.
-**Current focus:** Phase 10 - Mock Data Infrastructure
+**Current focus:** Phase 11 - Mock Data Generation
 
 ## Current Position
 
-Phase: 10 of 11 (Mock Data Infrastructure)
-Plan: 1 of 1
-Status: ✓ Phase verified and complete
-Last activity: 2026-02-22 — Phase 10 complete, verified 4/4 must-haves
+Phase: 11 of 11 (Mock Data Generation)
+Plan: 1 of 3
+Status: In progress
+Last activity: 2026-02-23 — Completed 11-01-PLAN.md
 
-Progress: [█████████░] 91% (10/11 phases complete)
+Progress: [█████████░] 91% (10/11 phases complete, 1/3 plans in Phase 11)
 
 ## Performance Metrics
 
@@ -40,6 +40,7 @@ Progress: [█████████░] 91% (10/11 phases complete)
 - v0.1.0 velocity: Stable to improving across phases
 - v0.2.0: Phase 9 complete (09-01: 2 min, 09-02: 1 min)
 - v0.2.0: Phase 10 complete (10-01: 2 min)
+- v0.2.0: Phase 11 in progress (11-01: 2 min)
 
 *Updated after each plan completion*
 
@@ -67,6 +68,9 @@ Recent decisions affecting current work:
 - [10-01]: @herafi-seed.test email domain for seed data (not @example.com)
 - [10-01]: PrismaClient with pg adapter in seed script (matches src/lib/db.ts)
 - [10-01]: faker.seed(42) for deterministic, reproducible seed data
+- [11-01]: Mixed Arabic/English locales for provider diversity (fakerAR/fakerEN alternating)
+- [11-01]: Round-robin category assignment ensures all 13 categories have gigs
+- [11-01]: Category-specific pricing ranges based on market research ($30-$1200)
 
 ### Pending Todos
 
@@ -88,15 +92,16 @@ None yet.
 - Phase 10 COMPLETE - All 6 SEED requirements satisfied (SEED-01 through SEED-06)
 
 **Phase 11 (Mock Data):**
-- Need locale decision for Faker.js (Arabic/English mix for Moroccan market authenticity)
-- Category-specific pricing may need quick market research for realism
+- ✓ Locale decision resolved: Mixed Arabic/English (fakerAR/fakerEN) with alternating pattern
+- ✓ Category-specific pricing implemented based on market research
+- Plan 11-01 COMPLETE - 15 providers, 33 gigs, all 13 categories covered
 
 ## Session Continuity
 
-Last session: 2026-02-22
-Stopped at: Completed 10-01-PLAN.md (Seed Infrastructure Setup) - Phase 10 complete
+Last session: 2026-02-23
+Stopped at: Completed 11-01-PLAN.md (Provider & Gig Generation)
 Resume file: None
 
 ---
 *Created: 2026-02-22*
-*Last updated: 2026-02-22 — Phase 10 verified complete*
+*Last updated: 2026-02-23 — Phase 11 Plan 01 complete*
