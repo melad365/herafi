@@ -9,12 +9,12 @@ See: .planning/PROJECT.md (updated 2026-02-22)
 
 ## Current Position
 
-Phase: 11 of 11 (Mock Data Generation)
-Plan: 2 of 2
-Status: ✓ Phase verified and complete
-Last activity: 2026-02-23 — Phase 11 complete, verified 11/11 must-haves
+Phase: 12 of 12 (Missing Navigation Routes)
+Plan: 1 of 1
+Status: ✓ Phase complete
+Last activity: 2026-02-23 — Completed 12-01-PLAN.md
 
-Progress: [██████████] 100% (11/11 phases complete)
+Progress: [██████████] 100% (12/12 phases complete)
 
 ## Performance Metrics
 
@@ -41,6 +41,7 @@ Progress: [██████████] 100% (11/11 phases complete)
 - v0.2.0: Phase 9 complete (09-01: 2 min, 09-02: 1 min)
 - v0.2.0: Phase 10 complete (10-01: 2 min)
 - v0.2.0: Phase 11 complete (11-01: 2 min, 11-02: 3.8 min)
+- v0.2.0: Phase 12 complete (12-01: 4.7 min)
 
 *Updated after each plan completion*
 
@@ -74,6 +75,9 @@ Recent decisions affecting current work:
 - [11-02]: Bell curve rating distribution (25% 5-star, 65% 4-star, 10% 3-star) for realistic marketplace
 - [11-02]: Per-provider review control (3-8 reviews) via shuffle-and-select approach
 - [11-02]: Review content length varies (short sentence, medium paragraph, long multi-paragraph)
+- [12-01]: Prisma groupBy for category counts (single query vs 13 individual queries)
+- [12-01]: /profile as smart redirect to /u/[username] or /profile/edit based on username status
+- [12-01]: Standard password 'password123' for all seed users (developer convenience)
 
 ### Pending Todos
 
@@ -103,12 +107,19 @@ None yet.
 - ✓ Plan 11-02 COMPLETE - 4 buyers, 148 orders, 77 reviews with bell curve ratings
 - Phase 11 COMPLETE - All 14 SEED requirements satisfied (SEED-07 through SEED-20)
 
+**Phase 12 (Missing Navigation Routes):**
+- ✓ All 5 navigation route gaps closed (categories, help, profile, settings, provider/gigs)
+- ✓ All pages follow burgundy design system and existing patterns
+- ✓ Seed users now have bcrypt hashed passwords for authentication testing
+- ✓ Plan 12-01 COMPLETE - All navigation links resolve without 404s
+- Phase 12 COMPLETE - v0.2.0 navigation audit gaps eliminated
+
 ## Session Continuity
 
 Last session: 2026-02-23
-Stopped at: Completed Phase 11 (Mock Data Generation) - v0.2.0 milestone complete
+Stopped at: Completed Phase 12 (Missing Navigation Routes) - v0.2.0 complete
 Resume file: None
 
 ---
 *Created: 2026-02-22*
-*Last updated: 2026-02-23 — Phase 11 verified complete, v0.2.0 milestone ready for audit*
+*Last updated: 2026-02-23 — Phase 12 complete, v0.2.0 milestone fully delivered*
