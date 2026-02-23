@@ -69,12 +69,10 @@ export default function GigCard({
         {/* Provider info */}
         <div className="flex items-center gap-2 pt-1">
           {provider.avatarUrl ? (
-            <Image
+            <img
               src={provider.avatarUrl}
               alt={providerName}
-              width={24}
-              height={24}
-              className="rounded-full border border-burgundy-200"
+              className="w-6 h-6 rounded-full border border-burgundy-200 object-cover"
             />
           ) : (
             <div className="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center text-xs text-gray-600">
