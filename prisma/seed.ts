@@ -405,18 +405,134 @@ async function seedOrders() {
   console.log(`✅ Seeded ${totalOrders} completed orders`);
 }
 
-// Seed reviews — placeholder for Phase 11
-async function seedReviews() {
-  console.log('⭐ Seeding reviews...');
-  // Phase 11 will create 3-8 reviews per provider
-  console.log('✅ Reviews seeded');
+// Helper: Generate bell curve rating distribution
+function generateRating(): number {
+  // Bell curve distribution for realistic marketplace ratings (SEED-17)
+  // Rating is Int in schema, so return whole numbers 3-5
+  const roll = faker.number.int({ min: 1, max: 100 });
+  if (roll <= 25) return 5; // 25% five-star
+  if (roll <= 70) return 4; // 45% four-star (cumulative 70%)
+  if (roll <= 90) return 4; // 20% four-star (gives 4-star heavy weight)
+  return 3; // 10% three-star (minimum realistic)
 }
 
-// Update aggregate ratings — placeholder for Phase 11
+// Seed reviews — Create 3-8 reviews per provider
+async function seedReviews() {
+  console.log('⭐ Seeding reviews...');
+
+  // Get all providers with their completed orders
+  const providers = await prisma.user.findMany({
+    where: { isProvider: true, email: { endsWith: '@herafi-seed.test' } },
+    include: {
+      providerOrders: {
+        where: { status: 'COMPLETED' },
+        orderBy: { completedAt: 'asc' },
+      },
+    },
+  });
+
+  let totalReviews = 0;
+  for (const provider of providers) {
+    const availableOrders = provider.providerOrders;
+    if (availableOrders.length === 0) continue;
+
+    // Target 3-8 reviews per provider, but don't exceed available orders
+    const targetReviews = Math.min(
+      faker.number.int({ min: 3, max: 8 }),
+      availableOrders.length
+    );
+
+    // Randomly select orders to review
+    const ordersToReview = faker.helpers.shuffle(availableOrders).slice(0, targetReviews);
+
+    for (const order of ordersToReview) {
+      // Generate rating using bell curve
+      const rating = generateRating();
+
+      // Vary review content length (SEED-18)
+      const lengthRoll = faker.number.int({ min: 1, max: 3 });
+      let content: string;
+      if (lengthRoll === 1) content = faker.lorem.sentence(); // Short
+      else if (lengthRoll === 2) content = faker.lorem.paragraph(); // Medium
+      else content = faker.lorem.paragraphs(2); // Long
+
+      // Review created between order completion and now (SEED-19)
+      const createdAt = faker.date.between({
+        from: order.completedAt!,
+        to: new Date(),
+      });
+
+      await prisma.review.create({
+        data: {
+          buyerId: order.buyerId,
+          orderId: order.id,
+          providerId: order.providerId,
+          gigId: order.gigId,
+          rating,
+          content,
+          createdAt,
+        },
+      });
+
+      totalReviews++;
+    }
+  }
+
+  console.log(`✅ Seeded ${totalReviews} reviews`);
+}
+
+// Update aggregate ratings — Recalculate provider and gig ratings
 async function updateAggregates() {
   console.log('📊 Updating aggregate ratings...');
-  // Phase 11 will recalculate averageRating and totalReviews
-  console.log('✅ Aggregates updated');
+
+  // Update provider aggregates
+  const providers = await prisma.user.findMany({
+    where: { isProvider: true, email: { endsWith: '@herafi-seed.test' } },
+    include: { reviewsReceived: { select: { rating: true } } },
+  });
+
+  for (const provider of providers) {
+    const reviews = provider.reviewsReceived;
+    const totalReviews = reviews.length;
+    const averageRating =
+      totalReviews > 0
+        ? reviews.reduce((sum, r) => sum + r.rating, 0) / totalReviews
+        : 0;
+
+    await prisma.user.update({
+      where: { id: provider.id },
+      data: {
+        averageRating: Math.round(averageRating * 10) / 10,
+        totalReviews,
+      },
+    });
+  }
+
+  // Update gig aggregates
+  const gigs = await prisma.gig.findMany({
+    include: { reviews: { select: { rating: true } } },
+  });
+
+  for (const gig of gigs) {
+    const reviews = gig.reviews;
+    const totalReviews = reviews.length;
+    const averageRating =
+      totalReviews > 0
+        ? reviews.reduce((sum, r) => sum + r.rating, 0) / totalReviews
+        : 0;
+
+    await prisma.gig.update({
+      where: { id: gig.id },
+      data: {
+        averageRating: Math.round(averageRating * 10) / 10,
+        totalReviews,
+      },
+    });
+  }
+
+  console.log(
+    `✅ Updated aggregates for ${providers.length} providers and ${gigs.length} gigs`
+  );
 }
 
 // Main function with proper disconnect (Pattern 5 from research)
