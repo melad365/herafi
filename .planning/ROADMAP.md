@@ -78,11 +78,11 @@ Plans:
   3. Providers distributed across all 13 service categories (Plumbing, Painting, Cleaning, Carpentry, Welding, Digital, etc.)
   4. Each provider displays aggregate rating (3.5-5.0 range) with 3-8 written reviews showing varied content and timestamps
   5. Provider profile pages show accurate averageRating and totalReviews counts matching actual review data
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 11-01: TBD
-- [ ] 11-02: TBD
+- [ ] 11-01-PLAN.md — Provider profiles and gigs with category-specific content
+- [ ] 11-02-PLAN.md — Orders, reviews with bell curve ratings, and aggregate calculations
 
 ## Progress
 
@@ -93,8 +93,8 @@ Phases execute in numeric order: 9 → 10 → 11
 |-------|-----------|----------------|--------|-----------|
 | 9. Navigation Components | v0.2.0 | 2/2 | ✓ Complete | 2026-02-22 |
 | 10. Mock Data Infrastructure | v0.2.0 | 1/1 | ✓ Complete | 2026-02-22 |
-| 11. Mock Data Generation | v0.2.0 | 0/TBD | Not started | - |
+| 11. Mock Data Generation | v0.2.0 | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-02-22*
-*Last updated: 2026-02-22 — Phase 10 complete*
+*Last updated: 2026-02-23 — Phase 11 planned (2 plans)*
