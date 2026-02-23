@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-22)
 ## Current Position
 
 Phase: 11 of 11 (Mock Data Generation)
-Plan: 1 of 3
+Plan: 2 of 3
 Status: In progress
-Last activity: 2026-02-23 — Completed 11-01-PLAN.md
+Last activity: 2026-02-23 — Completed 11-02-PLAN.md
 
-Progress: [█████████░] 91% (10/11 phases complete, 1/3 plans in Phase 11)
+Progress: [█████████░] 92% (10/11 phases complete, 2/3 plans in Phase 11)
 
 ## Performance Metrics
 
@@ -40,7 +40,7 @@ Progress: [█████████░] 91% (10/11 phases complete, 1/3 plans
 - v0.1.0 velocity: Stable to improving across phases
 - v0.2.0: Phase 9 complete (09-01: 2 min, 09-02: 1 min)
 - v0.2.0: Phase 10 complete (10-01: 2 min)
-- v0.2.0: Phase 11 in progress (11-01: 2 min)
+- v0.2.0: Phase 11 in progress (11-01: 2 min, 11-02: 3.8 min)
 
 *Updated after each plan completion*
 
@@ -71,6 +71,9 @@ Recent decisions affecting current work:
 - [11-01]: Mixed Arabic/English locales for provider diversity (fakerAR/fakerEN alternating)
 - [11-01]: Round-robin category assignment ensures all 13 categories have gigs
 - [11-01]: Category-specific pricing ranges based on market research ($30-$1200)
+- [11-02]: Bell curve rating distribution (25% 5-star, 65% 4-star, 10% 3-star) for realistic marketplace
+- [11-02]: Per-provider review control (3-8 reviews) via shuffle-and-select approach
+- [11-02]: Review content length varies (short sentence, medium paragraph, long multi-paragraph)
 
 ### Pending Todos
 
@@ -94,14 +97,17 @@ None yet.
 **Phase 11 (Mock Data):**
 - ✓ Locale decision resolved: Mixed Arabic/English (fakerAR/fakerEN) with alternating pattern
 - ✓ Category-specific pricing implemented based on market research
+- ✓ Date range validation for order timestamps (createdAt must be ≥30 days before now)
+- ✓ Per-provider review targeting ensures 3-8 reviews constraint met
 - Plan 11-01 COMPLETE - 15 providers, 33 gigs, all 13 categories covered
+- Plan 11-02 COMPLETE - 4 buyers, 148 orders, 77 reviews with bell curve ratings
 
 ## Session Continuity
 
 Last session: 2026-02-23
-Stopped at: Completed 11-01-PLAN.md (Provider & Gig Generation)
+Stopped at: Completed 11-02-PLAN.md (Orders & Reviews Generation)
 Resume file: None
 
 ---
 *Created: 2026-02-22*
-*Last updated: 2026-02-23 — Phase 11 Plan 01 complete*
+*Last updated: 2026-02-23 — Phase 11 Plan 02 complete*
