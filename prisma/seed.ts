@@ -303,11 +303,106 @@ async function seedGigs() {
   console.log(`✅ Seeded ${totalGigs} gigs across ${CATEGORIES.length} categories`);
 }
 
-// Seed orders — placeholder for Phase 11
+// Seed orders — Create buyer accounts and completed orders
 async function seedOrders() {
   console.log('📦 Seeding orders...');
-  // Phase 11 will create completed orders as review foundation
-  console.log('✅ Orders seeded');
+
+  // 1. Create 4 buyer accounts
+  const buyers = [];
+  for (let i = 0; i < 4; i++) {
+    const email = `buyer${i + 1}@herafi-seed.test`;
+    const buyer = await prisma.user.upsert({
+      where: { email },
+      update: {},
+      create: {
+        email,
+        name: faker.person.fullName(),
+        username: fakerEN.internet.username().toLowerCase(),
+        avatarUrl: `https://api.dicebear.com/9.x/avataaars/svg?seed=${email}`,
+        isProvider: false,
+        hashedPassword: null,
+      },
+    });
+    buyers.push(buyer);
+  }
+  console.log(`✅ Created ${buyers.length} buyer accounts`);
+
+  // 2. Fetch all gigs with provider info
+  const gigs = await prisma.gig.findMany({ include: { provider: true } });
+
+  // 3. Create 3-6 completed orders per gig
+  let totalOrders = 0;
+  for (const gig of gigs) {
+    const numOrders = faker.number.int({ min: 3, max: 6 });
+
+    for (let i = 0; i < numOrders; i++) {
+      // Select buyer - ensure buyer is NOT the provider
+      let buyer;
+      let attempts = 0;
+      do {
+        buyer = faker.helpers.arrayElement(buyers);
+        attempts++;
+        if (attempts > 10) {
+          console.warn(`Could not find suitable buyer for gig ${gig.id}`);
+          break;
+        }
+      } while (buyer.id === gig.providerId);
+
+      // Skip if we couldn't find a suitable buyer
+      if (buyer.id === gig.providerId) continue;
+
+      // Select tier
+      const tier = faker.helpers.arrayElement([
+        'basic',
+        'standard',
+        'premium',
+      ] as const);
+      const tierData = (gig.pricingTiers as any)[tier];
+
+      // Generate realistic timestamps (ensure enough time for completion)
+      // Create orders 3-12 months in the past to ensure completion time
+      const monthsAgo = faker.number.int({ min: 3, max: 12 });
+      const createdAt = faker.date.past({ years: 1, refDate: new Date() });
+      // Ensure createdAt is at least 30 days before now
+      const minCreatedAt = new Date();
+      minCreatedAt.setDate(minCreatedAt.getDate() - 30);
+      if (createdAt > minCreatedAt) {
+        createdAt.setMonth(createdAt.getMonth() - 1);
+      }
+
+      const acceptedAt = new Date(createdAt.getTime() + 1000 * 60 * 60); // +1 hour
+      const startedAt = new Date(acceptedAt.getTime() + 1000 * 60 * 60 * 24); // +1 day
+      const minCompletedAt = new Date(startedAt.getTime() + 1000 * 60 * 60 * 24); // +1 day from start
+      const now = new Date();
+
+      // Ensure we have valid range for faker.date.between
+      const completedAt =
+        minCompletedAt < now
+          ? faker.date.between({ from: minCompletedAt, to: now })
+          : new Date(minCompletedAt.getTime() + 1000 * 60 * 60 * 24); // +1 day if range invalid
+
+      await prisma.order.create({
+        data: {
+          buyerId: buyer.id,
+          providerId: gig.providerId,
+          gigId: gig.id,
+          selectedTier: tier,
+          tierSnapshot: tierData,
+          totalPrice: tierData.price,
+          status: 'COMPLETED',
+          paymentConfirmed: true,
+          createdAt,
+          acceptedAt,
+          startedAt,
+          completedAt,
+        },
+      });
+
+      totalOrders++;
+    }
+  }
+
+  console.log(`✅ Seeded ${totalOrders} completed orders`);
 }
 
 // Seed reviews — placeholder for Phase 11
