@@ -2,6 +2,7 @@ import { PrismaClient, Category } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { Pool } from 'pg';
 import { faker, fakerAR, fakerEN } from '@faker-js/faker';
+import bcrypt from 'bcryptjs';
 import 'dotenv/config';
 
 // Initialize PrismaClient with pg adapter (same pattern as src/lib/db.ts)
@@ -212,6 +213,11 @@ async function seedUsers() {
   const PROVIDER_COUNT = 15;
   const providers = [];
 
+  // Standard test password for all seed users (SEED AUTH FIX)
+  const TEST_PASSWORD = 'password123';
+  const hashedPassword = await bcrypt.hash(TEST_PASSWORD, 10);
+  console.log(`🔑 Using test password: "${TEST_PASSWORD}" for all seed users`);
+
   for (let i = 0; i < PROVIDER_COUNT; i++) {
     // Alternate between Arabic and English names for diversity
     const useArabic = i % 2 === 0;
@@ -233,7 +239,7 @@ async function seedUsers() {
         skills: [], // Will be set after gigs created
         yearsOfExperience: faker.number.int({ min: 1, max: 20 }),
         certifications: [],
-        hashedPassword: null,
+        hashedPassword,
       },
     });
 
@@ -307,6 +313,10 @@ async function seedGigs() {
 async function seedOrders() {
   console.log('📦 Seeding orders...');
 
+  // Standard test password for all seed users (same as providers)
+  const TEST_PASSWORD = 'password123';
+  const hashedPassword = await bcrypt.hash(TEST_PASSWORD, 10);
+
   // 1. Create 4 buyer accounts
   const buyers = [];
   for (let i = 0; i < 4; i++) {
@@ -320,7 +330,7 @@ async function seedOrders() {
         username: fakerEN.internet.username().toLowerCase(),
         avatarUrl: `https://api.dicebear.com/9.x/avataaars/svg?seed=${email}`,
         isProvider: false,
-        hashedPassword: null,
+        hashedPassword,
       },
     });
     buyers.push(buyer);
@@ -547,7 +557,11 @@ async function main() {
   await seedReviews();
   await updateAggregates();
 
-  console.log('🎉 Seeding completed successfully!');
+  console.log('\n🎉 Seeding completed successfully!');
+  console.log('\n🔐 Test Login Credentials:');
+  console.log('   Email: provider1@herafi-seed.test (or provider2, buyer1, etc.)');
+  console.log('   Password: password123');
+  console.log('   Total users: 15 providers + 4 buyers');
 }
 
 main()
