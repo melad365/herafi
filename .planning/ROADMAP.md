@@ -35,6 +35,7 @@ This milestone enhances navigation UX and populates the marketplace with realist
 - [x] **Phase 9: Navigation Components** - Desktop hamburger menu and user account dropdown
 - [x] **Phase 10: Mock Data Infrastructure** - Faker.js setup and idempotent seed scripts
 - [x] **Phase 11: Mock Data Generation** - Complete provider profiles with gigs and reviews
+- [ ] **Phase 12: Missing Navigation Routes** - Implement all referenced routes and enable seed user login
 
 ## Phase Details
 
@@ -84,17 +85,34 @@ Plans:
 - [x] 11-01-PLAN.md — Provider profiles and gigs with category-specific content
 - [x] 11-02-PLAN.md — Orders, reviews with bell curve ratings, and aggregate calculations
 
+### Phase 12: Missing Navigation Routes
+**Goal**: Complete v0.2.0 navigation by implementing all referenced routes and enabling seed user authentication.
+**Depends on**: Phase 11
+**Gap Closure**: Closes 5 route gaps and auth testing gap from v0.2.0 milestone audit
+**Success Criteria** (what must be TRUE):
+  1. User clicking "Categories" in hamburger menu navigates to functional category browse page (no 404)
+  2. User clicking "Help" in hamburger menu navigates to help/support page (no 404)
+  3. User clicking "Profile" in dropdown navigates to their profile page (no 404)
+  4. User clicking "Settings" in dropdown navigates to account settings page (no 404)
+  5. Provider clicking "My Gigs" in hamburger menu navigates to gig management page (no 404)
+  6. Developer can log in with at least 1 seed user account to test authenticated flows
+**Plans**: TBD
+
+Plans:
+- [ ] 12-01-PLAN.md — TBD
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 9 → 10 → 11
+Phases execute in numeric order: 9 → 10 → 11 → 12
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 9. Navigation Components | v0.2.0 | 2/2 | ✓ Complete | 2026-02-22 |
 | 10. Mock Data Infrastructure | v0.2.0 | 1/1 | ✓ Complete | 2026-02-22 |
 | 11. Mock Data Generation | v0.2.0 | 2/2 | ✓ Complete | 2026-02-23 |
+| 12. Missing Navigation Routes | v0.2.0 | 0/TBD | ⏸ Pending | — |
 
 ---
 *Roadmap created: 2026-02-22*
-*Last updated: 2026-02-23 — Phase 11 complete*
+*Last updated: 2026-02-23 — Phase 12 added (gap closure)*
