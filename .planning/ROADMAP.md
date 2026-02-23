@@ -7,7 +7,7 @@ This milestone enhances navigation UX and populates the marketplace with realist
 ## Milestones
 
 - ✅ **v0.1.0 MVP** - Phases 1-8 (shipped 2026-02-22)
-- 🚧 **v0.2.0 Polish & Seeding** - Phases 9-12 (in progress)
+- ✅ **v0.2.0 Polish & Seeding** - Phases 9-12 (shipped 2026-02-23)
 
 ## Phases
 
@@ -28,14 +28,14 @@ This milestone enhances navigation UX and populates the marketplace with realist
 
 </details>
 
-### 🚧 v0.2.0 Polish & Seeding (In Progress)
+### ✅ v0.2.0 Polish & Seeding (Complete)
 
 **Milestone Goal:** Improve navigation UX and populate marketplace with realistic mock data for development and demo purposes.
 
 - [x] **Phase 9: Navigation Components** - Desktop hamburger menu and user account dropdown
 - [x] **Phase 10: Mock Data Infrastructure** - Faker.js setup and idempotent seed scripts
 - [x] **Phase 11: Mock Data Generation** - Complete provider profiles with gigs and reviews
-- [ ] **Phase 12: Missing Navigation Routes** - Implement all referenced routes and enable seed user login
+- [x] **Phase 12: Missing Navigation Routes** - Implement all referenced routes and enable seed user login
 
 ## Phase Details
 
@@ -99,8 +99,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 12-01-PLAN.md — Implement missing routes and seed user authentication
-- [ ] 12-02-PLAN.md — Human verification of navigation and authentication
+- [x] 12-01-PLAN.md — Implement missing routes and seed user authentication
+- [x] 12-02-PLAN.md — Human verification of navigation and authentication
 
 ## Progress
 
@@ -112,8 +112,8 @@ Phases execute in numeric order: 9 → 10 → 11 → 12
 | 9. Navigation Components | v0.2.0 | 2/2 | ✓ Complete | 2026-02-22 |
 | 10. Mock Data Infrastructure | v0.2.0 | 1/1 | ✓ Complete | 2026-02-22 |
 | 11. Mock Data Generation | v0.2.0 | 2/2 | ✓ Complete | 2026-02-23 |
-| 12. Missing Navigation Routes | v0.2.0 | 0/2 | ⏸ Pending | — |
+| 12. Missing Navigation Routes | v0.2.0 | 2/2 | ✓ Complete | 2026-02-23 |
 
 ---
 *Roadmap created: 2026-02-22*
-*Last updated: 2026-02-23 — Phase 12 planned (2 plans in 2 waves)*
+*Last updated: 2026-02-23 — Phase 12 complete, v0.2.0 milestone shipped*

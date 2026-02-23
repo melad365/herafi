@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-02-22)
 
 **Core value:** Anyone can find and hire a trusted service provider for in-person or digital work through a simple, browsable marketplace with clear service listings.
-**Current focus:** v0.2.0 Complete - Milestone ready for audit
+**Current focus:** v0.2.0 Complete - All phases shipped
 
 ## Current Position
 
