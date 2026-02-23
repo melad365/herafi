@@ -2,19 +2,19 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-02-22)
+See: .planning/PROJECT.md (updated 2026-02-23)
 
 **Core value:** Anyone can find and hire a trusted service provider for in-person or digital work through a simple, browsable marketplace with clear service listings.
-**Current focus:** v0.2.0 Complete - All phases shipped
+**Current focus:** Planning next milestone
 
 ## Current Position
 
-Phase: 12 of 12 (Missing Navigation Routes)
-Plan: 2 of 2
-Status: ✓ Phase complete, verified
-Last activity: 2026-02-23 — Completed 12-02-PLAN.md (verification approved)
+Phase: Ready for next milestone
+Plan: Not started
+Status: v0.2.0 milestone complete
+Last activity: 2026-02-23 — v0.2.0 milestone archived
 
-Progress: [██████████] 100% (12/12 phases complete)
+Progress: v0.1.0 ✓ (8 phases), v0.2.0 ✓ (4 phases) — 12 total phases shipped
 
 ## Performance Metrics
 
@@ -36,91 +36,52 @@ Progress: [██████████] 100% (12/12 phases complete)
 | 7 | 2 | 4.0m | 2.0m |
 | 8 | 4 | 30.6m | 7.7m |
 
-**Recent Trend:**
-- v0.1.0 velocity: Stable to improving across phases
-- v0.2.0: Phase 9 complete (09-01: 2 min, 09-02: 1 min)
-- v0.2.0: Phase 10 complete (10-01: 2 min)
-- v0.2.0: Phase 11 complete (11-01: 2 min, 11-02: 3.8 min)
-- v0.2.0: Phase 12 complete (12-01: 4.7 min, 12-02: 0.5 min verification)
+**v0.2.0 Velocity:**
+- Total plans completed: 7
+- Average duration: ~2.3 min
+- Total execution time: ~16.0 min
+- Phase breakdown:
+  - Phase 9: 3 min (2 plans)
+  - Phase 10: 2 min (1 plan)
+  - Phase 11: 5.8 min (2 plans)
+  - Phase 12: 5.2 min (2 plans)
 
-*Updated after each plan completion*
+**Recent Trend:**
+- v0.1.0: 26 plans in 1.79 hours (avg 4.1 min/plan)
+- v0.2.0: 7 plans in 16.0 min (avg 2.3 min/plan)
+- Velocity improving with established patterns and infrastructure
+
+*Updated after milestone completion*
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
+All decisions are logged in PROJECT.md Key Decisions table.
 
-- [v0.1.0]: Single user type (buyer + provider) simplifies auth
-- [v0.1.0]: Fiverr-style gigs with tiers proven model
-- [v0.1.0]: Mock payments validate flow without Stripe complexity
-- [v0.1.0]: Real-time chat over simple inbox enhances trust
-- [v0.1.0]: JWT sessions for Credentials provider simpler than database sessions
-- [v0.1.0]: Burgundy design system conveys trust and craftsmanship
-- [v0.2.0]: Research recommends reusing MobileNav pattern for desktop navigation
-- [v0.2.0]: @faker-js/faker chosen for realistic mock data generation
-- [v0.2.0]: DiceBear and Lorem Picsum APIs for avatars and images (no package install)
-- [09-01]: CSS-only responsive hiding (hidden md:block) avoids hydration mismatch
-- [09-01]: Capturing phase event listener for reliable click-outside detection
-- [09-01]: useClickOutside hook pattern established for menus and dropdowns
-- [09-02]: Separation of concerns - UserDropdown for account actions vs DesktopHamburger for primary navigation
-- [09-02]: Provider mode indicator in dropdown for clear provider status visibility
-- [10-01]: @herafi-seed.test email domain for seed data (not @example.com)
-- [10-01]: PrismaClient with pg adapter in seed script (matches src/lib/db.ts)
-- [10-01]: faker.seed(42) for deterministic, reproducible seed data
-- [11-01]: Mixed Arabic/English locales for provider diversity (fakerAR/fakerEN alternating)
-- [11-01]: Round-robin category assignment ensures all 13 categories have gigs
-- [11-01]: Category-specific pricing ranges based on market research ($30-$1200)
-- [11-02]: Bell curve rating distribution (25% 5-star, 65% 4-star, 10% 3-star) for realistic marketplace
-- [11-02]: Per-provider review control (3-8 reviews) via shuffle-and-select approach
-- [11-02]: Review content length varies (short sentence, medium paragraph, long multi-paragraph)
-- [12-01]: Prisma groupBy for category counts (single query vs 13 individual queries)
-- [12-01]: /profile as smart redirect to /u/[username] or /profile/edit based on username status
-- [12-01]: Standard password 'password123' for all seed users (developer convenience)
+Key patterns established across v0.1.0 and v0.2.0:
+- Single user type (buyer + provider in one account)
+- Fiverr-style gigs with pricing tiers
+- JWT sessions for authentication
+- Burgundy design system throughout
+- useClickOutside hook pattern for dropdowns
+- Deterministic seeding with faker.seed(42)
+- Mixed Arabic/English content for bilingual marketplace
 
 ### Pending Todos
 
-None yet.
+None — ready for next milestone planning.
 
 ### Blockers/Concerns
 
-**Phase 9 (Navigation):**
-- ✓ Server/Client component boundary maintained (Header stays Server Component)
-- ✓ Menus auto-close on navigation (usePathname + useEffect + onClick handlers)
-- ✓ Keyboard navigation support implemented (Enter/Escape with ARIA attributes)
-- Phase 9 COMPLETE - All 12 NAV requirements satisfied
-
-**Phase 10 (Seed Infrastructure):**
-- ✓ Table cleanup follows reverse dependency order (reviews → messages → conversations → orders → gigs → portfolioImages → users)
-- ✓ Idempotent execution verified (runs successfully twice)
-- ✓ Deterministic seeding with faker.seed(42)
-- ✓ Proper connection cleanup (prisma + pool.end) prevents hanging
-- Phase 10 COMPLETE - All 6 SEED requirements satisfied (SEED-01 through SEED-06)
-
-**Phase 11 (Mock Data):**
-- ✓ Locale decision resolved: Mixed Arabic/English (fakerAR/fakerEN) with alternating pattern
-- ✓ Category-specific pricing implemented based on market research
-- ✓ Date range validation for order timestamps (createdAt must be ≥30 days before now)
-- ✓ Per-provider review targeting ensures 3-8 reviews constraint met
-- ✓ Plan 11-01 COMPLETE - 15 providers, 33 gigs, all 13 categories covered
-- ✓ Plan 11-02 COMPLETE - 4 buyers, 148 orders, 77 reviews with bell curve ratings
-- Phase 11 COMPLETE - All 14 SEED requirements satisfied (SEED-07 through SEED-20)
-
-**Phase 12 (Missing Navigation Routes):**
-- ✓ All 5 navigation route gaps closed (categories, help, profile, settings, provider/gigs)
-- ✓ All pages follow burgundy design system and existing patterns
-- ✓ Seed users now have bcrypt hashed passwords for authentication testing
-- ✓ Plan 12-01 COMPLETE - All navigation links resolve without 404s
-- ✓ Plan 12-02 COMPLETE - Human verification approved (all routes working, no 404s, design consistent)
-- ✓ Phase 12 COMPLETE - v0.2.0 navigation audit gaps eliminated, milestone verified and ready
+None — v0.2.0 milestone complete and verified.
 
 ## Session Continuity
 
 Last session: 2026-02-23
-Stopped at: Completed Phase 12 Plan 02 (Verification) - v0.2.0 milestone verified and complete
+Stopped at: v0.2.0 milestone complete and archived
 Resume file: None
 
 ---
 *Created: 2026-02-22*
-*Last updated: 2026-02-23 — Phase 12 complete, v0.2.0 milestone verified and fully delivered*
+*Last updated: 2026-02-23 — v0.2.0 milestone archived, ready for next milestone*

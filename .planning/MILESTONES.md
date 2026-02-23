@@ -1,5 +1,34 @@
 # Project Milestones: Herafi
 
+## v0.2.0 Polish & Seeding (Shipped: 2026-02-23)
+
+**Delivered:** Navigation improvements and realistic mock data to enhance UX and enable development/demo workflows.
+
+**Phases completed:** 9-12 (7 plans total)
+
+**Key accomplishments:**
+
+- Comprehensive desktop navigation — Hamburger menu with grouped sections and user dropdown with provider mode indicator, keyboard support, and auto-close behavior
+- Deterministic mock data infrastructure — Idempotent seed system with Faker.js generating reproducible test data across runs
+- Realistic marketplace population — 15 providers with mixed Arabic/English names, 33 gigs across all 13 categories, and category-specific pricing
+- Bell curve review distribution — 77 reviews with realistic rating variance (3-5 stars) and aggregate calculations on all providers and gigs
+- Complete navigation coverage — All 5 missing routes implemented (Categories, Help, Profile, Settings, My Gigs) eliminating 404 errors
+- Seed user authentication — Bcrypt-hashed passwords enabling authenticated flow testing with `provider1@herafi-seed.test / password123`
+
+**Stats:**
+
+- 39 files modified
+- ~6,180 net lines added (6,316 insertions, 136 deletions)
+- ~10,553 total TypeScript/JavaScript LOC
+- 4 phases, 7 plans, 37 commits
+- 1.4 days from start to ship (Feb 22 - Feb 23, 2026)
+
+**Git range:** `feat(09-01)` → `docs(12)`
+
+**What's next:** Begin v0.3.0 planning with requirements definition and roadmap for next feature milestone.
+
+---
+
 ## v0.1.0 Alpha (Shipped: 2026-02-22)
 
 **Delivered:** Initial alpha release of Herafi services marketplace with complete authentication, service listings, real-time messaging, reviews, and provider dashboard.

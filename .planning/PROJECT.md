@@ -4,16 +4,7 @@
 
 Herafi is a services marketplace web app where users can offer and hire services — focused on in-person work like plumbing, painting, cleaning, carpentry, welding, and car washing, but also open to digital services. Think Fiverr, but for the trades. A single account lets you both hire and offer services.
 
-**Current status:** v0.1.0 alpha shipped (2026-02-22) — initial MVP complete with authentication, service listings, real-time messaging, reviews, and provider dashboard.
-
-## Current Milestone: v0.2.0 Polish & Seeding
-
-**Goal:** Improve navigation UX and populate marketplace with realistic mock data.
-
-**Target features:**
-- Hamburger menu with comprehensive app navigation
-- User account dropdown menu (profile, settings, sign out)
-- 10-15 mock service providers with full profiles, images, and reviews across all categories
+**Current status:** v0.2.0 shipped (2026-02-23) — navigation improvements and realistic mock data complete.
 
 ## Core Value
 
@@ -37,16 +28,22 @@ Anyone can find and hire a trusted service provider for in-person or digital wor
 - ✓ Warm, approachable UI with polished micro-interactions (hover effects, transitions) — v0.1.0
 - ✓ Responsive layout (mobile and desktop) — v0.1.0
 
+✅ **v0.2.0 shipped (2026-02-23):**
+
+- ✓ Desktop hamburger menu with grouped navigation sections (Browse/Account/Provider) — v0.2.0
+- ✓ User dropdown menu with profile info, provider mode indicator, and account actions — v0.2.0
+- ✓ Click-outside detection and keyboard navigation support — v0.2.0
+- ✓ Idempotent seed infrastructure with Faker.js for deterministic mock data — v0.2.0
+- ✓ 15 realistic provider profiles with mixed Arabic/English names — v0.2.0
+- ✓ 33 gigs distributed across all 13 service categories — v0.2.0
+- ✓ 148 completed orders and 77 reviews with bell curve rating distribution — v0.2.0
+- ✓ Category-specific pricing based on market research — v0.2.0
+- ✓ Complete navigation routes (Categories, Help, Profile, Settings, My Gigs) — v0.2.0
+- ✓ Seed user authentication with bcrypt-hashed passwords — v0.2.0
+
 ### Active
 
-**v0.2.0 in planning:**
-
-**Navigation improvements:**
-- Hamburger menu next to logo with links to key app pages
-- User dropdown menu on avatar click with account management options
-
-**Content seeding:**
-- Mock service providers (10-15) with complete profiles, images, reviews, and ratings across all categories
+(No active requirements — define in next milestone)
 
 ### Out of Scope
 
@@ -62,10 +59,9 @@ Anyone can find and hire a trusted service provider for in-person or digital wor
 
 ## Context
 
-**Shipped in v0.1.0:**
+**Shipped in v0.1.0 (2026-02-22):**
 - ~10K lines of TypeScript/JavaScript across 196 files
-- Tech stack: Next.js 15, TypeScript, Tailwind CSS, Prisma v7, PostgreSQL 17, Auth.js v5, Socket.IO
-- 8 phases, 26 plans, 122 commits over 6 days (Feb 7-13, 2026)
+- 8 phases, 26 plans, 122 commits over 6 days
 - Complete authentication with JWT sessions
 - Full marketplace with service listings, search, and discovery
 - Real-time messaging with Socket.IO and typing indicators
@@ -73,15 +69,32 @@ Anyone can find and hire a trusted service provider for in-person or digital wor
 - Provider dashboard with comprehensive management tools
 - Burgundy design system with landing page and mobile navigation
 
+**Shipped in v0.2.0 (2026-02-23):**
+- ~6,180 net lines added across 39 files
+- 4 phases, 7 plans, 37 commits over 1.4 days
+- Desktop navigation with hamburger menu and user dropdown
+- Idempotent seed infrastructure with Faker.js
+- 15 provider profiles, 33 gigs, 148 orders, 77 reviews
+- All 13 service categories populated with realistic data
+- Complete navigation coverage (no 404s)
+- Seed user authentication for testing authenticated flows
+
+**Current tech stack:**
+- Next.js 15, TypeScript, Tailwind CSS, Prisma v7, PostgreSQL 17, Auth.js v5, Socket.IO
+- ~10,553 total TypeScript/JavaScript LOC
+- @faker-js/faker for deterministic mock data generation
+
 **Key differentiators:**
 - Focus on in-person/trade services (underserved on platforms like Fiverr)
 - Single user type simplifies auth and UX — any user can switch between hiring and offering
 - Warm, hand-crafted UI (burgundy theme) — not AI-generated looking
+- Mixed Arabic/English content reflecting bilingual marketplace
 
 **MVP approach:**
 - Mock payment lets us build full order flow without payment provider integration
 - No location constraints keeps scope manageable
 - Local filesystem uploads sufficient for alpha validation
+- Deterministic seed data enables reproducible testing and demos
 
 ## Constraints
 
@@ -104,6 +117,13 @@ Anyone can find and hire a trusted service provider for in-person or digital wor
 | JWT sessions for Credentials provider | Simpler than database sessions | ✓ Good — 30-day sessions work well |
 | Burgundy design system | Conveys trust and craftsmanship | ✓ Good — warm, professional feel |
 | Local filesystem uploads | Sufficient for MVP validation | — Pending (needs migration to cloud storage for production) |
+| useClickOutside hook pattern | Reusable pattern for menus and dropdowns | ✓ Good — used in both hamburger and dropdown |
+| Mixed Arabic/English seed data | Reflects bilingual Moroccan marketplace | ✓ Good — authentic representation |
+| Round-robin category distribution | Ensures all 13 categories have gigs | ✓ Good — prevents empty browse pages |
+| Bell curve rating distribution | Realistic marketplace ratings (3-5 stars) | ✓ Good — 25% 5-star, 65% 4-star, 10% 3-star |
+| Deterministic seeding (faker.seed) | Reproducible test data across runs | ✓ Good — consistent demos and testing |
+| Prisma groupBy for category counts | Single query vs 13 individual counts | ✓ Good — more efficient database access |
+| Standard test password for seed users | Developer convenience (password123 for all) | ✓ Good — easy to remember, clearly documented |
 
 ---
-*Last updated: 2026-02-22 — v0.2.0 milestone started*
+*Last updated: 2026-02-23 — v0.2.0 milestone complete*
