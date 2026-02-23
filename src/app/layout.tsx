@@ -29,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${dmSans.variable} ${lora.variable} flex flex-col min-h-screen`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${dmSans.variable} ${lora.variable} flex flex-col min-h-screen`} suppressHydrationWarning>
         <SessionProvider>
           <Header />
           <main className="flex-grow">{children}</main>
