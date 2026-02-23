@@ -2,12 +2,12 @@
 
 ## Overview
 
-This milestone enhances navigation UX and populates the marketplace with realistic mock data. Phase 9 delivers comprehensive navigation components (hamburger menu and user dropdown), Phase 10 establishes seed infrastructure with Faker.js and idempotent patterns, and Phase 11 generates 10-15 complete provider profiles with gigs, reviews, and ratings across all 13 service categories.
+This milestone enhances navigation UX and populates the marketplace with realistic mock data. Phase 9 delivers comprehensive navigation components (hamburger menu and user dropdown), Phase 10 establishes seed infrastructure with Faker.js and idempotent patterns, Phase 11 generates 10-15 complete provider profiles with gigs, reviews, and ratings across all 13 service categories, and Phase 12 closes navigation gaps by implementing missing routes and enabling seed user authentication.
 
 ## Milestones
 
 - ✅ **v0.1.0 MVP** - Phases 1-8 (shipped 2026-02-22)
-- 🚧 **v0.2.0 Polish & Seeding** - Phases 9-11 (in progress)
+- 🚧 **v0.2.0 Polish & Seeding** - Phases 9-12 (in progress)
 
 ## Phases
 
@@ -96,10 +96,11 @@ Plans:
   4. User clicking "Settings" in dropdown navigates to account settings page (no 404)
   5. Provider clicking "My Gigs" in hamburger menu navigates to gig management page (no 404)
   6. Developer can log in with at least 1 seed user account to test authenticated flows
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 12-01-PLAN.md — TBD
+- [ ] 12-01-PLAN.md — Implement missing routes and seed user authentication
+- [ ] 12-02-PLAN.md — Human verification of navigation and authentication
 
 ## Progress
 
@@ -111,8 +112,8 @@ Phases execute in numeric order: 9 → 10 → 11 → 12
 | 9. Navigation Components | v0.2.0 | 2/2 | ✓ Complete | 2026-02-22 |
 | 10. Mock Data Infrastructure | v0.2.0 | 1/1 | ✓ Complete | 2026-02-22 |
 | 11. Mock Data Generation | v0.2.0 | 2/2 | ✓ Complete | 2026-02-23 |
-| 12. Missing Navigation Routes | v0.2.0 | 0/TBD | ⏸ Pending | — |
+| 12. Missing Navigation Routes | v0.2.0 | 0/2 | ⏸ Pending | — |
 
 ---
 *Roadmap created: 2026-02-22*
-*Last updated: 2026-02-23 — Phase 12 added (gap closure)*
+*Last updated: 2026-02-23 — Phase 12 planned (2 plans in 2 waves)*
