@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Lora } from "next/font/google";
-import { SessionProvider } from "next-auth/react";
 import { Toaster } from "sonner";
+import SessionProviderWrapper from "@/components/providers/SessionProviderWrapper";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
@@ -29,26 +29,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${dmSans.variable} ${lora.variable} flex flex-col min-h-screen`} suppressHydrationWarning>
-        <SessionProvider>
+    <html lang="en">
+      <body className={`${dmSans.variable} ${lora.variable} flex flex-col min-h-screen`}>
+        <SessionProviderWrapper>
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
-        </SessionProvider>
-        <Toaster
-          position="top-right"
-          expand={false}
-          richColors
-          toastOptions={{
-            duration: 4000,
-            style: {
-              background: '#fdfaf7',
-              color: '#420e1e',
-              border: '1px solid #f8d5db',
-            },
-          }}
-        />
+          <Toaster
+            position="top-right"
+            expand={false}
+            richColors
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: '#fdfaf7',
+                color: '#420e1e',
+                border: '1px solid #f8d5db',
+              },
+            }}
+          />
+        </SessionProviderWrapper>
       </body>
     </html>
   );
